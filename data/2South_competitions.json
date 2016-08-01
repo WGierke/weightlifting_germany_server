@@ -1,0 +1,164 @@
+[{
+    "past_competitions": [
+        {
+            "date": "23.04.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "KSC Schifferstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "454.0 : 268.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=FCC24D206B324BD78CB8087391B724D7"
+        },
+        {
+            "date": "23.04.2016",
+            "guest": "SC Pforzheim",
+            "home": "SV Germania Obrigheim II",
+            "location": "Obrigheim",
+            "score": "381.0 : 449.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=6C1CE22B02584F05B1A6DD3FAE1084BC"
+        },
+        {
+            "date": "02.04.2016",
+            "guest": "SV Germania Obrigheim II",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "score": "543.4 : 237.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=5BFC0A70A44C4BD8898234347B833B60"
+        },
+        {
+            "date": "02.04.2016",
+            "guest": "KSC Schifferstadt",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "532.0 : 565.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=9D319E748EA34F899B357CEA310F30D0"
+        },
+        {
+            "date": "05.03.2016",
+            "guest": "KSC Schifferstadt",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "561.4 : 391.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=CBF056DDD8DF47FC972B7A0BDF56E3F0"
+        },
+        {
+            "date": "05.03.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AC Weinheim",
+            "location": "L\u00f6rrach-Haagen",
+            "score": "512.5 : 573.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=12BA0CE7B4B6467A9C2331B56E8CA2EA"
+        },
+        {
+            "date": "20.02.2016",
+            "guest": "KSC Schifferstadt",
+            "home": "SV Germania Obrigheim II",
+            "location": "Obrigheim ",
+            "score": "363.6 : 432.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=1D784A4FFC5E4E4EB5CCCF1C5BA84FA6"
+        },
+        {
+            "date": "13.02.2016",
+            "guest": "SC Pforzheim",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "505.0 : 549.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=0B66F64B94524F35982CC1C1CC769581"
+        },
+        {
+            "date": "30.01.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "524.6 : 296.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=4F9B78901C2E4080AA5BF14C7584287D"
+        },
+        {
+            "date": "30.01.2016",
+            "guest": "AC Weinheim",
+            "home": "SV Germania Obrigheim II",
+            "location": "Obrigheim",
+            "score": "260.3 : 469.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=ECDCFB40E27747458A0C8024F6C1F24B"
+        },
+        {
+            "date": "19.12.2015",
+            "guest": "SV Germania Obrigheim II",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "529.2 : 308.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=CC64D14450C544D29DF7C6A5D653C514"
+        },
+        {
+            "date": "19.12.2015",
+            "guest": "KSC Schifferstadt",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "score": "542.6 : 516.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=5330C8FFF0794ED2A6C148D0B900BE3A"
+        },
+        {
+            "date": "05.12.2015",
+            "guest": "KSC Schifferstadt",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "579.0 : 421.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=284A396F5DE948A3BA05BE7419F24495"
+        },
+        {
+            "date": "05.12.2015",
+            "guest": "AC Weinheim",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach",
+            "score": "376.4 : 516.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=25EA811155FA49709A8A527F88460F4F"
+        },
+        {
+            "date": "07.11.2015",
+            "guest": "KSV L\u00f6rrach",
+            "home": "SV Germania Obrigheim II",
+            "location": "Obrigheim",
+            "score": "427.6 : 386.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=0CF7AAB999914303A9407EFADDC41AD2"
+        },
+        {
+            "date": "07.11.2015",
+            "guest": "AC Weinheim",
+            "home": "KSC Schifferstadt",
+            "location": "Altrip",
+            "score": "556.6 : 512.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=33BA4FECC4604EF6AC80122D0FA60A49"
+        },
+        {
+            "date": "17.10.2015",
+            "guest": "SC Pforzheim",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "score": "450.0 : 566.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=4F80DA7931B747A8821964BDE814C918"
+        },
+        {
+            "date": "10.10.2015",
+            "guest": "SV Germania Obrigheim II",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "548.5 : 334.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=85710CFC036646D592C2DBEA2AECE78E"
+        },
+        {
+            "date": "26.09.2015",
+            "guest": "KSC Schifferstadt",
+            "home": "SV Germania Obrigheim II",
+            "location": "Obrigheim",
+            "score": "429.6 : 533.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=F7D2BDF762FE4006BCA7461F9F1F9F72"
+        },
+        {
+            "date": "26.09.2015",
+            "guest": "AC Weinheim",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "563.0 : 527.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=852C13F5766A4E3BAC8EB97711056FFD"
+        }
+    ]
+}]

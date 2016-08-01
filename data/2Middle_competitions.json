@@ -1,0 +1,164 @@
+[{
+    "past_competitions": [
+        {
+            "date": "23.04.2016",
+            "guest": "FTG Pfungstadt",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "420.6 : 0.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=C25782F16B524A2BA50CADA3870C52E4"
+        },
+        {
+            "date": "23.04.2016",
+            "guest": "TB 03 Roding II",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "406.3 : 535.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=7BE6C63644474ECCACCAF2531843FD79"
+        },
+        {
+            "date": "02.04.2016",
+            "guest": "KSV Langen",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "469.9 : 500.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=2A59AD66DD264F91B4AC6F137F3039BC"
+        },
+        {
+            "date": "19.03.2016",
+            "guest": "FTG Pfungstadt",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "463.4 : 217.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=FB947E5B4F954D2FAF7E6B01C8247E8A"
+        },
+        {
+            "date": "05.03.2016",
+            "guest": "KSV Langen",
+            "home": "FTG Pfungstadt",
+            "location": "Pfungstadt",
+            "score": "201.2 : 415.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=28B841F2629D489E8CEAB7E46158DC03"
+        },
+        {
+            "date": "05.03.2016",
+            "guest": "AC Suhl",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "508.1 : 426.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=453DBF272B3B4867A2973BB4167B482D"
+        },
+        {
+            "date": "13.02.2016",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "FTG Pfungstadt",
+            "location": "Pfungstadt",
+            "score": "245.0 : 450.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=E5AB605BCE9540D99B1480760E2B02B5"
+        },
+        {
+            "date": "13.02.2016",
+            "guest": "AC Suhl",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "496.8 : 498.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=879C37CFF74849F4A7326A1B3DF3736D"
+        },
+        {
+            "date": "30.01.2016",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "481.6 : 466.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=6D127577BDF24856A2DAE17D40E50BE4"
+        },
+        {
+            "date": "30.01.2016",
+            "guest": "TB 03 Roding II",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "434.2 : 452.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=E78F786BADA547B99AD985D3FDB924D3"
+        },
+        {
+            "date": "19.12.2015",
+            "guest": "KSV Langen",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "503.0 : 483.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=6F792C6BCCBA44D0B0A03014727BB829"
+        },
+        {
+            "date": "19.12.2015",
+            "guest": "FTG Pfungstadt",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "447.6 : 210.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=1BA157C945514E43859E52F415AF24BB"
+        },
+        {
+            "date": "05.12.2015",
+            "guest": "AC Suhl",
+            "home": "FTG Pfungstadt",
+            "location": "Pfungstadt",
+            "score": "236.4 : 366.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=3AE4848D687C4B229854E80DB2D865B6"
+        },
+        {
+            "date": "05.12.2015",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "539.6 : 473.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=22AE1501A591481081A6547143D9F644"
+        },
+        {
+            "date": "07.11.2015",
+            "guest": "TB 03 Roding II",
+            "home": "FTG Pfungstadt",
+            "location": "Pfungstadt",
+            "score": "286.2 : 444.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=10991E6C35FC4EB59B2A56475E247758"
+        },
+        {
+            "date": "07.11.2015",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "423.0 : 464.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=94CB05DE2924455EA9E98841EB6A8FE2"
+        },
+        {
+            "date": "17.10.2015",
+            "guest": "AC Suhl",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "440.4 : 458.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=F0D6899F4C1842428C26B120B3BE1454"
+        },
+        {
+            "date": "17.10.2015",
+            "guest": "KSV Langen",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "514.4 : 410.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=D2271492B9DC4A23B93262FA7CF3278C"
+        },
+        {
+            "date": "26.09.2015",
+            "guest": "FTG Pfungstadt",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "408.8 : 195.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=03D4B7DBE1384D9CBAE691728CA35D79"
+        },
+        {
+            "date": "26.09.2015",
+            "guest": "TB 03 Roding II",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "443.5 : 443.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=5D4BABC80E2C4203A159F5406B401ED2"
+        }
+    ]
+}]
