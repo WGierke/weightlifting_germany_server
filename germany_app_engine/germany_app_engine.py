@@ -3,11 +3,13 @@ import os
 
 import webapp2
 from google.appengine.ext import ndb
+from datetime import datetime
 
 DEFAULT_TOKEN_VALUE = 'default_token'
 DEFAULT_USER_ID = 'default_user'
 DEFAULT_FILTER_VALUE = 'default_filter'
 DEFAULT_PARTIES_VALUES = 'default_parties'
+DEFAULT_URL_VALUE = 'default_url'
 
 
 # Key methods
@@ -23,6 +25,10 @@ def filter_key(user_id=DEFAULT_USER_ID, filter_setting=DEFAULT_FILTER_VALUE):
 
 def protocol_key(parties=DEFAULT_PARTIES_VALUES):
     return ndb.Key('SharedProtocol', parties)
+
+
+def article_key(url=DEFAULT_URL_VALUE):
+    return ndb.Key('Article', url)
 
 
 # Helper methods
@@ -52,6 +58,14 @@ class SharedProtocol(ndb.Model):
     competition_parties = ndb.StringProperty(indexed=False)
     timestamp = ndb.DateTimeProperty(auto_now=True)
 
+
+class Article(ndb.Model):
+    """A published article about German weightlifting"""
+    url = ndb.StringProperty(indexed=True)
+    publisher = ndb.StringProperty(indexed=True)
+    heading = ndb.StringProperty(indexed=False)
+    content = ndb.StringProperty(indexed=False)
+    date = ndb.DateTimeProperty(auto_now=False)
 
 # Pages
 
@@ -175,15 +189,36 @@ class DeleteSharedProtocol(webapp2.RequestHandler):
             else:
                 self.response.write('No matching protocol found')
 
-# Pages for Telegram Bot
 
-class BotWelcomePage(webapp2.RequestHandler):
+class GetArticles(webapp2.RequestHandler):
     def get(self):
-        import telegram
-        bot = telegram.Bot(token=os.environ.get('BOT_TOKEN'))
-        self.response.write(bot.getMe())
+        if valid_secret_key(self.request):
+            article_query = Article.query()
+            articles = article_query.fetch(1000)
+            article_array = []
+            for article_entity in articles:
+                article_dict = {"url": article_entity.url}
+                article_array.append(article_dict)
+            response_dict = {"result": article_array}
+            self.response.write(json.dumps(response_dict, encoding='latin1'))
+
+
+class AddArticle(webapp2.RequestHandler):
     def post(self):
-        self.response.write('jo')
+        if valid_secret_key(self.request):
+            url = self.request.get('url')
+            publisher = self.request.get('publisher')
+            heading = self.request.get('heading')
+            content = self.request.get('content')
+            date = self.request.get('date')
+            article_entity = Article(parent=article_key(url))
+            article_entity.url = url
+            article_entity.publisher = publisher
+            article_entity.heading = heading
+            article_entity.content = content
+            article_entity.date = datetime.strptime(date, '%b %d %Y') # Jun 1 2005
+            article_entity.put()
+            self.response.write('Success')
 
 
 app = webapp2.WSGIApplication([
@@ -200,5 +235,6 @@ app = webapp2.WSGIApplication([
     ('/delete_protocol', DeleteSharedProtocol),
     ('/get_protocols', GetSharedProtocols),
 
-    ('/' + os.environ.get('BOT_SECRET_PATH'), BotWelcomePage),
+    ('/add_article', AddArticle),
+    ('/get_articles', GetArticles),
 ], debug=True)
