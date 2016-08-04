@@ -1,3 +1,4 @@
 gcm==0.3
+lxml==3.6.1
 requests==2.10.0
 tabulate==0.7.5
