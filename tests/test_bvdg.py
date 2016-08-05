@@ -3,7 +3,7 @@
 
 import unittest
 from blog_test_case import BlogTestCase
-from news_parser import NewsParser, BVDGParser
+from parser.news_parser import NewsParser, BVDGParser
 import time
 import datetime
 import urllib2

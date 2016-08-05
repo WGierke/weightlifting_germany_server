@@ -3,7 +3,7 @@
 
 import unittest
 from blog_test_case import BlogTestCase
-from news_parser import NewsParser, SchwedtParser
+from parser.news_parser import NewsParser, SchwedtParser
 import time
 import datetime
 import urllib2
