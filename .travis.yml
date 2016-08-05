@@ -1,0 +1,12 @@
+language: python
+
+python:
+  - "2.7"
+
+sudo: required
+
+install:
+  - pip install -r requirements.txt
+  - sudo locale-gen de_DE.utf8
+
+script: python -m unittest discover tests

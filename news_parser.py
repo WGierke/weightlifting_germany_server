@@ -15,11 +15,14 @@ import requests
 import time
 import traceback
 import urllib2
+import os.path
 
-config = ConfigParser.RawConfigParser(allow_no_value=True)
-config.read('config.ini')
-APPSPOT_KEY = config.get("appspot", "X-Secret-Key")
 ENDPOINT = "http://localhost:8080"
+
+if os.path.isfile("config.ini"):
+    config = ConfigParser.RawConfigParser(allow_no_value=True)
+    config.read('config.ini')
+    APPSPOT_KEY = config.get("appspot", "X-Secret-Key")
 
 class NewsParser:
     TIMEOUT = 15
@@ -82,7 +85,7 @@ class NewsParser:
     @classmethod
     def parse_article_from_url(self, article_url):
         try:
-            article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read()
+            article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read().decode("utf-8")
             article = self.parse_article_from_html(article_page)
             article["url"] = article_url
             return article
