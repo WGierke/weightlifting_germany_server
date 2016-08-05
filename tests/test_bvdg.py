@@ -3,12 +3,18 @@
 
 import unittest
 from blog_test_case import BlogTestCase
-from news_parser import BVDGParser
+from news_parser import NewsParser, BVDGParser
 import time
 import datetime
+import urllib2
 
 
 class TestBVDG(BlogTestCase):
+
+    def test_article_urls_parsing(self):
+        bvdg_parser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
+        page = urllib2.urlopen(bvdg_parser.articles_url + "1", timeout=NewsParser.TIMEOUT).read()
+        self.assertEqual(len(bvdg_parser.parse_article_urls(page)), 10)
 
     def test_url_parsing_with_picture(self):
         article = BVDGParser.parse_article_from_url("http://www.german-weightlifting.de/letzter-haertetest-countdown-fuer-unser-olympiateam/")

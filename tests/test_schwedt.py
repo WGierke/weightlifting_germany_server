@@ -3,12 +3,18 @@
 
 import unittest
 from blog_test_case import BlogTestCase
-from news_parser import SchwedtParser
+from news_parser import NewsParser, SchwedtParser
 import time
 import datetime
+import urllib2
 
 
 class TestSchwedt(BlogTestCase):
+
+    def test_article_urls_parsing(self):
+        schwedt_parser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
+        page = urllib2.urlopen(schwedt_parser.articles_url + "1", timeout=NewsParser.TIMEOUT).read()
+        self.assertEqual(len(schwedt_parser.parse_article_urls(page)), 4)
 
     def test_url_parsing_with_text(self):
         article = SchwedtParser.parse_article_from_url("http://gewichtheben.blauweiss65-schwedt.de/?p=7312")

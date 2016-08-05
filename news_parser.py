@@ -47,40 +47,44 @@ class NewsParser:
             return False
 
     def parse_articles(self):
-        articles = []
         n = 0
         while True:
             n += 1
             print n
             try:
                 page = urllib2.urlopen(self.articles_url + str(n), timeout=NewsParser.TIMEOUT).read()
-                if self.is_wordpress:
-                    tree = etree.HTML(page)
-                    articles_container = tree.xpath(self.articles_container_xpath)[0]
-                    for article_container in articles_container:
-                        if "id" in article_container.keys() and "post-" in article_container.attrib["id"]:
-                            #post_id = article_container.attrib["id"]
-                            article_url = re.findall(NewsParser.RE_HREF, tostring(article_container.getchildren()[0]))[0]
-                            print article_url
-                            payload = {"url": article_url}
-                            article_exists_response = self.send_post(payload, "/article_exists")
-                            if article_exists_response == "No":
-                                print article_url + " does not exist yet"
-                                new_article = self.parse_article_from_url(article_url)
-                                payload = { "url": new_article["url"],
-                                            "date": new_article["date"],
-                                            "heading": new_article["heading"],
-                                            "content": new_article["content"],
-                                            "publisher": self.blog_name }
-                                print payload
-                                self.send_post(payload, "/add_article")
-                            else:
-                                print article_url + "already exists"
-                                return
+                article_urls = self.parse_article_urls(page)
+                for article_url in article_urls:
+                    payload = {"url": article_url}
+                    article_exists_response = self.send_post(payload, "/article_exists")
+                    if article_exists_response == "No":
+                        print article_url + " does not exist yet"
+                        new_article = self.parse_article_from_url(article_url)
+                        payload = {"url": new_article["url"],
+                                   "date": new_article["date"],
+                                   "heading": new_article["heading"],
+                                   "content": new_article["content"],
+                                   "publisher": self.blog_name}
+                        print payload
+                        self.send_post(payload, "/add_article")
+                    else:
+                        print article_url + "already exists"
+                        return
 
             except Exception, e:
                 print 'Error while downloading news ', e
                 return
+
+    def parse_article_urls(self, page):
+        article_urls = []
+        tree = etree.HTML(page)
+        articles_container = tree.xpath(self.articles_container_xpath)[0]
+        for article_container in articles_container:
+            if "id" in article_container.keys() and "post-" in article_container.attrib["id"]:
+                #post_id = article_container.attrib["id"]
+                article_url = re.findall(NewsParser.RE_HREF, tostring(article_container.getchildren()[0]))[0]
+                article_urls.append(article_url)
+        return article_urls
 
     @classmethod
     def parse_article_from_url(self, article_url):
@@ -160,9 +164,9 @@ class BVDGParser(NewsParser):
 
 
 if __name__ == '__main__':
-    schwedtParser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
-    #schwedtParser.parse_articles()
+    schwedt_parser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
+    #schwedt_parser.parse_articles()
 
-    bvdgParser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
-    #bvdgParser.parse_articles()
+    bvdg_parser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
+    #bvdg_parser.parse_articles()
 
