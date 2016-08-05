@@ -81,7 +81,14 @@ class NewsParser:
 
     @classmethod
     def parse_article_from_url(self, article_url):
-        raise NotImplementedError("Please Implement this method")
+        try:
+            article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read()
+            article = self.parse_article_from_html(article_page)
+            article["url"] = article_url
+            return article
+        except Exception, e:
+            traceback.print_exc()
+            return
 
     @classmethod
     def parse_article_from_html(self, html):
@@ -94,17 +101,6 @@ class NewsParser:
 
 
 class SchwedtParser(NewsParser):
-    @classmethod
-    def parse_article_from_url(self, article_url):
-        try:
-            article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read()
-            article = self.parse_article_from_html(article_page)
-            article["url"] = article_url
-            return article
-        except Exception, e:
-            traceback.print_exc()
-            return
-
     @classmethod
     def parse_article_from_html(self, article_page):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
@@ -131,18 +127,32 @@ class SchwedtParser(NewsParser):
 
 
 class BVDGParser(NewsParser):
-    def parse_article_from_url(self, article_url, post_id):
-        article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read()
+    @classmethod
+    def parse_article_from_html(self, article_page):
+        post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
         article_tree = etree.HTML(article_page)
-        article = {"url": article_url, 
-                   "date": article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]/div/div/h2/span")[0].text}
-        text_container = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]/div/div")[0]
+        loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+
+        post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]")[0]
+        image = ''
+        date = ''
+        heading = ''
         text = []
-        for child in text_container.getchildren()[2:]: #Skip headline and post_info
-            for text_child in child.itertext():
-                text.append(text_child)
-        article["content"] = ' '.join(text)
-        print article
+        for elem in post_content_holder.iter():
+            if elem.tag == 'img' and image == '':
+                image = elem.attrib['src']
+            if elem.tag == 'h2':
+                headline_text_list = list(elem.itertext())
+                date = headline_text_list[0] + " 2016"
+                date = datetime.strptime(date.encode('utf-8'), "%d %b %Y")
+                heading = headline_text_list[1].strip()
+            if elem.tag == 'p':
+                text.append(elem.text)
+
+        article = {"date": str(time.mktime(date.timetuple())),
+                   "heading": heading,
+                   "image": image,
+                   "content": ' '.join(text)}
         return article
 
 

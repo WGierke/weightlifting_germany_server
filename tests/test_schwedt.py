@@ -7,6 +7,7 @@ from news_parser import SchwedtParser
 import time
 import datetime
 
+
 class TestSchwedt(BlogTestCase):
 
     def test_url_parsing_with_text(self):
