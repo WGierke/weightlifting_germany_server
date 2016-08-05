@@ -148,7 +148,7 @@ class BVDGParser(NewsParser):
 
 if __name__ == '__main__':
     schwedtParser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
-    schwedtParser.parse_articles()
+    #schwedtParser.parse_articles()
 
     bvdgParser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
     #bvdgParser.parse_articles()
