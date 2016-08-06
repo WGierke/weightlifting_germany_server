@@ -31,12 +31,13 @@ class NewsParser:
     RE_IMG_SRC = re.compile(ur'(?<=src="http)[^"]*(?=")')
     RE_POST_ID = re.compile(ur'((?<=")post-\d+(?="))')
 
-    def __init__(self, blog_name, blog_base_url, articles_url, articles_container_xpath):
-        self.blog_name = blog_name
-        self.blog_base_url = blog_base_url
-        self.articles_url = self.blog_base_url + articles_url
-        self.is_wordpress = self.is_wordpress()
-        self.articles_container_xpath = articles_container_xpath
+    BLOG_NAME = "BLOG_NAME"
+    BLOG_BASE_URL = "BLOG_BASE_URL"
+    ARTICLES_URL = "ARTICLES_URL"
+    ARTICLES_CONTAINER_XPATH = "ARTICLES_CONTAINER_XPATH"
+    ARTICLES_POST_CLASS = "ARTICLES_POST_CLASS"
+
+    def __init__(self):
         self.newest_article = None
 
     def is_wordpress(self):
@@ -52,7 +53,7 @@ class NewsParser:
             n += 1
             print n
             try:
-                page = urllib2.urlopen(self.articles_url + str(n), timeout=NewsParser.TIMEOUT).read()
+                page = urllib2.urlopen(self.ARTICLES_URL + str(n), timeout=NewsParser.TIMEOUT).read()
                 article_urls = self.parse_article_urls(page)
                 for article_url in article_urls:
                     payload = {"url": article_url}
@@ -64,7 +65,7 @@ class NewsParser:
                                    "date": new_article["date"],
                                    "heading": new_article["heading"],
                                    "content": new_article["content"],
-                                   "publisher": self.blog_name}
+                                   "publisher": self.BLOG_NAME}
                         print payload
                         self.send_post(payload, "/add_article")
                     else:
@@ -78,12 +79,13 @@ class NewsParser:
     def parse_article_urls(self, page):
         article_urls = []
         tree = etree.HTML(page)
-        articles_container = tree.xpath(self.articles_container_xpath)[0]
+        articles_container = tree.xpath(self.ARTICLES_CONTAINER_XPATH)[0]
         for article_container in articles_container:
-            if "id" in article_container.keys() and "post-" in article_container.attrib["id"]:
-                #post_id = article_container.attrib["id"]
-                article_url = re.findall(NewsParser.RE_HREF, tostring(article_container.getchildren()[0]))[0]
-                article_urls.append(article_url)
+            if "class" in article_container.keys() and self.ARTICLES_POST_CLASS in article_container.attrib["class"]:
+                for elem in article_container.iter():
+                    if elem.tag == 'a':
+                        article_urls.append(elem.attrib["href"])
+                        break
         return article_urls
 
     @classmethod
@@ -108,6 +110,12 @@ class NewsParser:
 
 
 class SchwedtParser(NewsParser):
+    BLOG_NAME = "Schwedt"
+    BLOG_BASE_URL = "http://gewichtheben-schwedt.de/"
+    ARTICLES_URL = BLOG_BASE_URL + "?page_id=6858&paged="
+    ARTICLES_CONTAINER_XPATH = '//*[@id="main"]'
+    ARTICLES_POST_CLASS = "post"
+
     @classmethod
     def parse_article_from_html(self, article_page):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
@@ -121,7 +129,7 @@ class SchwedtParser(NewsParser):
         text = []
         for child in text_container.getchildren():
             for text_child in child.itertext():
-                text.append(text_child)
+                text.append(text_child + "\n")
         article["content"] = ' '.join(text)
 
         image = ''
@@ -134,6 +142,12 @@ class SchwedtParser(NewsParser):
 
 
 class BVDGParser(NewsParser):
+    BLOG_NAME = "BVDG"
+    BLOG_BASE_URL = "http://www.german-weightlifting.de/"
+    ARTICLES_URL = BLOG_BASE_URL + "category/leistungssport/page/"
+    ARTICLES_CONTAINER_XPATH = '/html/body/div[1]/div/div/div/div[2]/div/div'
+    ARTICLES_POST_CLASS = "post"
+
     @classmethod
     def parse_article_from_html(self, article_page):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
@@ -154,7 +168,7 @@ class BVDGParser(NewsParser):
                 date = datetime.strptime(date.encode('utf-8'), "%d %b %Y")
                 heading = headline_text_list[1].strip()
             if elem.tag == 'p':
-                text.append(elem.text)
+                text.append(elem.text + "\n")
 
         article = {"date": str(time.mktime(date.timetuple())),
                    "heading": heading,
@@ -162,11 +176,50 @@ class BVDGParser(NewsParser):
                    "content": ' '.join(text)}
         return article
 
+class SpeyerParser(NewsParser):
+    BLOG_NAME = "Speyer"
+    BLOG_BASE_URL = "http://www.av03-speyer.de/"
+    ARTICLES_URL = BLOG_BASE_URL + "category/gewichtheben/page/"
+    ARTICLES_CONTAINER_XPATH = '/html/body/div[1]/div/div/div/div[1]/section'
+    ARTICLES_POST_CLASS = "entry-box text-left"
+
+    @classmethod
+    def parse_article_from_html(self, article_page):
+        post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
+        article_tree = etree.HTML(article_page)
+        loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+        post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[2]/div/div/div[1]")[0]
+
+        year_month = article_tree.xpath("/html/head/link[1]")[0].attrib["href"].split("/")[3:5]
+        day = post_content_holder.xpath("section/article/div/div[1]/div/span[1]/a/text()")[0].split(" ")[1][0:-1]
+        date = " ".join(year_month) + " " + day
+        date = datetime.strptime(date.encode('utf-8'), "%Y %m %d")
+
+        image = ''
+        heading = ''
+        text = []
+        for elem in post_content_holder.iter():
+            if elem.tag == 'img' and image == '':
+                image = elem.attrib['src']
+            if elem.tag == 'h1' and "class" in elem.attrib and elem.attrib["class"] == "entry-title":
+                heading = elem.text
+            if elem.tag == "p":
+                for text_child in elem.itertext():
+                    text.append(text_child + "\n")
+
+        article = {"date": str(time.mktime(date.timetuple())),
+                   "heading": heading,
+                   "image": image,
+                   "content": ' '.join(text)}
+        return article
 
 if __name__ == '__main__':
-    schwedt_parser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
+    schwedt_parser = SchwedtParser()
     #schwedt_parser.parse_articles()
 
-    bvdg_parser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
+    bvdg_parser = BVDGParser()
     #bvdg_parser.parse_articles()
+
+    speyer_parser = SpeyerParser()
+    #speyer_parser.parse_articles()
 

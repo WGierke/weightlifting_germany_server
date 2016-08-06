@@ -12,8 +12,8 @@ import urllib2
 class TestSchwedt(BlogTestCase):
 
     def test_article_urls_parsing(self):
-        schwedt_parser = SchwedtParser("Schwedt", "http://gewichtheben-schwedt.de/", "?page_id=6858&paged=", articles_container_xpath='//*[@id="main"]')
-        page = urllib2.urlopen(schwedt_parser.articles_url + "1", timeout=NewsParser.TIMEOUT).read()
+        schwedt_parser = SchwedtParser()
+        page = urllib2.urlopen(SchwedtParser.ARTICLES_URL + "1", timeout=NewsParser.TIMEOUT).read()
         self.assertEqual(len(schwedt_parser.parse_article_urls(page)), 4)
 
     def test_url_parsing_with_text(self):

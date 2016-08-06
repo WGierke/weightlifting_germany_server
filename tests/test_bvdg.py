@@ -12,8 +12,8 @@ import urllib2
 class TestBVDG(BlogTestCase):
 
     def test_article_urls_parsing(self):
-        bvdg_parser = BVDGParser("BVDG", "http://www.german-weightlifting.de/", "category/leistungssport/page/", articles_container_xpath='/html/body/div[1]/div/div/div/div[2]/div/div')
-        page = urllib2.urlopen(bvdg_parser.articles_url + "1", timeout=NewsParser.TIMEOUT).read()
+        bvdg_parser = BVDGParser()
+        page = urllib2.urlopen(BVDGParser.ARTICLES_URL + "1", timeout=NewsParser.TIMEOUT).read()
         self.assertEqual(len(bvdg_parser.parse_article_urls(page)), 10)
 
     def test_url_parsing_with_picture(self):
@@ -32,6 +32,7 @@ class TestBVDG(BlogTestCase):
         self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 7, 29).timetuple())))
         self.assertEqual(article["image"], "")
         self.assert_text_in_content("Der russische Gewichtheberverband wurde heute von der Teilnahme an den Olympischen", article["content"])
+        #self.assert_text_in_content("Als Präsident des BVDG ist diese Entscheidung natürlich lange überfällig!", article["content"])
         self.assert_text_in_content("bis zuletzt auf eine Olympianominierung hoffen durfte.", article["content"])
 
 if __name__ == '__main__':
