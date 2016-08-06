@@ -16,6 +16,7 @@ import time
 import traceback
 import urllib2
 import os.path
+from bs4 import BeautifulSoup
 
 ENDPOINT = "http://localhost:8080"
 
@@ -125,15 +126,13 @@ class SchwedtParser(NewsParser):
         date = datetime.strptime(german_date.encode('utf-8'), "%d. %B %Y")
         article = {"date": str(time.mktime(date.timetuple())),
                    "heading": article_tree.xpath("//*[@id=\"" + post_id + "\"]/h2")[0].text }
-        text_container = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[2]")[0]
-        text = []
-        for child in text_container.getchildren():
-            for text_child in child.itertext():
-                text.append(text_child + "\n")
-        article["content"] = ' '.join(text)
+
+        post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[2]")[0]
+        soup = BeautifulSoup(tostring(post_content_holder), "lxml")
+        article["content"] = ''.join(soup.findAll(text=True)).strip()
 
         image = ''
-        for elem in text_container.iter():
+        for elem in post_content_holder.iter():
             if elem.tag == 'img':
                 image = elem.attrib['src']
                 break
@@ -170,10 +169,14 @@ class BVDGParser(NewsParser):
             if elem.tag == 'p':
                 text.append(elem.text + "\n")
 
+        soup = BeautifulSoup(tostring(post_content_holder), "lxml")
+        content = ''.join(soup.findAll(text=True)).strip()
+        content = '\n'.join(content.split(u"\n\n\n\xa0\n")[1:]) # Remove category and author
+
         article = {"date": str(time.mktime(date.timetuple())),
                    "heading": heading,
                    "image": image,
-                   "content": ' '.join(text)}
+                   "content": content}
         return article
 
 class SpeyerParser(NewsParser):
@@ -197,20 +200,21 @@ class SpeyerParser(NewsParser):
 
         image = ''
         heading = ''
-        text = []
         for elem in post_content_holder.iter():
             if elem.tag == 'img' and image == '':
                 image = elem.attrib['src']
             if elem.tag == 'h1' and "class" in elem.attrib and elem.attrib["class"] == "entry-title":
                 heading = elem.text
-            if elem.tag == "p":
-                for text_child in elem.itertext():
-                    text.append(text_child + "\n")
+
+        soup = BeautifulSoup(tostring(post_content_holder), "lxml")
+        content = ''.join(soup.findAll(text=True)).strip()
+        content = '\n'.join(content.split("\n\n\n\n")[1:])
 
         article = {"date": str(time.mktime(date.timetuple())),
                    "heading": heading,
                    "image": image,
-                   "content": ' '.join(text)}
+                   "content": content}
+
         return article
 
 if __name__ == '__main__':
