@@ -1,15 +1,25 @@
 import json
 import os
-
+import time
+import urllib
 import webapp2
+import yaml
 from google.appengine.ext import ndb
 from datetime import datetime
+
 
 DEFAULT_TOKEN_VALUE = 'default_token'
 DEFAULT_USER_ID = 'default_user'
 DEFAULT_FILTER_VALUE = 'default_filter'
 DEFAULT_PARTIES_VALUES = 'default_parties'
 DEFAULT_URL_VALUE = 'default_url'
+
+
+if os.environ.get("SECRET_KEY"):
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+else:
+    with open('germany_app_engine/app.yaml') as f: 
+        SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
 
 # Key methods
@@ -35,7 +45,7 @@ def article_key(url=DEFAULT_URL_VALUE):
 
 
 def valid_secret_key(request):
-    return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == os.environ.get("SECRET_KEY")
+    return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
 
 
 # Models
@@ -66,6 +76,7 @@ class Article(ndb.Model):
     heading = ndb.StringProperty(indexed=False)
     content = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now=False)
+    image = ndb.StringProperty(indexed=False)
 
 # Pages
 
@@ -85,16 +96,25 @@ class GetTokens(webapp2.RequestHandler):
             tokens = token_query.fetch(1000)
             response_dict = {"result": map(lambda (x): x.value, tokens)}
             self.response.write(json.dumps(response_dict, encoding='latin1'))
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class AddToken(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
             value = self.request.get('token')
-            token = Token(parent=token_key(value))
-            token.value = value
-            token.put()
-            self.response.write('Success')
+            token_query = Token.query(ancestor=token_key(value))
+            tokens = token_query.fetch(100)
+            if len(tokens) == 0:
+                token = Token(parent=token_key(value))
+                token.value = value
+                token.put()
+                self.response.write('Added token successfully')
+            else:
+                self.response.write('This token is already saved')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class DeleteToken(webapp2.RequestHandler):
@@ -106,9 +126,11 @@ class DeleteToken(webapp2.RequestHandler):
             if len(tokens) > 0:
                 for token in tokens:
                     token.key.delete()
-                self.response.write('Success')
+                self.response.write('Deleted token successfully')
             else:
                 self.response.write('No token found')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class GetFilters(webapp2.RequestHandler):
@@ -123,6 +145,8 @@ class GetFilters(webapp2.RequestHandler):
                 filter_array.append(filter_dict)
             response_dict = {"result": filter_array}
             self.response.write(json.dumps(response_dict, encoding='latin1'))
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class AddFilter(webapp2.RequestHandler):
@@ -130,11 +154,18 @@ class AddFilter(webapp2.RequestHandler):
         if valid_secret_key(self.request):
             user_id = self.request.get('userId')
             filter_setting = self.request.get('filterSetting')
-            filter_entity = FilterSetting(parent=filter_key(user_id, filter_setting))
-            filter_entity.filter_setting = filter_setting
-            filter_entity.user_id = user_id
-            filter_entity.put()
-            self.response.write('Success')
+            filter_query = FilterSetting.query(ancestor=filter_key(user_id, filter_setting))
+            filters = filter_query.fetch(100)
+            if len(filters) == 0:
+                filter_entity = FilterSetting(parent=filter_key(user_id, filter_setting))
+                filter_entity.filter_setting = filter_setting
+                filter_entity.user_id = user_id
+                filter_entity.put()
+                self.response.write('Added filter successfully')
+            else:
+                self.response.write('This filter is already saved')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class DeleteFilter(webapp2.RequestHandler):
@@ -147,9 +178,11 @@ class DeleteFilter(webapp2.RequestHandler):
             if len(filter_settings) > 0:
                 for filter_entity in filter_settings:
                     filter_entity.key.delete()
-                self.response.write('Success')
+                self.response.write('Deleted filter successfully')
             else:
-                self.response.write('No matching filterSetting found')
+                self.response.write('No filter found')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class GetSharedProtocols(webapp2.RequestHandler):
@@ -164,16 +197,25 @@ class GetSharedProtocols(webapp2.RequestHandler):
                 protocol_array.append(protocol_dict)
             response_dict = {"result": protocol_array}
             self.response.write(json.dumps(response_dict, encoding='latin1'))
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class AddSharedProtocol(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
             competition_parties = self.request.get('competitionParties')
-            protocol_entity = SharedProtocol(parent=protocol_key(competition_parties))
-            protocol_entity.competition_parties = competition_parties
-            protocol_entity.put()
-            self.response.write('Success')
+            protocol_query = SharedProtocol.query(ancestor=protocol_key(competition_parties))
+            protocols = protocol_query.fetch(100)
+            if len(protocols) == 0:
+                protocol_entity = SharedProtocol(parent=protocol_key(competition_parties))
+                protocol_entity.competition_parties = competition_parties
+                protocol_entity.put()
+                self.response.write('Added protocol successfully')
+            else:
+                self.response.write('This protocol is already saved')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class DeleteSharedProtocol(webapp2.RequestHandler):
@@ -185,9 +227,11 @@ class DeleteSharedProtocol(webapp2.RequestHandler):
             if len(protocols) > 0:
                 for protocol_entity in protocols:
                     protocol_entity.key.delete()
-                self.response.write('Success')
+                self.response.write('Deleted protocol successfully')
             else:
-                self.response.write('No matching protocol found')
+                self.response.write('No protocol found')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class GetArticles(webapp2.RequestHandler):
@@ -201,40 +245,104 @@ class GetArticles(webapp2.RequestHandler):
                 article_array.append(article_dict)
             response_dict = {"result": article_array}
             self.response.write(json.dumps(response_dict, encoding='latin1'))
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class GetArticle(webapp2.RequestHandler):
+    def get(self):
+        if valid_secret_key(self.request):
+            url = self.request.get("url")
+            article_query = Article.query(ancestor=article_key(url))
+            articles = article_query.fetch(100)
+            if len(articles) > 0:
+                article = articles[0]
+                result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())), 
+                          "heading": article.heading, "publisher": article.publisher,
+                          "content": article.content, "image": article.image}
+                response_dict = {"result": result}
+                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            else:
+                self.response.write('No article found')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
 class AddArticle(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
+            url = self.request.get("url")
+            article_query = Article.query(ancestor=article_key(url))
+            articles = article_query.fetch(100)
+            if len(articles) == 0:
+                article_entity = Article(parent=article_key(url))
+                article_entity.url = url
+                article_entity.publisher = self.request.get('publisher')
+                article_entity.heading = self.request.get('heading')
+                article_entity.content = self.request.get('content')
+                article_entity.image = self.request.get('image')
+                date = self.request.get('date')
+                article_entity.date = datetime.fromtimestamp(float(date))
+                article_entity.put()
+                self.response.write('Added article successfully')
+            else:
+                self.response.write('This article is already saved')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class DeleteArticle(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
             url = self.request.get('url')
-            publisher = self.request.get('publisher')
-            heading = self.request.get('heading')
-            content = self.request.get('content')
-            date = self.request.get('date')
-            article_entity = Article(parent=article_key(url))
-            article_entity.url = url
-            article_entity.publisher = publisher
-            article_entity.heading = heading
-            article_entity.content = content
-            article_entity.date = datetime.strptime(date, '%b %d %Y') # Jun 1 2005
-            article_entity.put()
-            self.response.write('Success')
+            article_query = Article.query(ancestor=article_key(url))
+            articles = article_query.fetch(100)
+            if len(articles) > 0:
+                for article_entity in articles:
+                    article_entity.key.delete()
+                self.response.write('Deleted article successfully')
+            else:
+                self.response.write('No article found')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
 
-app = webapp2.WSGIApplication([
-    ('/', MainPage),
-    ('/add_token', AddToken),
-    ('/delete_token', DeleteToken),
-    ('/get_tokens', GetTokens),
+class ArticleExists(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            url = self.request.get("url")
+            article_query = Article.query(ancestor=article_key(url))
+            articles = article_query.fetch(100)
+            if len(articles) > 0:
+                self.response.write('Yes')
+            else:
+                self.response.write('No')
+        else:
+            self.response.out.write('Secret Key is not valid')
 
-    ('/add_filter', AddFilter),
-    ('/delete_filter', DeleteFilter),
-    ('/get_filters', GetFilters),
+class GermanyServer():
+    URL_MAPPING = [
+                    ('/', MainPage),
+                    ('/add_token', AddToken),
+                    ('/delete_token', DeleteToken),
+                    ('/get_tokens', GetTokens),
 
-    ('/add_protocol', AddSharedProtocol),
-    ('/delete_protocol', DeleteSharedProtocol),
-    ('/get_protocols', GetSharedProtocols),
+                    ('/add_filter', AddFilter),
+                    ('/delete_filter', DeleteFilter),
+                    ('/get_filters', GetFilters),
 
-    ('/add_article', AddArticle),
-    ('/get_articles', GetArticles),
-], debug=True)
+                    ('/add_protocol', AddSharedProtocol),
+                    ('/delete_protocol', DeleteSharedProtocol),
+                    ('/get_protocols', GetSharedProtocols),
+
+                    ('/add_article', AddArticle),
+                    ('/delete_article', DeleteArticle),
+                    ('/get_articles', GetArticles),
+                    ('/get_article', GetArticle),
+                    ('/article_exists', ArticleExists),
+                   ]
+    def start(self):
+        return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
+
+server = GermanyServer()
+app = server.start()
