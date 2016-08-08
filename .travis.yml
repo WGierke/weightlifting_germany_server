@@ -8,5 +8,9 @@ sudo: required
 install:
   - pip install -r requirements.txt
   - sudo locale-gen de_DE.utf8
+  - wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.40.zip
+  - unzip google_appengine_1.9.40.zip -d $HOME
+  - export PYTHONPATH="$PYTHONPATH:$HOME/google_appengine"
+  - mv germany_app_engine/app.example.yaml germany_app_engine/app.yaml
 
 script: python -m unittest discover tests
