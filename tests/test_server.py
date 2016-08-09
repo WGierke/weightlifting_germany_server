@@ -119,11 +119,13 @@ class ServerTestCase(unittest.TestCase):
         self.assertEqual(result[0]["userId"], "1")
         self.assertEqual(result[0]["filterSetting"], "all")
 
-        response = self.post_authenticated("/add_filter", params={"userId": "1", "filterSetting": "all"})
-        self.assertEqual(response.normal_body, 'This filter is already saved')
+        response = self.post_authenticated("/add_filter", params={"userId": "1", "filterSetting": "schwedt"})
+        self.assertEqual(response.normal_body, 'Filter was updated successfully')
         response = self.get_authenticated("/get_filters")
         result = json.loads(response.normal_body)["result"]
         self.assertEqual(len(result), 1)
+        self.assertEqual(result[0]["userId"], "1")
+        self.assertEqual(result[0]["filterSetting"], "schwedt")
 
         response = self.post_authenticated("/add_filter", params={"userId": "2", "filterSetting": "schwedt"})
         self.assertEqual(response.normal_body, 'Added filter successfully')
@@ -131,7 +133,7 @@ class ServerTestCase(unittest.TestCase):
         result = json.loads(response.normal_body)["result"]
         self.assertEqual(len(result), 2)
         self.assertEqual(result[0]["userId"], "1")
-        self.assertEqual(result[0]["filterSetting"], "all")
+        self.assertEqual(result[0]["filterSetting"], "schwedt")
         self.assertEqual(result[1]["userId"], "2")
         self.assertEqual(result[1]["filterSetting"], "schwedt")
 

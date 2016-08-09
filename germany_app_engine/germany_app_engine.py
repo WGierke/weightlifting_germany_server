@@ -29,8 +29,8 @@ def token_key(token_value=DEFAULT_TOKEN_VALUE):
     return ndb.Key('Token', token_value)
 
 
-def filter_key(user_id=DEFAULT_USER_ID, filter_setting=DEFAULT_FILTER_VALUE):
-    return ndb.Key('Filter', user_id + "-" + filter_setting)
+def filter_key(user_id=DEFAULT_USER_ID):
+    return ndb.Key('Filter', user_id)
 
 
 def protocol_key(parties=DEFAULT_PARTIES_VALUES):
@@ -154,16 +154,20 @@ class AddFilter(webapp2.RequestHandler):
         if valid_secret_key(self.request):
             user_id = self.request.get('userId')
             filter_setting = self.request.get('filterSetting')
-            filter_query = FilterSetting.query(ancestor=filter_key(user_id, filter_setting))
+            filter_query = FilterSetting.query(ancestor=filter_key(user_id))
             filters = filter_query.fetch(100)
             if len(filters) == 0:
-                filter_entity = FilterSetting(parent=filter_key(user_id, filter_setting))
+                filter_entity = FilterSetting(parent=filter_key(user_id))
                 filter_entity.filter_setting = filter_setting
                 filter_entity.user_id = user_id
                 filter_entity.put()
                 self.response.write('Added filter successfully')
             else:
-                self.response.write('This filter is already saved')
+                for filter_entity in filters:
+                    filter_entity.filter_setting = filter_setting
+                    filter_entity.user_id = user_id
+                    filter_entity.put()
+                    self.response.write('Filter was updated successfully')
         else:
             self.response.out.write('Secret Key is not valid')
 
@@ -172,8 +176,7 @@ class DeleteFilter(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
             user_id = self.request.get('userId')
-            filter_setting = self.request.get('filterSetting')
-            filter_query = FilterSetting.query(ancestor=filter_key(user_id, filter_setting))
+            filter_query = FilterSetting.query(ancestor=filter_key(user_id))
             filter_settings = filter_query.fetch(100)
             if len(filter_settings) > 0:
                 for filter_entity in filter_settings:
