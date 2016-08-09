@@ -7,6 +7,8 @@ This class dumps the articles of a specified blog in a JSON file.
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
+from tabulate import tabulate
+import codecs
 import ConfigParser
 import json
 import locale
@@ -217,13 +219,29 @@ class SpeyerParser(NewsParser):
 
         return article
 
+
 if __name__ == '__main__':
-    schwedt_parser = SchwedtParser()
-    #schwedt_parser.parse_articles()
+    blog_parsers_classes = [BVDGParser, SpeyerParser, SchwedtParser]
 
-    bvdg_parser = BVDGParser()
-    #bvdg_parser.parse_articles()
+    headers = ["Blog Name", "Heading", "Date", "Image", "Content"]
+    table = list()
+    for blog_parser_class in blog_parsers_classes:
+        blog_parser_instance = blog_parser_class()
+        page = urllib2.urlopen(blog_parser_class.ARTICLES_URL + "1").read()
+        first_article_url = blog_parser_instance.parse_article_urls(page)[0]
+        article = blog_parser_class.parse_article_from_url(first_article_url)
+        row = [blog_parser_instance.BLOG_NAME,
+               "[{}]({})".format(article["heading"], article["url"]),
+               datetime.fromtimestamp(float(article["date"])).strftime("%Y-%m-%d"),
+               "<img src='{}' width='100px'/>".format(article["image"]) if article["image"] else "",
+               article["content"][:20] + "..."
+               ]
+        table.append(row)
+    table = sorted(table, key=lambda k: datetime.strptime(k[2], "%Y-%m-%d"), reverse=True)
 
-    speyer_parser = SpeyerParser()
-    #speyer_parser.parse_articles()
-
+    with codecs.open("README.md", 'r', encoding='utf8') as f:
+        readme = f.read()
+    before_news = readme.split("## Current News")[0]
+    new_readme = before_news + "\n## Current News\n\n" + tabulate(table, headers, tablefmt="pipe")
+    with codecs.open("README.md", 'w', encoding='utf8') as f:
+        f.write(new_readme)
