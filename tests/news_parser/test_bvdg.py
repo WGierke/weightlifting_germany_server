@@ -25,6 +25,15 @@ class TestBVDG(BlogTestCase):
         self.assert_starts_with("Ein abschließendes Trainingslager absolvierte unser Olympiateam auf dem Feldberg", article["content"])
         self.assert_ends_with("Welche als Letzte den Flieger nach Brasilien besteigen werden.", article["content"])
 
+    def test_url_parsing_with_picture2(self):
+        article = BVDGParser.parse_article_from_url("http://www.german-weightlifting.de/erfolgreiches-trainingslager-in-kienbaum-dosb-verabschiedet-olympiakader-bei-sommerfest/")
+        self.assertEqual(article["url"], "http://www.german-weightlifting.de/erfolgreiches-trainingslager-in-kienbaum-dosb-verabschiedet-olympiakader-bei-sommerfest/")
+        self.assertEqual(article["heading"].encode("utf-8"), "Erfolgreiches Trainingslager in Kienbaum – DOSB verabschiedet Olympiakader bei Sommerfest")
+        self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 7, 18).timetuple())))
+        self.assertEqual(article["image"], "http://www.german-weightlifting.de/wp-content/uploads/2016/07/13632596_516930935163945_727382598_o.jpg")
+        self.assert_starts_with("Vom 6.7. bis zum 16.7. , hieß es für unsere Nationalmannschaft erneut", article["content"])
+        self.assert_ends_with("Bildern, einen kleinen Einblick bieten zu können.", article["content"])
+
     def test_url_parsing_without_picture(self):
         article = BVDGParser.parse_article_from_url("http://www.german-weightlifting.de/olympia-aus-fuer-russische-gewichtheber/")
         self.assertEqual(article["url"], "http://www.german-weightlifting.de/olympia-aus-fuer-russische-gewichtheber/")
