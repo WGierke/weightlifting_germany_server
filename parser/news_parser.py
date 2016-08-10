@@ -4,13 +4,12 @@
 """
 This class dumps the articles of a specified blog in a JSON file.
 """
+from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from tabulate import tabulate
-import codecs
+from notifications import send_to_slack, notify_users
 import ConfigParser
-import json
 import locale
 import re
 import requests
@@ -18,7 +17,6 @@ import time
 import traceback
 import urllib2
 import os.path
-from bs4 import BeautifulSoup
 
 ENDPOINT = "http://localhost:8080"
 
@@ -52,11 +50,20 @@ class NewsParser:
 
     def parse_articles(self):
         n = 0
+        print "Parsing Blog " + self.BLOG_NAME
         while True:
             n += 1
-            print n
+            print "Page " + str(n)
             try:
-                page = urllib2.urlopen(self.ARTICLES_URL + str(n), timeout=NewsParser.TIMEOUT).read()
+                try:
+                    page = urllib2.urlopen(self.ARTICLES_URL + str(n), timeout=NewsParser.TIMEOUT).read()
+                except urllib2.HTTPError, e:
+                    if e.code == 404:
+                        print "Finished parsing blog"
+                        return
+                    else:
+                        raise Exception(e)
+
                 article_urls = self.parse_article_urls(page)
                 for article_url in article_urls:
                     payload = {"url": article_url}
@@ -69,15 +76,23 @@ class NewsParser:
                                    "heading": new_article["heading"],
                                    "content": new_article["content"],
                                    "publisher": self.BLOG_NAME}
-                        print payload
                         self.send_post(payload, "/add_article")
+                        notify_users(payload)
+                    elif article_exists_response == "Yes":
+                        print article_url + " already exists"
+                        print "Finished parsing blog"
+                        return
                     else:
-                        print article_url + "already exists"
+                        print "/article_exists sent unexpected answer: " + article_exists_response
                         return
 
             except Exception, e:
-                print 'Error while downloading news ', e
+                text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(n) + ": "
+                text += traceback.format_exc()
+                print text
+                send_to_slack(text)
                 return
+
 
     def parse_article_urls(self, page):
         article_urls = []
@@ -93,22 +108,17 @@ class NewsParser:
 
     @classmethod
     def parse_article_from_url(self, article_url):
-        try:
-            article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read().decode("utf-8")
-            article = self.parse_article_from_html(article_page)
-            article["url"] = article_url
-            return article
-        except Exception, e:
-            traceback.print_exc()
-            return
+        article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read().decode("utf-8")
+        article = self.parse_article_from_html(article_page)
+        article["url"] = article_url
+        return article
 
     @classmethod
     def parse_article_from_html(self, html):
         raise NotImplementedError("Please Implement this method")
 
     def send_post(self, payload, path):
-        headers = {"X-Secret-Key": APPSPOT_KEY, "Content-Type": "application/json"}
-        r = requests.post(ENDPOINT + path, data=json.dumps(payload), headers=headers)
+        r = requests.post(ENDPOINT + path, data=payload, headers={"X-Secret-Key": APPSPOT_KEY})
         return r.content
 
 
@@ -159,7 +169,7 @@ class BVDGParser(NewsParser):
         image = ''
         date = ''
         heading = ''
-        text = []
+
         for elem in post_content_holder.iter():
             if elem.tag == 'img' and image == '':
                 image = elem.attrib['src']
@@ -168,8 +178,6 @@ class BVDGParser(NewsParser):
                 date = headline_text_list[0] + " 2016"
                 date = datetime.strptime(date.encode('utf-8'), "%d %b %Y")
                 heading = headline_text_list[1].strip()
-            if elem.tag == 'p':
-                text.append(elem.text + "\n")
 
         soup = BeautifulSoup(tostring(post_content_holder), "lxml")
         content = ''.join(soup.findAll(text=True)).strip()

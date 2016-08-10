@@ -1,4 +1,5 @@
 import codecs
+import time
 import urllib2
 from datetime import datetime
 from parser.buli_parser import BuliParser
@@ -37,8 +38,12 @@ if __name__ == '__main__':
     BuliParser2North = BuliParser(SEASON, "2", "Nordost", "2North_schedule", "2North_competitions", "2North_table", "2. Bundesliga - Staffel Nordost", "6")
     BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2Middle_schedule", "2Middle_competitions", "2Middle_table", "2. Bundesliga - Staffel Mitte", "7")
 
-    for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
-        parser.create_buli_files()
+    #for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
+    #    parser.create_buli_files()
 
     blog_parsers_classes = [BVDGParser, SpeyerParser, SchwedtParser]
-    update_readme(blog_parsers_classes)
+    for blog_parser_class in blog_parsers_classes:
+        blog_parser_instance = blog_parser_class()
+        blog_parser_instance.parse_articles()
+
+    time.sleep(60 * 60)
