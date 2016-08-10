@@ -18,7 +18,7 @@ import traceback
 import urllib2
 import os.path
 
-ENDPOINT = "http://localhost:8080"
+ENDPOINT = "http://weightliftinggermany.appspot.com"
 
 if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
@@ -75,6 +75,7 @@ class NewsParser:
                                    "date": new_article["date"],
                                    "heading": new_article["heading"],
                                    "content": new_article["content"],
+                                   "image": new_article["image"],
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
                         notify_users(payload)
