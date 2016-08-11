@@ -41,9 +41,9 @@ if __name__ == '__main__':
     #for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
     #    parser.create_buli_files()
 
-    blog_parsers_classes = [BVDGParser, SpeyerParser, SchwedtParser]
-    for blog_parser_class in blog_parsers_classes:
-        blog_parser_instance = blog_parser_class()
-        blog_parser_instance.parse_articles()
+    blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
+    while True:
+        for blog_parser_instance in blog_parsers_instances:
+            blog_parser_instance.parse_articles()
 
-    time.sleep(60 * 60)
+        time.sleep(60 * 60)

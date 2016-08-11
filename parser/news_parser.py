@@ -39,7 +39,7 @@ class NewsParser:
     ARTICLES_POST_CLASS = "ARTICLES_POST_CLASS"
 
     def __init__(self):
-        self.newest_article = None
+        self.newest_article_url = None
 
     def is_wordpress(self):
         try:
@@ -65,7 +65,16 @@ class NewsParser:
                         raise Exception(e)
 
                 article_urls = self.parse_article_urls(page)
-                for article_url in article_urls:
+                for i in range(len(article_urls)):
+                    article_url = article_urls[i]
+                    if n == 1 and i == 0:
+                        if self.newest_article_url == article_url:
+                            print "Local check: " + article_url + " already exists"
+                            print "Finished parsing blog"
+                            return
+                        else:
+                            self.newest_article_url = article_url
+
                     payload = {"url": article_url}
                     article_exists_response = self.send_post(payload, "/article_exists")
                     if article_exists_response == "No":
