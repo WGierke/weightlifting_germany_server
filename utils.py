@@ -61,7 +61,7 @@ def update_readme(blog_parsers_instances):
 def commit_changes():
     message = "".join(read_news())
     commands = [["git", "add", "--all"],
-                ["git", "commit", "-m", "{}".format(message)],
+                ["git", "commit", "-m", u"{}".format(message)],
                 ["git", "push"]]
     for cmd in commands:
         subprocess.call(cmd)
