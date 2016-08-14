@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from notifications import send_to_slack, notify_users
+from utils import send_to_slack, notify_users, write_news
 import ConfigParser
 import locale
 import re
@@ -27,9 +27,6 @@ if os.path.isfile("config.ini"):
 
 class NewsParser:
     TIMEOUT = 15
-    RE_HREF = re.compile(ur'(?<=href=")[^"]*(?=")')
-    RE_IMG_TAG = re.compile(ur'(?<=<img)[^>]*')
-    RE_IMG_SRC = re.compile(ur'(?<=src="http)[^"]*(?=")')
     RE_POST_ID = re.compile(ur'((?<=")post-\d+(?="))')
 
     BLOG_NAME = "BLOG_NAME"
@@ -40,6 +37,9 @@ class NewsParser:
 
     def __init__(self):
         self.newest_article_url = None
+
+    def get_newest_article_url(self):
+        return self.newest_article_url
 
     def is_wordpress(self):
         try:
@@ -88,6 +88,7 @@ class NewsParser:
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
                         notify_users(payload)
+                        write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
                         print article_url + " already exists"
                         print "Finished parsing blog"
