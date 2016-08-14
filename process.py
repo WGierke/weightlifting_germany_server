@@ -1,7 +1,7 @@
 import time
 from parser.buli_parser import BuliParser
 from parser.news_parser import BVDGParser, SpeyerParser, SchwedtParser
-from utils import update_readme, commit_changes
+from utils import update_repo, update_readme, commit_changes
 
 if __name__ == '__main__':
     SEASON = "1516"
@@ -16,6 +16,8 @@ if __name__ == '__main__':
 
     blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
     while True:
+        update_repo()
+
         for blog_parser_instance in blog_parsers_instances:
             blog_parser_instance.parse_articles()
 

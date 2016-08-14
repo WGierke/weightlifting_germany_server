@@ -58,6 +58,13 @@ def update_readme(blog_parsers_instances):
     with codecs.open("README.md", 'w', encoding='utf8') as f:
         f.write(new_readme)
 
+def update_repo():
+    commands = [["date", '+"%T"'],
+                ["git", "fetch", "--all"],
+                ["git", "reset", "--hard", "origin/master"]]
+    for cmd in commands:
+        subprocess.call(cmd)
+
 def commit_changes():
     message = "".join(read_news())
     commands = [["git", "add", "--all"],
