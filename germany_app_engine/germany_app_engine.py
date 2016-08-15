@@ -1,13 +1,13 @@
 import json
 import os
 import time
-import urllib
 import webapp2
 import yaml
+import urllib
 from google.appengine.ext import ndb
 from datetime import datetime
 
-
+DEFAULT_RELAY_VALUE = 'default_relay'
 DEFAULT_TOKEN_VALUE = 'default_token'
 DEFAULT_USER_ID = 'default_user'
 DEFAULT_FILTER_VALUE = 'default_filter'
@@ -18,11 +18,23 @@ DEFAULT_URL_VALUE = 'default_url'
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")
 else:
-    with open('germany_app_engine/app.yaml') as f: 
+    with open('germany_app_engine/app.yaml') as f:
         SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
 
 # Key methods
+
+
+def schedule_key(relay=DEFAULT_RELAY_VALUE):
+    return ndb.Key('Schedule', relay)
+
+
+def competition_key(relay=DEFAULT_RELAY_VALUE):
+    return ndb.Key('Competition', relay)
+
+
+def table_value(relay=DEFAULT_RELAY_VALUE):
+    return ndb.Key('Table', relay)
 
 
 def token_key(token_value=DEFAULT_TOKEN_VALUE):
@@ -49,6 +61,33 @@ def valid_secret_key(request):
 
 
 # Models
+
+class Schedule(ndb.Model):
+    """A scheduled competition"""
+    date = ndb.StringProperty(indexed=True)
+    time = ndb.StringProperty(indexed=False)
+    home = ndb.StringProperty(indexed=False)
+    guest = ndb.StringProperty(indexed=False)
+    location = ndb.StringProperty(indexed=False)
+
+
+class Competition(ndb.Model):
+    """A competition that was held"""
+    date = ndb.StringProperty(indexed=True)
+    home = ndb.StringProperty(indexed=False)
+    guest = ndb.StringProperty(indexed=False)
+    location = ndb.StringProperty(indexed=False)
+    score = ndb.StringProperty(indexed=False)
+    url = ndb.StringProperty(indexed=False)
+
+
+class Table(ndb.Model):
+    """A table entry"""
+    cardinal_points = ndb.StringProperty(indexed=False)
+    club = ndb.StringProperty(indexed=False)
+    max_score = ndb.StringProperty(indexed=False)
+    place = ndb.StringProperty(indexed=False)
+    score = ndb.StringProperty(indexed=False)
 
 
 class Token(ndb.Model):
@@ -85,6 +124,46 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         if valid_secret_key(self.request):
             self.response.out.write('Valid Secret Key - nice!')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class SetSchedules(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            #print self.request.body
+            competitions = json.loads(self.request.body, encoding="utf-8")
+            competitions = json.loads(competitions)
+            print competitions["past_competitions"][0]
+            self.response.write("no")
+        #     value = self.request.get('token')
+        #     token_query = Token.query(ancestor=token_key(value))
+        #     tokens = token_query.fetch(100)
+        #     if len(tokens) == 0:
+        #         token = Token(parent=token_key(value))
+        #         token.value = value
+        #         token.put()
+        #         self.response.write('Added token successfully')
+        #     else:
+        #         self.response.write('This token is already saved')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+
+class GetSchedules(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            relay = self.request.get("relay")
+            schedule_query = Schedule.query(ancestor=schedule_key(relay))
+            schedules = schedule_query.fetch(200)
+            result = []
+            for schedule in schedules:
+                result.append({"date": schedule.date, "time": schedule.time,
+                               "home": schedule.home, "guest": schedule.guest,
+                               "location": schedule.location})
+            response_dict = {"scheduled_competitions": result}
+            self.response.write(json.dumps(response_dict, encoding='utf-8'))
         else:
             self.response.out.write('Secret Key is not valid')
 
@@ -323,26 +402,29 @@ class ArticleExists(webapp2.RequestHandler):
         else:
             self.response.out.write('Secret Key is not valid')
 
+
 class GermanyServer():
-    URL_MAPPING = [
-                    ('/', MainPage),
-                    ('/add_token', AddToken),
-                    ('/delete_token', DeleteToken),
-                    ('/get_tokens', GetTokens),
+    URL_MAPPING = [('/', MainPage),
+                   ('/get_schedules', GetSchedules),
+                   ('/set_schedules', SetSchedules),
 
-                    ('/add_filter', AddFilter),
-                    ('/delete_filter', DeleteFilter),
-                    ('/get_filters', GetFilters),
+                   ('/add_token', AddToken),
+                   ('/delete_token', DeleteToken),
+                   ('/get_tokens', GetTokens),
 
-                    ('/add_protocol', AddSharedProtocol),
-                    ('/delete_protocol', DeleteSharedProtocol),
-                    ('/get_protocols', GetSharedProtocols),
+                   ('/add_filter', AddFilter),
+                   ('/delete_filter', DeleteFilter),
+                   ('/get_filters', GetFilters),
 
-                    ('/add_article', AddArticle),
-                    ('/delete_article', DeleteArticle),
-                    ('/get_articles', GetArticles),
-                    ('/get_article', GetArticle),
-                    ('/article_exists', ArticleExists),
+                   ('/add_protocol', AddSharedProtocol),
+                   ('/delete_protocol', DeleteSharedProtocol),
+                   ('/get_protocols', GetSharedProtocols),
+
+                   ('/add_article', AddArticle),
+                   ('/delete_article', DeleteArticle),
+                   ('/get_articles', GetArticles),
+                   ('/get_article', GetArticle),
+                   ('/article_exists', ArticleExists),
                    ]
     def start(self):
         return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)

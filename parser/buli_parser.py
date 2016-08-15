@@ -1,14 +1,23 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-15 -*-
-import urllib2
-import re
-import os
-import json
 import codecs
+import ConfigParser
+import json
+import os
+import re
+import requests
+import urllib
+import urllib2
+
+ENDPOINT = "http://localhost:8080"
+
+if os.path.isfile("config.ini"):
+    config = ConfigParser.RawConfigParser(allow_no_value=True)
+    config.read('config.ini')
+    APPSPOT_KEY = config.get("appspot", "X-Secret-Key")
 
 
 class BuliParser:
-
     def __init__(self, season, league, relay, schedule_file_name, competition_file_name, table_file_name, push_descr, fragment_id):
         self.league = league
         self.relay = relay
@@ -80,6 +89,7 @@ class BuliParser:
         json_scheduled = json.dumps(schedule_dict, encoding='latin1', sort_keys=True, indent=4, separators=(',', ': '))
         schedule_dict_json = "[" + json_scheduled + "]"
 
+
         if not os.path.isfile(self.schedule_file_name):
             with open(self.schedule_file_name, "w+") as f:
                 f.write(schedule_dict_json.decode('utf-8'))
@@ -111,7 +121,7 @@ class BuliParser:
         """Save past competitions in competition_file_name.json"""
         print "Parsing past competitions ..."
         try:
-            competitions_page = urllib2.urlopen(self.iat_competitions_url, timeout=self.TIMEOUT).read()
+            competitions_page = self.download_unicode(self.iat_competitions_url)
             if "</TABLE>" in competitions_page:
                 competitions = competitions_page.split("</TABLE>")[0]
             else:
@@ -141,31 +151,32 @@ class BuliParser:
             final_competitions.append(entry)
 
         competitions_dict["past_competitions"] = final_competitions
-        json_competitions = json.dumps(competitions_dict, encoding='latin1', sort_keys=True, indent=4, separators=(',', ': '))
+        json_competitions = json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '))
         competitions_dict_json = "[" + json_competitions + "]"
+        self.send_post(json.dumps(competitions_dict), '/set_schedules')
 
-        if not os.path.isfile(self.competition_file_name):
-            with open(self.competition_file_name, "w+") as f:
-                f.write(competitions_dict_json.decode('utf-8'))
-            return
+        # if not os.path.isfile(self.competition_file_name):
+        #     with open(self.competition_file_name, "w+") as f:
+        #         f.write(competitions_dict_json.decode('utf-8'))
+        #     return
 
-        # Handle swapping of competitions due to IAT database
-        with open(self.competition_file_name, "r") as f:
-            old_competitions = f.read()
+        # # Handle swapping of competitions due to IAT database
+        # with open(self.competition_file_name, "r") as f:
+        #     old_competitions = f.read()
 
-        if sorted(competitions_dict_json.decode('utf-8')) != sorted(old_competitions.decode('utf-8')):
-            print "Competitions: Change detected"
-            f = open(self.competition_file_name, "w")
-            f.write(competitions_dict_json.decode('utf-8'))
-            f.close()
+        # if sorted(competitions_dict_json.decode('utf-8')) != sorted(old_competitions.decode('utf-8')):
+        #     print "Competitions: Change detected"
+        #     f = open(self.competition_file_name, "w")
+        #     f.write(competitions_dict_json.decode('utf-8'))
+        #     f.close()
 
-            push_messages = []
-            old_competitions_dict = json.loads(old_competitions, encoding='utf-8')[0]["past_competitions"]
-            new_competitions_dict = json.loads(competitions_dict_json, encoding='utf-8')[0]["past_competitions"]
+        #     push_messages = []
+        #     old_competitions_dict = json.loads(old_competitions, encoding='utf-8')[0]["past_competitions"]
+        #     new_competitions_dict = json.loads(competitions_dict_json, encoding='utf-8')[0]["past_competitions"]
 
-            for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
-                push_messages.append(competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"])
-            self.save_push_message("Neue Wettkampfergebnisse", push_messages, "1")
+        #     for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
+        #         push_messages.append(competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"])
+        #     self.save_push_message("Neue Wettkampfergebnisse", push_messages, "1")
 
     def create_table_file(self):
         """Save table entries in table_file_name.json"""
@@ -227,3 +238,12 @@ class BuliParser:
         for func in [self.create_schedule_file, self.create_competitions_file, self.create_table_file]:
             if not self.error_occured:
                 func()
+
+    def send_post(self, payload, path):
+        r = requests.post(ENDPOINT + path, json=payload, headers={"X-Secret-Key": APPSPOT_KEY})
+        return r.content
+
+    def download_unicode(self, url):
+        req = urllib2.urlopen(url, timeout=self.TIMEOUT)
+        encoding = req.headers['content-type'].split('charset=')[-1]
+        return unicode(req.read(), encoding).encode("utf-8")

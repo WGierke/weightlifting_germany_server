@@ -2,7 +2,6 @@
     "past_competitions": [
         {
             "date": "07.05.2016",
-            "guest": "SC Pforzheim AC Potsdam",
             "home": "TB 03 Roding",
             "location": "Roding",
             "score": "562.1 : 545.0 :562.0",
@@ -10,7 +9,13 @@
         },
         {
             "date": "19.03.2016",
-            "guest": "SSV Samswegen",
+            "home": "SV Germania Obrigheim",
+            "location": "Obrigheim",
+            "score": "850.2 : 800.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=7659C155B6CD48639ED93E8B3E2CCBB2"
+        },
+        {
+            "date": "19.03.2016",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
             "score": "688.4 : 667.2",
@@ -18,7 +23,6 @@
         },
         {
             "date": "19.03.2016",
-            "guest": "Athletenteam Vogtland",
             "home": "AC Mutterstadt",
             "location": "Mutterstadt",
             "score": "758.8 : 549.4",
@@ -26,7 +30,6 @@
         },
         {
             "date": "19.03.2016",
-            "guest": "Oder-Sund-Team ",
             "home": "KSV Durlach",
             "location": "Durlach",
             "score": "630.8 : 685.0",
@@ -34,31 +37,13 @@
         },
         {
             "date": "19.03.2016",
-            "guest": "SG Fortschritt Eibau",
             "home": "TB 03 Roding",
             "location": "Roding",
             "score": "714.3 : 592.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=9BA50791822243089DB0C820581770A3"
         },
         {
-            "date": "19.03.2016",
-            "guest": "Berliner TSC",
-            "home": "SV Germania Obrigheim",
-            "location": "Obrigheim",
-            "score": "850.2 : 800.9",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=7659C155B6CD48639ED93E8B3E2CCBB2"
-        },
-        {
             "date": "05.03.2016",
-            "guest": "AC Germania St.Ilgen",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "526.9 : 773.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=4EAE927D653145EB80C4BD7D150875EF"
-        },
-        {
-            "date": "05.03.2016",
-            "guest": "TSV Heinsheim",
             "home": "AC Mutterstadt",
             "location": "Mutterstadt",
             "score": "772.1 : 666.8",
@@ -66,15 +51,20 @@
         },
         {
             "date": "05.03.2016",
-            "guest": "SV Germania Obrigheim",
             "home": "TB 03 Roding",
             "location": "Roding",
             "score": "664.3 : 796.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=319E5FD9F3B0400894B21D059F415A8D"
         },
         {
+            "date": "05.03.2016",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "526.9 : 773.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=4EAE927D653145EB80C4BD7D150875EF"
+        },
+        {
             "date": "13.02.2016",
-            "guest": "AV Speyer 03",
             "home": "TSV Heinsheim",
             "location": "Bad Rappenau - Heinsheim",
             "score": "685.0 : 806.2",
@@ -82,7 +72,6 @@
         },
         {
             "date": "13.02.2016",
-            "guest": "AC Mutterstadt",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
             "score": "743.0 : 756.6",
@@ -90,7 +79,6 @@
         },
         {
             "date": "13.02.2016",
-            "guest": "KSV Durlach",
             "home": "SV Germania Obrigheim",
             "location": "Obrigheim",
             "score": "793.0 : 614.6",
@@ -98,7 +86,6 @@
         },
         {
             "date": "30.01.2016",
-            "guest": "AC Germania St.Ilgen",
             "home": "AV Speyer 03",
             "location": "Speyer",
             "score": "746.5 : 581.2",
@@ -106,7 +93,6 @@
         },
         {
             "date": "30.01.2016",
-            "guest": "SV Germania Obrigheim",
             "home": "AC Mutterstadt",
             "location": "Mutterstadt",
             "score": "737.4 : 776.0",
@@ -114,7 +100,6 @@
         },
         {
             "date": "30.01.2016",
-            "guest": "TB 03 Roding",
             "home": "KSV Durlach",
             "location": "Durlach",
             "score": "724.8 : 633.0",
@@ -122,7 +107,13 @@
         },
         {
             "date": "05.12.2015",
-            "guest": "AC Mutterstadt",
+            "home": "SV Germania Obrigheim",
+            "location": "Obrigheim",
+            "score": "796.8 : 885.7",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=787A78557FA04BFE916F4E7488DF51D5"
+        },
+        {
+            "date": "05.12.2015",
             "home": "TB 03 Roding",
             "location": "Roding",
             "score": "751.8 : 766.8",
@@ -130,31 +121,13 @@
         },
         {
             "date": "05.12.2015",
-            "guest": "TSV Heinsheim",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
             "score": "744.0 : 632.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=FDF017D2DF474D1BB72D683C2FA84369"
         },
         {
-            "date": "05.12.2015",
-            "guest": "AV Speyer 03",
-            "home": "SV Germania Obrigheim",
-            "location": "Obrigheim",
-            "score": "796.8 : 885.7",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=787A78557FA04BFE916F4E7488DF51D5"
-        },
-        {
             "date": "07.11.2015",
-            "guest": "KSV Durlach",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "score": "716.8 : 737.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=E6BD70D0CC0C4AD2B508B88D17E98C86"
-        },
-        {
-            "date": "07.11.2015",
-            "guest": "TB 03 Roding",
             "home": "AV Speyer 03",
             "location": "Speyer",
             "score": "857.6 : 706.6",
@@ -162,15 +135,20 @@
         },
         {
             "date": "07.11.2015",
-            "guest": "SV Germania Obrigheim",
             "home": "TSV Heinsheim",
             "location": "Bad Rappenau",
             "score": "704.0 : 748.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=78E7C199ED114D7987E7F7367142CC72"
         },
         {
+            "date": "07.11.2015",
+            "home": "AC Mutterstadt",
+            "location": "Mutterstadt",
+            "score": "716.8 : 737.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid='123'&protokoll=1&wkid=E6BD70D0CC0C4AD2B508B88D17E98C86"
+        },
+        {
             "date": "17.10.2015",
-            "guest": "AV Speyer 03",
             "home": "KSV Durlach",
             "location": "Durlach",
             "score": "727.2 : 898.6",
@@ -178,7 +156,6 @@
         },
         {
             "date": "17.10.2015",
-            "guest": "TSV Heinsheim",
             "home": "TB 03 Roding",
             "location": "Roding",
             "score": "752.8 : 700.1",
@@ -186,7 +163,6 @@
         },
         {
             "date": "17.10.2015",
-            "guest": "AC Germania St.Ilgen",
             "home": "SV Germania Obrigheim",
             "location": "Obrigheim",
             "score": "807.0 : 556.2",
@@ -194,7 +170,6 @@
         },
         {
             "date": "26.09.2015",
-            "guest": "AC Mutterstadt",
             "home": "AV Speyer 03",
             "location": "Speyer",
             "score": "861.6 : 673.8",
@@ -202,7 +177,6 @@
         },
         {
             "date": "26.09.2015",
-            "guest": "KSV Durlach",
             "home": "TSV Heinsheim",
             "location": "Bad Rappenau - Heinsheim",
             "score": "683.4 : 647.6",
@@ -210,7 +184,6 @@
         },
         {
             "date": "26.09.2015",
-            "guest": "TB 03 Roding",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
             "score": "745.2 : 729.2",

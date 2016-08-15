@@ -11,17 +11,17 @@ if __name__ == '__main__':
     BuliParser2North = BuliParser(SEASON, "2", "Nordost", "2North_schedule", "2North_competitions", "2North_table", "2. Bundesliga - Staffel Nordost", "6")
     BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2Middle_schedule", "2Middle_competitions", "2Middle_table", "2. Bundesliga - Staffel Mitte", "7")
 
-    #for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
-    #    parser.create_buli_files()
+    for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
+        parser.create_competitions_file()
 
     blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
     while True:
-        update_repo()
+        #update_repo()
 
         for blog_parser_instance in blog_parsers_instances:
             blog_parser_instance.parse_articles()
 
         update_readme(blog_parsers_instances)
-        commit_changes()
+        #commit_changes()
 
         time.sleep(60 * 60)
