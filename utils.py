@@ -23,6 +23,9 @@ else:
         SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
 
+def is_production():
+    return os.environ.get("ENV") == "PRODUCTION"
+
 def valid_secret_key(request):
     return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
 

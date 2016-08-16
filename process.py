@@ -2,7 +2,7 @@ import time
 import traceback
 from parser.buli_parser import BuliParser
 from parser.news_parser import BVDGParser, SpeyerParser, SchwedtParser
-from utils import update_repo, update_readme, commit_changes, send_to_slack
+from utils import update_repo, update_readme, commit_changes, send_to_slack, is_production
 
 if __name__ == '__main__':
     try:
@@ -18,13 +18,15 @@ if __name__ == '__main__':
 
         blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
         while True:
-            update_repo()
+            if is_production():
+                update_repo()
 
             for blog_parser_instance in blog_parsers_instances:
                 blog_parser_instance.parse_articles()
 
             update_readme(blog_parsers_instances)
-            commit_changes()
+            if is_production():
+                commit_changes()
 
             time.sleep(60 * 60)
     except Exception, e:

@@ -7,8 +7,12 @@ import os
 import re
 import requests
 import urllib2
+from utils import is_production
 
-ENDPOINT = "http://localhost:8080"
+if is_production():
+    ENDPOINT = "http://weightliftinggermany.appspot.com"
+else:
+    ENDPOINT = "http://localhost:8080"
 
 if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)

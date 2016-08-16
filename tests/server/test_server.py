@@ -108,7 +108,3 @@ class TokenValidationServerTestCase(ServerTestCase):
         self.assertEqual(response.normal_body, 'Deleted token successfully')
         response = self.get_authenticated("/get_tokens")
         self.assertEqual(response.normal_body, '{"result": []}')
-
-
-if __name__ == '__main__':
-    unittest.main()
