@@ -23,8 +23,16 @@ else:
         SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
 
+def get_endpoint():
+    if is_production():
+        return "http://weightliftinggermany.appspot.com"
+    else:
+        return "http://localhost:8080"
+
+
 def is_production():
     return os.environ.get("ENV") == "PRODUCTION"
+
 
 def valid_secret_key(request):
     return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY

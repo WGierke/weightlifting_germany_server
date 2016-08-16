@@ -7,12 +7,9 @@ import os
 import re
 import requests
 import urllib2
-from utils import is_production
+from utils import get_endpoint
 
-if is_production():
-    ENDPOINT = "http://weightliftinggermany.appspot.com"
-else:
-    ENDPOINT = "http://localhost:8080"
+ENDPOINT = get_endpoint()
 
 if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
@@ -21,16 +18,13 @@ if os.path.isfile("config.ini"):
 
 
 class BuliParser:
-    def __init__(self, season, league, relay, schedule_file_name, competition_file_name, table_file_name, push_descr, fragment_id):
+    def __init__(self, season, league, relay, push_descr, fragment_id):
         self.league = league
         self.relay = relay
         self.iat_season_base = "https://www.iat.uni-leipzig.de/datenbanken/blgew{0}/".format(season)
         self.iat_schedule_url = "{0}start.php?pid=%27123%27&ansetzungen=1&bl={1}&staffel={2}".format(self.iat_season_base, league, relay)
         self.iat_competitions_url = "{0}start.php?pid=%27123%27&resultate=1&bl={1}&staffel={2}".format(self.iat_season_base, league, relay)
         self.iat_table_url = "{0}start.php?pid=%27123%27&tabelle=1&bl={1}&staffel={2}".format(self.iat_season_base, league, relay)
-        self.schedule_file_name = "data/" + schedule_file_name + ".json"
-        self.competition_file_name = "data/" + competition_file_name + ".json"
-        self.table_file_name = "data/" + table_file_name + ".json"
         self.push_descr = push_descr
         self.fragment_id = fragment_id
         self.error_occured = False
@@ -56,7 +50,7 @@ class BuliParser:
     # Main functions
 
 
-    def create_schedule_file(self):
+    def update_schedule(self):
         """Save scheduled competitions in schedule_file_name.json"""
         print "Parsing scheduled competitions ..."
         try:
@@ -93,7 +87,7 @@ class BuliParser:
         self.send_post(json.dumps(schedule_dict), '/set_schedule')
 
 
-    def create_competitions_file(self):
+    def update_competitions(self):
         """Save past competitions in competition_file_name.json"""
         print "Parsing past competitions ..."
         try:
@@ -131,7 +125,7 @@ class BuliParser:
         self.send_post(json.dumps(competitions_dict), '/set_competitions')
 
 
-    def create_table_file(self):
+    def update_table(self):
         """Save table entries in table_file_name.json"""
         print "Parsing table ..."
         try:
@@ -165,10 +159,9 @@ class BuliParser:
         table_dict["relay"] = self.league + self.relay
         self.send_post(json.dumps(table_dict), '/set_table')
 
-
     def create_buli_files(self):
         print "Creating Bundesliga files for BL " + self.league + " - " + self.relay
-        for func in [self.create_schedule_file, self.create_competitions_file, self.create_table_file]:
+        for func in [self.update_schedule, self.update_competitions, self.update_table]:
             if not self.error_occured:
                 func()
 

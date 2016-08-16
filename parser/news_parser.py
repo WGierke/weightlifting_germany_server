@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from utils import send_to_slack, notify_users, write_news
+from utils import send_to_slack, notify_users, write_news, get_endpoint
 import ConfigParser
 import locale
 import re
@@ -18,7 +18,7 @@ import traceback
 import urllib2
 import os.path
 
-ENDPOINT = "http://weightliftinggermany.appspot.com"
+ENDPOINT = get_endpoint()
 
 if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
