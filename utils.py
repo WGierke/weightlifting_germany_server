@@ -5,6 +5,7 @@ import ConfigParser
 import codecs
 import urllib2
 import subprocess
+import yaml
 from datetime import datetime
 from tabulate import tabulate
 
@@ -14,6 +15,17 @@ if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
     config.read('config.ini')
     SLACK_KEY = config.get("slack", "Webhook")
+
+if os.environ.get("SECRET_KEY"):
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+else:
+    with open('germany_app_engine/app.yaml') as f:
+        SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
+
+
+def valid_secret_key(request):
+    return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
+
 
 def write_news(news_text):
     with codecs.open(NEWS_FILE, 'a', encoding='utf8') as f:

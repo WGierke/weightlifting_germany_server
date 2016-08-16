@@ -84,7 +84,7 @@ class BuliParser:
 
                 final_schedule.append(entry)
 
-        schedule_dict["scheduled_competitions"] = final_schedule
+        schedule_dict["schedule"] = final_schedule
         schedule_dict["relay"] = self.league + self.relay
         self.send_post(json.dumps(schedule_dict), '/set_schedule')
 
@@ -122,7 +122,7 @@ class BuliParser:
 
             final_competitions.append(entry)
 
-        competitions_dict["past_competitions"] = final_competitions
+        competitions_dict["competitions"] = final_competitions
         competitions_dict["relay"] = self.league + self.relay
         self.send_post(json.dumps(competitions_dict), '/set_competitions')
 

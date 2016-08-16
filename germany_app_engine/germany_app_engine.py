@@ -1,80 +1,15 @@
 import json
-import os
-import time
 import webapp2
-import yaml
-import urllib
 from google.appengine.ext import ndb
-from datetime import datetime
+from competition_pages import SetSchedule, GetSchedule, SetCompetitions, GetCompetitions, SetTable, GetTable
+from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
+from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
+from utils import valid_secret_key
 
-DEFAULT_RELAY_VALUE = 'default_relay'
 DEFAULT_TOKEN_VALUE = 'default_token'
-DEFAULT_USER_ID = 'default_user'
-DEFAULT_FILTER_VALUE = 'default_filter'
-DEFAULT_PARTIES_VALUES = 'default_parties'
-DEFAULT_URL_VALUE = 'default_url'
-
-
-if os.environ.get("SECRET_KEY"):
-    SECRET_KEY = os.environ.get("SECRET_KEY")
-else:
-    with open('germany_app_engine/app.yaml') as f:
-        SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
-
-
-# Key methods
-
-
-def schedule_key(relay=DEFAULT_RELAY_VALUE):
-    return ndb.Key('Schedule', relay)
-
-
-def competition_key(relay=DEFAULT_RELAY_VALUE):
-    return ndb.Key('Competitions', relay)
-
-
-def table_key(relay=DEFAULT_RELAY_VALUE):
-    return ndb.Key('Table', relay)
-
 
 def token_key(token_value=DEFAULT_TOKEN_VALUE):
     return ndb.Key('Token', token_value)
-
-
-def filter_key(user_id=DEFAULT_USER_ID):
-    return ndb.Key('Filter', user_id)
-
-
-def protocol_key(parties=DEFAULT_PARTIES_VALUES):
-    return ndb.Key('SharedProtocol', parties)
-
-
-def article_key(url=DEFAULT_URL_VALUE):
-    return ndb.Key('Article', url)
-
-
-# Helper methods
-
-
-def valid_secret_key(request):
-    return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
-
-
-# Models
-
-class Schedule(ndb.Model):
-    """A schedule for competitions for a relay"""
-    json_value = ndb.StringProperty(indexed=False)
-
-
-class Competitions(ndb.Model):
-    """Held competitions for a relay"""
-    json_value = ndb.StringProperty(indexed=False)
-
-
-class Table(ndb.Model):
-    """A table about club placements for a relay"""
-    json_value = ndb.StringProperty(indexed=False)
 
 
 class Token(ndb.Model):
@@ -82,135 +17,10 @@ class Token(ndb.Model):
     value = ndb.StringProperty(indexed=False)
 
 
-class FilterSetting(ndb.Model):
-    """Club/Relay a user uses as filter"""
-    user_id = ndb.StringProperty(indexed=False)
-    filter_setting = ndb.StringProperty(indexed=False)
-    timestamp = ndb.DateTimeProperty(auto_now=True)
-
-
-class SharedProtocol(ndb.Model):
-    """Protocol that was shared"""
-    competition_parties = ndb.StringProperty(indexed=False)
-    timestamp = ndb.DateTimeProperty(auto_now=True)
-
-
-class Article(ndb.Model):
-    """A published article about German weightlifting"""
-    url = ndb.StringProperty(indexed=True)
-    publisher = ndb.StringProperty(indexed=True)
-    heading = ndb.StringProperty(indexed=False)
-    content = ndb.StringProperty(indexed=False)
-    date = ndb.DateTimeProperty(auto_now=False)
-    image = ndb.StringProperty(indexed=False)
-
-# Pages
-
-
 class MainPage(webapp2.RequestHandler):
     def get(self):
         if valid_secret_key(self.request):
             self.response.out.write('Valid Secret Key - nice!')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class SetSchedules(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            json_value = json.loads(self.request.body, encoding="utf-8")
-            relay = json.loads(json_value)["relay"]
-            schedule_query = Schedule.query(ancestor=schedule_key(relay))
-            schedules = schedule_query.fetch(100)
-            for schedule in schedules:
-                schedule.key.delete()
-            schedule = Schedule(parent=schedule_key(relay))
-            schedule.json_value = json_value
-            schedule.put()
-            self.response.write('Updated schedule successfully')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-
-class GetSchedules(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            relay = self.request.get("relay")
-            schedule_query = Schedule.query(ancestor=schedule_key(relay))
-            schedules = schedule_query.fetch(100)
-            if len(schedules) > 0:
-                schedule = schedules[0]
-                response_dict = {"result": schedule.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
-            else:
-                self.response.write('No schedule found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class SetCompetitions(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            json_value = json.loads(self.request.body, encoding="utf-8")
-            relay = json.loads(json_value)["relay"]
-            competition_query = Competitions.query(ancestor=competition_key(relay))
-            competitions = competition_query.fetch(100)
-            for competition in competitions:
-                competition.key.delete()
-            competition = Competitions(parent=competition_key(relay))
-            competition.json_value = json_value
-            competition.put()
-            self.response.write('Updated competitions successfully')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class GetCompetitions(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            relay = self.request.get("relay")
-            competition_query = Competitions.query(ancestor=competition_key(relay))
-            competitions = competition_query.fetch(100)
-            if len(competitions) > 0:
-                competition = competitions[0]
-                response_dict = {"result": competition.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
-            else:
-                self.response.write('No competitions found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class SetTables(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            json_value = json.loads(self.request.body, encoding="utf-8")
-            relay = json.loads(json_value)["relay"]
-            table_query = Table.query(ancestor=table_key(relay))
-            tables = table_query.fetch(100)
-            for table in tables:
-                table.key.delete()
-            table = Table(parent=table_key(relay))
-            table.json_value = json_value
-            table.put()
-            self.response.write('Updated table successfully')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class GetTables(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            relay = self.request.get("relay")
-            table_query = Table.query(ancestor=table_key(relay))
-            tables = table_query.fetch(100)
-            if len(tables) > 0:
-                table = tables[0]
-                response_dict = {"result": table.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
-            else:
-                self.response.write('No table found')
         else:
             self.response.out.write('Secret Key is not valid')
 
@@ -259,205 +69,14 @@ class DeleteToken(webapp2.RequestHandler):
             self.response.out.write('Secret Key is not valid')
 
 
-class GetFilters(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            filter_query = FilterSetting.query()
-            filters = filter_query.fetch(1000)
-            filter_array = []
-            for filter_entity in filters:
-                filter_dict = {"userId": filter_entity.user_id, "createdAt": filter_entity.timestamp.strftime("%s"),
-                               "filterSetting": filter_entity.filter_setting}
-                filter_array.append(filter_dict)
-            response_dict = {"result": filter_array}
-            self.response.write(json.dumps(response_dict, encoding='latin1'))
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class AddFilter(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            user_id = self.request.get('userId')
-            filter_setting = self.request.get('filterSetting')
-            filter_query = FilterSetting.query(ancestor=filter_key(user_id))
-            filters = filter_query.fetch(100)
-            if len(filters) == 0:
-                filter_entity = FilterSetting(parent=filter_key(user_id))
-                filter_entity.filter_setting = filter_setting
-                filter_entity.user_id = user_id
-                filter_entity.put()
-                self.response.write('Added filter successfully')
-            else:
-                for filter_entity in filters:
-                    filter_entity.filter_setting = filter_setting
-                    filter_entity.user_id = user_id
-                    filter_entity.put()
-                    self.response.write('Filter was updated successfully')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class DeleteFilter(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            user_id = self.request.get('userId')
-            filter_query = FilterSetting.query(ancestor=filter_key(user_id))
-            filter_settings = filter_query.fetch(100)
-            if len(filter_settings) > 0:
-                for filter_entity in filter_settings:
-                    filter_entity.key.delete()
-                self.response.write('Deleted filter successfully')
-            else:
-                self.response.write('No filter found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class GetSharedProtocols(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            protocol_query = SharedProtocol.query()
-            shared_protocols = protocol_query.fetch(1000)
-            protocol_array = []
-            for protocol_entity in shared_protocols:
-                protocol_dict = {"parties": protocol_entity.competition_parties,
-                                 "createdAt": protocol_entity.timestamp.strftime("%s")}
-                protocol_array.append(protocol_dict)
-            response_dict = {"result": protocol_array}
-            self.response.write(json.dumps(response_dict, encoding='latin1'))
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class AddSharedProtocol(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            competition_parties = self.request.get('competitionParties')
-            protocol_query = SharedProtocol.query(ancestor=protocol_key(competition_parties))
-            protocols = protocol_query.fetch(100)
-            if len(protocols) == 0:
-                protocol_entity = SharedProtocol(parent=protocol_key(competition_parties))
-                protocol_entity.competition_parties = competition_parties
-                protocol_entity.put()
-                self.response.write('Added protocol successfully')
-            else:
-                self.response.write('This protocol is already saved')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class DeleteSharedProtocol(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            competition_parties = self.request.get('competitionParties')
-            protocol_query = SharedProtocol.query(ancestor=protocol_key(competition_parties))
-            protocols = protocol_query.fetch(100)
-            if len(protocols) > 0:
-                for protocol_entity in protocols:
-                    protocol_entity.key.delete()
-                self.response.write('Deleted protocol successfully')
-            else:
-                self.response.write('No protocol found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class GetArticles(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            article_query = Article.query()
-            articles = article_query.fetch(1000)
-            article_array = []
-            for article_entity in articles:
-                article_dict = {"url": article_entity.url}
-                article_array.append(article_dict)
-            response_dict = {"result": article_array}
-            self.response.write(json.dumps(response_dict, encoding='latin1'))
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class GetArticle(webapp2.RequestHandler):
-    def get(self):
-        if valid_secret_key(self.request):
-            url = self.request.get("url")
-            article_query = Article.query(ancestor=article_key(url))
-            articles = article_query.fetch(100)
-            if len(articles) > 0:
-                article = articles[0]
-                result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())), 
-                          "heading": article.heading, "publisher": article.publisher,
-                          "content": article.content, "image": article.image}
-                response_dict = {"result": result}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
-            else:
-                self.response.write('No article found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class AddArticle(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            url = self.request.get("url")
-            article_query = Article.query(ancestor=article_key(url))
-            articles = article_query.fetch(100)
-            if len(articles) == 0:
-                article_entity = Article(parent=article_key(url))
-                article_entity.url = url
-                article_entity.publisher = self.request.get('publisher')
-                article_entity.heading = self.request.get('heading')
-                article_entity.content = self.request.get('content')
-                article_entity.image = self.request.get('image')
-                date = self.request.get('date')
-                article_entity.date = datetime.fromtimestamp(float(date))
-                article_entity.put()
-                self.response.write('Added article successfully')
-            else:
-                self.response.write('This article is already saved')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class DeleteArticle(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            url = self.request.get('url')
-            article_query = Article.query(ancestor=article_key(url))
-            articles = article_query.fetch(100)
-            if len(articles) > 0:
-                for article_entity in articles:
-                    article_entity.key.delete()
-                self.response.write('Deleted article successfully')
-            else:
-                self.response.write('No article found')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
-class ArticleExists(webapp2.RequestHandler):
-    def post(self):
-        if valid_secret_key(self.request):
-            url = self.request.get("url")
-            article_query = Article.query(ancestor=article_key(url))
-            articles = article_query.fetch(100)
-            if len(articles) > 0:
-                self.response.write('Yes')
-            else:
-                self.response.write('No')
-        else:
-            self.response.out.write('Secret Key is not valid')
-
-
 class GermanyServer():
     URL_MAPPING = [('/', MainPage),
-                   ('/set_schedule', SetSchedules),
-                   ('/get_schedules', GetSchedules),
+                   ('/set_schedule', SetSchedule),
+                   ('/get_schedule', GetSchedule),
                    ('/set_competitions', SetCompetitions),
                    ('/get_competitions', GetCompetitions),
-                   ('/set_table', SetTables),
-                   ('/get_tables', GetTables),
+                   ('/set_table', SetTable),
+                   ('/get_table', GetTable),
 
                    ('/add_token', AddToken),
                    ('/delete_token', DeleteToken),
@@ -480,5 +99,6 @@ class GermanyServer():
     def start(self):
         return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
 
-server = GermanyServer()
-app = server.start()
+if __name__ == '__main__':
+    server = GermanyServer()
+    app = server.start()

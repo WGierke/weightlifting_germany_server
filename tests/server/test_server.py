@@ -1,10 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import datetime
-import json
 import os
-import time
 import unittest
 import webtest
 import yaml
@@ -47,6 +44,11 @@ class ServerTestCase(unittest.TestCase):
     def post_authenticated(self, route, params=dict()):
         return self.testapp.post(route, params=params, headers={"X-Secret-Key": self.SECRET_KEY})
 
+    def post_authenticated_json(self, route, json):
+        return self.testapp.post(route, params=json, headers={"X-Secret-Key": self.SECRET_KEY}, content_type="application/json")
+
+
+class TokenValidationServerTestCase(ServerTestCase):
     def test_secret_validation(self):
         url_mapping = GermanyServer.URL_MAPPING
         for route, page in url_mapping:
@@ -106,246 +108,6 @@ class ServerTestCase(unittest.TestCase):
         self.assertEqual(response.normal_body, 'Deleted token successfully')
         response = self.get_authenticated("/get_tokens")
         self.assertEqual(response.normal_body, '{"result": []}')
-
-    def test_filter_adding(self):
-        response = self.get_authenticated("/get_filters")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        response = self.post_authenticated("/add_filter", params={"userId": "1", "filterSetting": "all"})
-        self.assertEqual(response.normal_body, 'Added filter successfully')
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["userId"], "1")
-        self.assertEqual(result[0]["filterSetting"], "all")
-
-        response = self.post_authenticated("/add_filter", params={"userId": "1", "filterSetting": "schwedt"})
-        self.assertEqual(response.normal_body, 'Filter was updated successfully')
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["userId"], "1")
-        self.assertEqual(result[0]["filterSetting"], "schwedt")
-
-        response = self.post_authenticated("/add_filter", params={"userId": "2", "filterSetting": "schwedt"})
-        self.assertEqual(response.normal_body, 'Added filter successfully')
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["userId"], "1")
-        self.assertEqual(result[0]["filterSetting"], "schwedt")
-        self.assertEqual(result[1]["userId"], "2")
-        self.assertEqual(result[1]["filterSetting"], "schwedt")
-
-    def test_filter_deleting(self):
-        response = self.get_authenticated("/get_filters")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        response = self.post_authenticated("/add_filter", params={"userId": "1", "filterSetting": "all"})
-        response = self.post_authenticated("/add_filter", params={"userId": "2", "filterSetting": "schwedt"})
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["userId"], "1")
-        self.assertEqual(result[0]["filterSetting"], "all")
-        self.assertEqual(result[1]["userId"], "2")
-        self.assertEqual(result[1]["filterSetting"], "schwedt")
-
-        response = self.post_authenticated("/delete_filter", params={"userId": "1", "filterSetting": "all"})
-        self.assertEqual(response.normal_body, 'Deleted filter successfully')
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["userId"], "2")
-        self.assertEqual(result[0]["filterSetting"], "schwedt")
-
-        response = self.post_authenticated("/delete_filter", params={"userId": "1", "filterSetting": "all"})
-        self.assertEqual(response.normal_body, 'No filter found')
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["userId"], "2")
-        self.assertEqual(result[0]["filterSetting"], "schwedt")
-
-        response = self.post_authenticated("/delete_filter", params={"userId": "2", "filterSetting": "schwedt"})
-        response = self.get_authenticated("/get_filters")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 0)
-
-    def test_protocol_adding(self):
-        response = self.get_authenticated("/get_protocols")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        response = self.post_authenticated("/add_protocol", params={"competitionParties": "MyParty"})
-        self.assertEqual(response.normal_body, 'Added protocol successfully')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["parties"], "MyParty")
-
-        response = self.post_authenticated("/add_protocol", params={"competitionParties": "MyParty"})
-        self.assertEqual(response.normal_body, 'This protocol is already saved')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["parties"], "MyParty")
-
-        response = self.post_authenticated("/add_protocol", params={"competitionParties": "MyParty2"})
-        self.assertEqual(response.normal_body, 'Added protocol successfully')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["parties"], "MyParty")
-        self.assertEqual(result[1]["parties"], "MyParty2")
-
-    def test_protocol_deleting(self):
-        response = self.get_authenticated("/get_protocols")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        response = self.post_authenticated("/add_protocol", params={"competitionParties": "MyParty"})
-        self.assertEqual(response.normal_body, 'Added protocol successfully')
-        response = self.post_authenticated("/add_protocol", params={"competitionParties": "MyParty2"})
-        self.assertEqual(response.normal_body, 'Added protocol successfully')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["parties"], "MyParty")
-        self.assertEqual(result[1]["parties"], "MyParty2")
-
-        response = self.post_authenticated("/delete_protocol", params={"competitionParties": "MyParty2"})
-        self.assertEqual(response.normal_body, 'Deleted protocol successfully')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["parties"], "MyParty")
-
-        response = self.post_authenticated("/delete_protocol", params={"competitionParties": "MyParty2"})
-        self.assertEqual(response.normal_body, 'No protocol found')
-        response = self.get_authenticated("/get_protocols")
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["parties"], "MyParty")
-
-        response = self.post_authenticated("/delete_protocol", params={"competitionParties": "MyParty"})
-        self.assertEqual(response.normal_body, 'Deleted protocol successfully')
-        response = self.get_authenticated("/get_protocols")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 0)
-
-    def test_adding_articles(self):
-        response = self.get_authenticated("/get_articles")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        url = "http://gewichtheben.blauweiss65-schwedt.de/?page_id=6858&paged=1"
-        date = "1456182000"
-        heading = "My Article Ä"
-        content = "My Content Ä"
-        publisher = "My Publisher"
-        params = {"url": url, "date": date, "heading": heading, "content": content, "publisher": publisher}
-        response = self.post_authenticated("/add_article", params=params)
-        self.assertEqual(response.normal_body, 'Added article successfully')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["url"], url)
-
-        response = self.post_authenticated("/add_article", params=params)
-        self.assertEqual(response.normal_body, 'This article is already saved')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["url"], url)
-
-        params = {"url": url + "_2", "date": date, "heading": heading, "content": content, "publisher": publisher}
-        response = self.post_authenticated("/add_article", params=params)
-        self.assertEqual(response.normal_body, 'Added article successfully')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["url"], url)
-        self.assertEqual(result[1]["url"], url + "_2")
-
-    def test_deleting_articles(self):
-        response = self.get_authenticated("/get_articles")
-        self.assertEqual(response.normal_body, '{"result": []}')
-        url = "http://gewichtheben.blauweiss65-schwedt.de/?page_id=6858&paged=1"
-        date = "1456182000"
-        heading = "My Article Ä"
-        content = "My Content Ä"
-        publisher = "My Publisher"
-        params = {"url": url, "date": date, "heading": heading, "content": content, "publisher": publisher}
-        response = self.post_authenticated("/add_article", params=params)
-        params["url"] = url + "_2"
-        response = self.post_authenticated("/add_article", params=params)
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 2)
-        self.assertEqual(result[0]["url"], url)
-        self.assertEqual(result[1]["url"], url + "_2")
-
-        response = self.post_authenticated("/delete_article", params={"url": url})
-        self.assertEqual(response.normal_body, 'Deleted article successfully')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["url"], url + "_2")
-
-        response = self.post_authenticated("/delete_article", params={"url": url})
-        self.assertEqual(response.normal_body, 'No article found')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0]["url"], url + "_2")
-
-        response = self.post_authenticated("/delete_article", params={"url": url + "_2"})
-        self.assertEqual(response.normal_body, 'Deleted article successfully')
-        response = self.get_authenticated("/get_articles")
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(len(result), 0)
-
-    def test_article_exists(self):
-        response = self.get_authenticated("/get_articles")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        url = "http://gewichtheben.blauweiss65-schwedt.de/?page_id=6858&paged=1"
-        date = "1456182000"
-        heading = "My Article Ä"
-        content = "My Content Ä"
-        publisher = "My Publisher"
-        image = "My Image"
-        params = {"url": url, "date": date, "heading": heading, "content": content, "publisher": publisher, "image": image}
-
-        response = self.post_authenticated("/article_exists", params=params)
-        self.assertEqual(response.normal_body, "No")
-
-        response = self.post_authenticated("/add_article", params=params)
-        response = self.post_authenticated("/article_exists", params=params)
-        self.assertEqual(response.normal_body, "Yes")
-
-        response = self.post_authenticated("/delete_article", params=params)
-        response = self.post_authenticated("/article_exists", params=params)
-        self.assertEqual(response.normal_body, "No")
-
-    def test_article_getting(self):
-        response = self.get_authenticated("/get_articles")
-        self.assertEqual(response.normal_body, '{"result": []}')
-
-        url = "http://gewichtheben.blauweiss65-schwedt.de/?page_id=6858&paged=1"
-        date = str(time.mktime(datetime.date(2016, 6, 24).timetuple()))
-        heading = "My Article Ä"
-        content = "My Content Ä"
-        publisher = "My Publisher"
-        image = "My image"
-        params = {"url": url, "date": date, "heading": heading, "content": content, "publisher": publisher, "image": image}
-
-        response = self.post_authenticated("/add_article", params=params)
-        response = self.get_authenticated("/get_article", params={"url": url})
-        result = json.loads(response.normal_body)["result"]
-        self.assertEqual(result["url"], url)
-        self.assertEqual(result["date"], date)
-        self.assertEqual(result["heading"], heading.decode("utf-8"))
-        self.assertEqual(result["content"], content.decode("utf-8"))
-        self.assertEqual(result["publisher"], publisher.decode("utf-8"))
-        self.assertEqual(result["image"], image.decode("utf-8"))
 
 
 if __name__ == '__main__':
