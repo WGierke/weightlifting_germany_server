@@ -45,7 +45,7 @@ def update_readme(blog_parsers_instances):
         row = [blog_parser_instance.BLOG_NAME,
                u"[{}]({})".format(article["heading"], newest_url),
                datetime.fromtimestamp(float(article["date"])).strftime("%Y-%m-%d"),
-               "<img src='{}' width='100px'/>".format(article["image"]) if article["image"] else "",
+               u"<img src='{}' width='100px'/>".format(article["image"]) if article["image"] else "",
                article["content"][:20] + "..."
                ]
         table.append(row)
