@@ -1,7 +1,7 @@
 import json
 import webapp2
 from google.appengine.ext import ndb
-from utils import valid_secret_key
+from server_utils import valid_secret_key
 
 DEFAULT_PARTIES_VALUES = 'default_parties'
 DEFAULT_USER_ID = 'default_user'
@@ -21,6 +21,7 @@ class FilterSetting(ndb.Model):
     user_id = ndb.StringProperty(indexed=False)
     filter_setting = ndb.StringProperty(indexed=False)
     timestamp = ndb.DateTimeProperty(auto_now=True)
+
 
 class SharedProtocol(ndb.Model):
     """Protocol that was shared"""

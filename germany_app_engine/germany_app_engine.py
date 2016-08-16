@@ -4,9 +4,10 @@ from google.appengine.ext import ndb
 from competition_pages import SetSchedule, GetSchedule, SetCompetitions, GetCompetitions, SetTable, GetTable
 from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
 from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
-from utils import valid_secret_key
+from server_utils import valid_secret_key
 
 DEFAULT_TOKEN_VALUE = 'default_token'
+
 
 def token_key(token_value=DEFAULT_TOKEN_VALUE):
     return ndb.Key('Token', token_value)
@@ -96,6 +97,7 @@ class GermanyServer():
                    ('/get_article', GetArticle),
                    ('/article_exists', ArticleExists),
                    ]
+
     def start(self):
         return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
 

@@ -17,8 +17,7 @@ class CompetitionServerTestCase(ServerTestCase):
                    }]}
         response = self.post_authenticated_json("/set_schedule", json=json.dumps(json.dumps(params)))
         response = self.get_authenticated("/get_schedule?relay=2South")
-        result = json.loads(response.normal_body)["result"]
-        result = json.loads(result)
+        result = json.loads(response.normal_body)
         self.assertEqual(result["relay"], "2South")
         self.assertEqual(result["schedule"][0]["guest"], u"Meißen")
 
@@ -36,8 +35,7 @@ class CompetitionServerTestCase(ServerTestCase):
                    }]}
         response = self.post_authenticated_json("/set_competitions", json=json.dumps(json.dumps(params)))
         response = self.get_authenticated("/get_competitions?relay=2South")
-        result = json.loads(response.normal_body)["result"]
-        result = json.loads(result)
+        result = json.loads(response.normal_body)
         self.assertEqual(result["relay"], "2South")
         self.assertEqual(result["competitions"][0]["guest"], u"Meißen")
 
@@ -54,7 +52,6 @@ class CompetitionServerTestCase(ServerTestCase):
                    }]}
         response = self.post_authenticated_json("/set_table", json=json.dumps(json.dumps(params)))
         response = self.get_authenticated("/get_table?relay=2South")
-        result = json.loads(response.normal_body)["result"]
-        result = json.loads(result)
+        result = json.loads(response.normal_body)
         self.assertEqual(result["relay"], "2South")
         self.assertEqual(result["table"][0]["club"], u"Münchener AC")

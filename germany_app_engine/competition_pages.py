@@ -1,7 +1,7 @@
 import json
 import webapp2
 from google.appengine.ext import ndb
-from utils import valid_secret_key
+from server_utils import valid_secret_key
 
 DEFAULT_RELAY_VALUE = 'default_relay'
 
@@ -57,9 +57,7 @@ class GetSchedule(webapp2.RequestHandler):
             schedule_query = Schedule.query(ancestor=schedule_key(relay))
             schedules = schedule_query.fetch(100)
             if len(schedules) > 0:
-                schedule = schedules[0]
-                response_dict = {"result": schedule.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+                self.response.write(schedules[0].json_value)
             else:
                 self.response.write('No schedule found')
         else:
@@ -90,9 +88,7 @@ class GetCompetitions(webapp2.RequestHandler):
             competition_query = Competitions.query(ancestor=competition_key(relay))
             competitions = competition_query.fetch(100)
             if len(competitions) > 0:
-                competition = competitions[0]
-                response_dict = {"result": competition.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+                self.response.write(competitions[0].json_value)
             else:
                 self.response.write('No competitions found')
         else:
@@ -123,9 +119,7 @@ class GetTable(webapp2.RequestHandler):
             table_query = Table.query(ancestor=table_key(relay))
             tables = table_query.fetch(100)
             if len(tables) > 0:
-                table = tables[0]
-                response_dict = {"result": table.json_value}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+                self.response.write(tables[0].json_value)
             else:
                 self.response.write('No table found')
         else:

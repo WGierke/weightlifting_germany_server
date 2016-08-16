@@ -3,7 +3,7 @@ import time
 import webapp2
 from google.appengine.ext import ndb
 from datetime import datetime
-from utils import valid_secret_key
+from server_utils import valid_secret_key
 
 DEFAULT_ARTICLE_VALUE = 'default_url'
 

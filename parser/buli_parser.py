@@ -49,12 +49,10 @@ class BuliParser:
 
     # Main functions
 
-
-    def update_schedule(self):
-        """Save scheduled competitions in schedule_file_name.json"""
+    def generate_schedule_json_from_url(self, url):
         print "Parsing scheduled competitions ..."
         try:
-            schedule_page = urllib2.urlopen(self.iat_schedule_url, timeout=self.TIMEOUT).read()
+            schedule_page = urllib2.urlopen(url, timeout=self.TIMEOUT).read()
             if "</TABLE>" in schedule_page:
                 scheduled = schedule_page.split("</TABLE>")[0]
             else:
@@ -84,14 +82,17 @@ class BuliParser:
 
         schedule_dict["schedule"] = final_schedule
         schedule_dict["relay"] = self.league + self.relay
-        self.send_post(json.dumps(schedule_dict), '/set_schedule')
+        return json.dumps(schedule_dict)
+
+    def update_schedule(self):
+        schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
+        self.send_post(schedule_json, '/set_schedule')
 
 
-    def update_competitions(self):
-        """Save past competitions in competition_file_name.json"""
+    def generate_competitions_json_from_url(self, url):
         print "Parsing past competitions ..."
         try:
-            competitions_page = self.download_unicode(self.iat_competitions_url)
+            competitions_page = self.download_unicode(url)
             if "</TABLE>" in competitions_page:
                 competitions = competitions_page.split("</TABLE>")[0]
             else:
@@ -122,14 +123,17 @@ class BuliParser:
 
         competitions_dict["competitions"] = final_competitions
         competitions_dict["relay"] = self.league + self.relay
-        self.send_post(json.dumps(competitions_dict), '/set_competitions')
+        return json.dumps(competitions_dict)
 
+    def update_competitions(self):
+        competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
+        print competitions_json
+        self.send_post(competitions_json, '/set_competitions')
 
-    def update_table(self):
-        """Save table entries in table_file_name.json"""
+    def generate_table_json_from_url(self, url):
         print "Parsing table ..."
         try:
-            table_page = self.download_unicode(self.iat_table_url)
+            table_page = self.download_unicode(url)
             if "</TABLE>" in table_page:
                 table = table_page.split("</TABLE>")[0]
             else:
@@ -157,7 +161,11 @@ class BuliParser:
 
         table_dict["table"] = final_entries
         table_dict["relay"] = self.league + self.relay
-        self.send_post(json.dumps(table_dict), '/set_table')
+        return json.dumps(table_dict)
+
+    def update_table(self):
+        table_json = self.generate_table_json_from_url(self.iat_table_url)
+        self.send_post(table_json, '/set_table')
 
     def create_buli_files(self):
         print "Creating Bundesliga files for BL " + self.league + " - " + self.relay
