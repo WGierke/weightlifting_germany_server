@@ -6,7 +6,6 @@ import json
 import os
 import re
 import requests
-import urllib
 import urllib2
 
 ENDPOINT = "http://localhost:8080"
@@ -86,35 +85,8 @@ class BuliParser:
                 final_schedule.append(entry)
 
         schedule_dict["scheduled_competitions"] = final_schedule
-        json_scheduled = json.dumps(schedule_dict, encoding='latin1', sort_keys=True, indent=4, separators=(',', ': '))
-        schedule_dict_json = "[" + json_scheduled + "]"
-
-
-        if not os.path.isfile(self.schedule_file_name):
-            with open(self.schedule_file_name, "w+") as f:
-                f.write(schedule_dict_json.decode('utf-8'))
-            return
-
-        # Handle swapping of scheduled competitions due to IAT database
-        with open(self.schedule_file_name, "r") as f:
-            old_schedules = f.read()
-
-        if sorted(schedule_dict_json.decode('utf-8')) != sorted(old_schedules.decode('utf-8')):
-            print "Scheduled competitions: Change detected"
-            f = open(self.schedule_file_name, "w")
-            f.write(schedule_dict_json.decode('utf-8'))
-            f.close()
-
-            push_messages = []
-            old_schedule_dict = json.loads(old_schedules, encoding='utf-8')[0]["scheduled_competitions"]
-            new_schedule_dict = json.loads(schedule_dict_json, encoding='utf-8')[0]["scheduled_competitions"]
-
-            additional_schedules = self.get_additional_entries(old_schedule_dict, new_schedule_dict)
-
-            if(len(additional_schedules) > 0):
-                for schedule in additional_schedules:
-                    push_messages.append(schedule["home"] + " vs. " + schedule["guest"] + ": " + schedule["time"] + " in " + schedule["location"])
-                self.save_push_message("Neue Ansetzungen", push_messages, "0")
+        schedule_dict["relay"] = self.league + self.relay
+        self.send_post(json.dumps(schedule_dict), '/set_schedule')
 
 
     def create_competitions_file(self):
@@ -151,38 +123,15 @@ class BuliParser:
             final_competitions.append(entry)
 
         competitions_dict["past_competitions"] = final_competitions
-        json_competitions = json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '))
-        competitions_dict_json = "[" + json_competitions + "]"
-        self.send_post(json.dumps(competitions_dict), '/set_schedules')
+        competitions_dict["relay"] = self.league + self.relay
+        self.send_post(json.dumps(competitions_dict), '/set_competitions')
 
-        # if not os.path.isfile(self.competition_file_name):
-        #     with open(self.competition_file_name, "w+") as f:
-        #         f.write(competitions_dict_json.decode('utf-8'))
-        #     return
-
-        # # Handle swapping of competitions due to IAT database
-        # with open(self.competition_file_name, "r") as f:
-        #     old_competitions = f.read()
-
-        # if sorted(competitions_dict_json.decode('utf-8')) != sorted(old_competitions.decode('utf-8')):
-        #     print "Competitions: Change detected"
-        #     f = open(self.competition_file_name, "w")
-        #     f.write(competitions_dict_json.decode('utf-8'))
-        #     f.close()
-
-        #     push_messages = []
-        #     old_competitions_dict = json.loads(old_competitions, encoding='utf-8')[0]["past_competitions"]
-        #     new_competitions_dict = json.loads(competitions_dict_json, encoding='utf-8')[0]["past_competitions"]
-
-        #     for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
-        #         push_messages.append(competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"])
-        #     self.save_push_message("Neue Wettkampfergebnisse", push_messages, "1")
 
     def create_table_file(self):
         """Save table entries in table_file_name.json"""
         print "Parsing table ..."
         try:
-            table_page = urllib2.urlopen(self.iat_table_url, timeout=self.TIMEOUT).read()
+            table_page = self.download_unicode(self.iat_table_url)
             if "</TABLE>" in table_page:
                 table = table_page.split("</TABLE>")[0]
             else:
@@ -209,29 +158,9 @@ class BuliParser:
             final_entries.append(entry)
 
         table_dict["table"] = final_entries
-        json_table = json.dumps(table_dict, encoding='latin1', sort_keys=True, indent=4, separators=(',', ': '))
-        table_dict_json = "[" + json_table + "]"
+        table_dict["relay"] = self.league + self.relay
+        self.send_post(json.dumps(table_dict), '/set_table')
 
-        if not os.path.isfile(self.table_file_name):
-            with open(self.table_file_name, "w+") as f:
-                f.write(table_dict_json.decode('utf-8'))
-            return
-
-        with open(self.table_file_name, "r") as f:
-            old_table = f.read()
-
-        if sorted(old_table.decode('utf-8')) != sorted(table_dict_json.decode('utf-8')):
-            f = open(self.table_file_name, "w")
-            f.write(table_dict_json.decode('utf-8'))
-            f.close()
-
-            push_messages = []
-            old_table_dict = json.loads(old_table, encoding='utf-8')[0]["table"]
-            new_table_dict = json.loads(table_dict_json, encoding='utf-8')[0]["table"]
-
-            for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
-                push_messages.append(table_entry["place"] + ". " + table_entry["club"])
-            self.save_push_message("Neue Tabellenergebnisse", push_messages, "2")
 
     def create_buli_files(self):
         print "Creating Bundesliga files for BL " + self.league + " - " + self.relay

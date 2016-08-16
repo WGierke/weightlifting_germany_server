@@ -30,10 +30,10 @@ def schedule_key(relay=DEFAULT_RELAY_VALUE):
 
 
 def competition_key(relay=DEFAULT_RELAY_VALUE):
-    return ndb.Key('Competition', relay)
+    return ndb.Key('Competitions', relay)
 
 
-def table_value(relay=DEFAULT_RELAY_VALUE):
+def table_key(relay=DEFAULT_RELAY_VALUE):
     return ndb.Key('Table', relay)
 
 
@@ -63,31 +63,18 @@ def valid_secret_key(request):
 # Models
 
 class Schedule(ndb.Model):
-    """A scheduled competition"""
-    date = ndb.StringProperty(indexed=True)
-    time = ndb.StringProperty(indexed=False)
-    home = ndb.StringProperty(indexed=False)
-    guest = ndb.StringProperty(indexed=False)
-    location = ndb.StringProperty(indexed=False)
+    """A schedule for competitions for a relay"""
+    json_value = ndb.StringProperty(indexed=False)
 
 
-class Competition(ndb.Model):
-    """A competition that was held"""
-    date = ndb.StringProperty(indexed=True)
-    home = ndb.StringProperty(indexed=False)
-    guest = ndb.StringProperty(indexed=False)
-    location = ndb.StringProperty(indexed=False)
-    score = ndb.StringProperty(indexed=False)
-    url = ndb.StringProperty(indexed=False)
+class Competitions(ndb.Model):
+    """Held competitions for a relay"""
+    json_value = ndb.StringProperty(indexed=False)
 
 
 class Table(ndb.Model):
-    """A table entry"""
-    cardinal_points = ndb.StringProperty(indexed=False)
-    club = ndb.StringProperty(indexed=False)
-    max_score = ndb.StringProperty(indexed=False)
-    place = ndb.StringProperty(indexed=False)
-    score = ndb.StringProperty(indexed=False)
+    """A table about club placements for a relay"""
+    json_value = ndb.StringProperty(indexed=False)
 
 
 class Token(ndb.Model):
@@ -131,39 +118,99 @@ class MainPage(webapp2.RequestHandler):
 class SetSchedules(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
-            #print self.request.body
-            competitions = json.loads(self.request.body, encoding="utf-8")
-            competitions = json.loads(competitions)
-            print competitions["past_competitions"][0]
-            self.response.write("no")
-        #     value = self.request.get('token')
-        #     token_query = Token.query(ancestor=token_key(value))
-        #     tokens = token_query.fetch(100)
-        #     if len(tokens) == 0:
-        #         token = Token(parent=token_key(value))
-        #         token.value = value
-        #         token.put()
-        #         self.response.write('Added token successfully')
-        #     else:
-        #         self.response.write('This token is already saved')
+            json_value = json.loads(self.request.body, encoding="utf-8")
+            relay = json.loads(json_value)["relay"]
+            schedule_query = Schedule.query(ancestor=schedule_key(relay))
+            schedules = schedule_query.fetch(100)
+            for schedule in schedules:
+                schedule.key.delete()
+            schedule = Schedule(parent=schedule_key(relay))
+            schedule.json_value = json_value
+            schedule.put()
+            self.response.write('Updated schedule successfully')
         else:
             self.response.out.write('Secret Key is not valid')
 
 
 
 class GetSchedules(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
         if valid_secret_key(self.request):
             relay = self.request.get("relay")
             schedule_query = Schedule.query(ancestor=schedule_key(relay))
-            schedules = schedule_query.fetch(200)
-            result = []
-            for schedule in schedules:
-                result.append({"date": schedule.date, "time": schedule.time,
-                               "home": schedule.home, "guest": schedule.guest,
-                               "location": schedule.location})
-            response_dict = {"scheduled_competitions": result}
-            self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            schedules = schedule_query.fetch(100)
+            if len(schedules) > 0:
+                schedule = schedules[0]
+                response_dict = {"result": schedule.json_value}
+                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            else:
+                self.response.write('No schedule found')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class SetCompetitions(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            json_value = json.loads(self.request.body, encoding="utf-8")
+            relay = json.loads(json_value)["relay"]
+            competition_query = Competitions.query(ancestor=competition_key(relay))
+            competitions = competition_query.fetch(100)
+            for competition in competitions:
+                competition.key.delete()
+            competition = Competitions(parent=competition_key(relay))
+            competition.json_value = json_value
+            competition.put()
+            self.response.write('Updated competitions successfully')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class GetCompetitions(webapp2.RequestHandler):
+    def get(self):
+        if valid_secret_key(self.request):
+            relay = self.request.get("relay")
+            competition_query = Competitions.query(ancestor=competition_key(relay))
+            competitions = competition_query.fetch(100)
+            if len(competitions) > 0:
+                competition = competitions[0]
+                response_dict = {"result": competition.json_value}
+                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            else:
+                self.response.write('No competitions found')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class SetTables(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            json_value = json.loads(self.request.body, encoding="utf-8")
+            relay = json.loads(json_value)["relay"]
+            table_query = Table.query(ancestor=table_key(relay))
+            tables = table_query.fetch(100)
+            for table in tables:
+                table.key.delete()
+            table = Table(parent=table_key(relay))
+            table.json_value = json_value
+            table.put()
+            self.response.write('Updated table successfully')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class GetTables(webapp2.RequestHandler):
+    def get(self):
+        if valid_secret_key(self.request):
+            relay = self.request.get("relay")
+            table_query = Table.query(ancestor=table_key(relay))
+            tables = table_query.fetch(100)
+            if len(tables) > 0:
+                table = tables[0]
+                response_dict = {"result": table.json_value}
+                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            else:
+                self.response.write('No table found')
         else:
             self.response.out.write('Secret Key is not valid')
 
@@ -405,8 +452,12 @@ class ArticleExists(webapp2.RequestHandler):
 
 class GermanyServer():
     URL_MAPPING = [('/', MainPage),
+                   ('/set_schedule', SetSchedules),
                    ('/get_schedules', GetSchedules),
-                   ('/set_schedules', SetSchedules),
+                   ('/set_competitions', SetCompetitions),
+                   ('/get_competitions', GetCompetitions),
+                   ('/set_table', SetTables),
+                   ('/get_tables', GetTables),
 
                    ('/add_token', AddToken),
                    ('/delete_token', DeleteToken),

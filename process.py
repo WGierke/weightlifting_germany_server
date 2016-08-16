@@ -12,7 +12,7 @@ if __name__ == '__main__':
     BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2Middle_schedule", "2Middle_competitions", "2Middle_table", "2. Bundesliga - Staffel Mitte", "7")
 
     for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
-        parser.create_competitions_file()
+        parser.create_buli_files()
 
     blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
     while True:
