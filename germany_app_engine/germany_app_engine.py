@@ -101,6 +101,5 @@ class GermanyServer():
     def start(self):
         return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
 
-if __name__ == '__main__':
-    server = GermanyServer()
-    app = server.start()
+server = GermanyServer()
+app = server.start()

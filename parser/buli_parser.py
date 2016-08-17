@@ -29,6 +29,9 @@ class BuliParser:
         self.fragment_id = fragment_id
         self.error_occured = False
         self.TIMEOUT = 15
+        self.newest_schedule_json = ""
+        self.newest_competitions_json = ""
+        self.newest_table_json = ""
 
     # Helper functions
 
@@ -86,7 +89,14 @@ class BuliParser:
 
     def update_schedule(self):
         schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
-        self.send_post(schedule_json, '/set_schedule')
+        schedule_dict = json.loads(schedule_json)
+        if sorted(self.newest_schedule_json.decode("utf-8")) == sorted(schedule_json.decode("utf-8")):
+            print "Local check: Schedule of " + schedule_dict["relay"] + " did not change"
+            return
+        else:
+            print "Local check: Schedule of " + schedule_dict["relay"] + " changed"
+            self.newest_schedule_json = schedule_json
+            self.send_post(schedule_json, '/set_schedule')
 
 
     def generate_competitions_json_from_url(self, url):
@@ -127,8 +137,14 @@ class BuliParser:
 
     def update_competitions(self):
         competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
-        print competitions_json
-        self.send_post(competitions_json, '/set_competitions')
+        competitions_dict = json.loads(competitions_json)
+        if sorted(self.newest_competitions_json.decode("utf-8")) == sorted(competitions_json.decode("utf-8")):
+            print "Local check: Competitions of " + competitions_dict["relay"] + " did not change"
+            return
+        else:
+            print "Local check: Competitions of " + competitions_dict["relay"] + " changed"
+            self.newest_competitions_json = competitions_json
+            self.send_post(competitions_json, '/set_competitions')
 
     def generate_table_json_from_url(self, url):
         print "Parsing table ..."
@@ -165,10 +181,17 @@ class BuliParser:
 
     def update_table(self):
         table_json = self.generate_table_json_from_url(self.iat_table_url)
-        self.send_post(table_json, '/set_table')
+        table_dict = json.loads(table_json)
+        if sorted(self.newest_table_json.decode("utf-8")) == sorted(table_json.decode("utf-8")):
+            print "Local check: Table of " + table_dict["relay"] + " did not change"
+            return
+        else:
+            print "Local check: Table of " + table_dict["relay"] + " changed"
+            self.newest_table_json = table_json
+            self.send_post(table_json, '/set_table')
 
-    def create_buli_files(self):
-        print "Creating Bundesliga files for BL " + self.league + " - " + self.relay
+    def update_buli(self):
+        print "Updating Bundesliga records for BL " + self.league + " - " + self.relay
         for func in [self.update_schedule, self.update_competitions, self.update_table]:
             if not self.error_occured:
                 func()

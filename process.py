@@ -15,13 +15,13 @@ if __name__ == '__main__':
         BuliParser2North = BuliParser(SEASON, "2", "Nordost", "2. Bundesliga - Staffel Nordost", "6")
         BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2. Bundesliga - Staffel Mitte", "7")
 
-        for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
-            parser.create_buli_files()
-
         blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
         while True:
             if is_production():
                 update_repo()
+
+            for parser in [BuliParser1A, BuliParser1B, BuliParser2South, BuliParser2North, BuliParser2Middle]:
+                parser.update_buli()
 
             for blog_parser_instance in blog_parsers_instances:
                 blog_parser_instance.parse_articles()
