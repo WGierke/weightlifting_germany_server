@@ -25,8 +25,8 @@ class Article(ndb.Model):
 class GetArticles(webapp2.RequestHandler):
     def get(self):
         if valid_secret_key(self.request):
-            article_query = Article.query()
-            articles = article_query.fetch(1000)
+            publisher = self.request.get('publisher')
+            articles = Article.query(Article.publisher == publisher)
             article_array = []
             for article_entity in articles:
                 article_dict = {"url": article_entity.url}
