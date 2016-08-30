@@ -30,7 +30,7 @@ if __name__ == '__main__':
             if is_production():
                 commit_changes()
             time.sleep(60 * 60)
-        except Exception, e:
+        except:
             text = "An error occured:" + traceback.format_exc()
             print text
             send_to_slack(text)
