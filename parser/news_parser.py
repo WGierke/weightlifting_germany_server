@@ -192,10 +192,8 @@ class BVDGParser(NewsParser):
 
         soup = BeautifulSoup(tostring(post_content_holder), "lxml")
         content = ''.join(soup.findAll(text=True)).strip()
-        if u"\n\n\n\xa0\n" in content: # Remove category and author
-            content = '\n'.join(content.split(u"\n\n\n\xa0\n")[1:]).strip()
-        else:
-            content = '\n'.join(content.split(u"\n\n\n")[1:]).strip()
+        if u"Comments\n\n" in content: #Remove time, category and and comments
+            content = '\n'.join(content.split(u"Comments\n\n")[1:]).strip()
 
         article = {"date": str(time.mktime(date.timetuple())),
                    "heading": heading,

@@ -56,7 +56,7 @@ def send_to_slack(text, username="Germany", important=True):
 
 def notify_users(article):
     # Notify app users
-    send_to_slack("New article: " + article["heading"], username=article["publisher"], important=False)
+    send_to_slack(article["heading"] + ": " + article["content"][:10], username=article["publisher"], important=False)
 
 def update_readme(blog_parsers_instances):
     headers = ["Blog Name", "Heading", "Date", "Image", "Content"]
