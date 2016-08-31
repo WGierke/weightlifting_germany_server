@@ -27,6 +27,6 @@ It then notifys the Android app users of the changes via GCM.
 
 | Blog Name   | Heading                                                                                                                   | Date       | Image   | Content                 |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
-| BVDG        | [Passwort-Regelung für ADAMS angepasst](http://www.german-weightlifting.de/passwort-regelung-fuer-adams-angepasst/)       | 2016-08-26 |         | ...                     |
+| BVDG        | [Passwort-Regelung für ADAMS angepasst](http://www.german-weightlifting.de/passwort-regelung-fuer-adams-angepasst/)       | 2016-08-26 |         | Liebe BVDG-Kaderathl... |
 | Speyer      | [AV 03 Speyer – `ONE TEAM´Freizeitkollektion](http://www.av03-speyer.de/2016/08/av-03-speyer-one-teamfreizeitkollektion/) | 2016-08-16 |         | Zusammen mit dem Spo... |
 | Schwedt     | [Deutsche Meisterschaften der Jugend](http://gewichtheben.blauweiss65-schwedt.de/?p=7331)                                 | 2016-07-14 |         | Bei den diesjährigen... |
