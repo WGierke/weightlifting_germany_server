@@ -26,7 +26,7 @@ class GetArticles(webapp2.RequestHandler):
     def get(self):
         if valid_secret_key(self.request):
             publisher = self.request.get('publisher')
-            articles = Article.query(Article.publisher == publisher)
+            articles = Article.query(Article.publisher == publisher).order(-Article.date)
             article_array = []
             for article_entity in articles:
                 article_dict = {"url": article_entity.url}
