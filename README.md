@@ -25,8 +25,8 @@ It then notifys the Android app users of the changes via GCM.
 
 ## Current News
 
-| Blog Name   | Heading                                                                                                                                                                    | Date       | Image   | Content                 |
-|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
-| BVDG        | [Kurz-Videos unserer männlichen Olympia-Athleten online verfügbar](http://www.german-weightlifting.de/kurz-videos-unserer-maennlichen-olympia-athleten-online-verfuegbar/) | 2016-08-28 |         | In den Sozialen Netz... |
-| Speyer      | [AV 03 Speyer – `ONE TEAM´Freizeitkollektion](http://www.av03-speyer.de/2016/08/av-03-speyer-one-teamfreizeitkollektion/)                                                  | 2016-08-16 |         | Zusammen mit dem Spo... |
-| Schwedt     | [Deutsche Meisterschaften der Jugend](http://gewichtheben.blauweiss65-schwedt.de/?p=7331)                                                                                  | 2016-07-14 |         | Bei den diesjährigen... |
+| Blog Name   | Heading                                                                                                                   | Date       | Image                                                                                            | Content                 |
+|:------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------|:-------------------------------------------------------------------------------------------------|:------------------------|
+| BVDG        | [Berliner TSC lädt zum Hebertreffen](http://www.german-weightlifting.de/berliner-tsc-laedt-zum-hebertreffen/)             | 2016-09-05 | <img src='http://www.german-weightlifting.de/wp-content/uploads/2016/09/TSC.jpg' width='100px'/> | Der Berliner TSC läd... |
+| Speyer      | [AV 03 Speyer – `ONE TEAM´Freizeitkollektion](http://www.av03-speyer.de/2016/08/av-03-speyer-one-teamfreizeitkollektion/) | 2016-08-16 |                                                                                                  | Zusammen mit dem Spo... |
+| Schwedt     | [Deutsche Meisterschaften der Jugend](http://gewichtheben.blauweiss65-schwedt.de/?p=7331)                                 | 2016-07-14 |                                                                                                  | Bei den diesjährigen... |
