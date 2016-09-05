@@ -1,15 +1,22 @@
 import json
 import time
+import logging
 import webapp2
+
 from google.appengine.ext import ndb
+from google.appengine.api import memcache
 from datetime import datetime
-from server_utils import valid_secret_key
+from server_utils import valid_secret_key, json_serial, json_deserial
 
 DEFAULT_ARTICLE_VALUE = 'default_url'
 
 
 def article_key(url=DEFAULT_ARTICLE_VALUE):
     return ndb.Key('Article', url)
+
+def add_article_to_cache(url, article_dict):
+    if not memcache.add('{}:article'.format(url), json.dumps(article_dict, default=json_serial)):
+        logging.error('Memcache set failed for article ' + article_dict["heading"])
 
 
 class Article(ndb.Model):
@@ -38,20 +45,32 @@ class GetArticles(webapp2.RequestHandler):
 
 
 class GetArticle(webapp2.RequestHandler):
+    def load_article_from_store(self, url):
+        article_query = Article.query(ancestor=article_key(url))
+        articles = article_query.fetch(100)
+        if len(articles) > 0:
+            article = articles[0]
+            add_article_to_cache(url, article.to_dict())
+            return article
+
     def get(self):
         if valid_secret_key(self.request):
             url = self.request.get("url")
-            article_query = Article.query(ancestor=article_key(url))
-            articles = article_query.fetch(100)
-            if len(articles) > 0:
-                article = articles[0]
-                result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())), 
-                          "heading": article.heading, "publisher": article.publisher,
-                          "content": article.content, "image": article.image}
-                response_dict = {"result": result}
-                self.response.write(json.dumps(response_dict, encoding='utf-8'))
+            article_json = memcache.get('{}:article'.format(url))
+            article = None
+            if article_json is None:
+                article = self.load_article_from_store(url)
+                if not article:
+                    self.response.write('No article found')
+                    return
             else:
-                self.response.write('No article found')
+                article = Article(**json.loads(article_json, object_pairs_hook=json_deserial))
+
+            result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())), 
+                      "heading": article.heading, "publisher": article.publisher,
+                      "content": article.content, "image": article.image}
+            response_dict = {"result": result}
+            self.response.write(json.dumps(response_dict, encoding='utf-8'))
         else:
             self.response.out.write('Secret Key is not valid')
 
@@ -60,6 +79,10 @@ class AddArticle(webapp2.RequestHandler):
     def post(self):
         if valid_secret_key(self.request):
             url = self.request.get("url")
+            article_json = memcache.get('{}:article'.format(url))
+            if article_json is not None:
+                self.response.write('This article is already saved')
+                return
             article_query = Article.query(ancestor=article_key(url))
             articles = article_query.fetch(100)
             if len(articles) == 0:
@@ -72,8 +95,10 @@ class AddArticle(webapp2.RequestHandler):
                 date = self.request.get('date')
                 article_entity.date = datetime.fromtimestamp(float(date))
                 article_entity.put()
+                add_article_to_cache(url, article_entity.to_dict())
                 self.response.write('Added article successfully')
             else:
+                add_article_to_cache(url, articles[0].to_dict())
                 self.response.write('This article is already saved')
         else:
             self.response.out.write('Secret Key is not valid')
