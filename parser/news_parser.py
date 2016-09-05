@@ -166,7 +166,7 @@ class SchwedtParser(NewsParser):
 class BVDGParser(NewsParser):
     BLOG_NAME = "BVDG"
     BLOG_BASE_URL = "http://www.german-weightlifting.de/"
-    ARTICLES_URL = BLOG_BASE_URL + "category/leistungssport/page/"
+    ARTICLES_URL = BLOG_BASE_URL + "category/topnews/page/"
     ARTICLES_CONTAINER_XPATH = '/html/body/div[1]/div/div/div/div[2]/div/div'
     ARTICLES_POST_CLASS = "post"
 
