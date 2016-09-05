@@ -18,7 +18,7 @@ if os.path.isfile("config.ini"):
 
 
 class BuliParser:
-    def __init__(self, season, league, relay, push_descr, fragment_id):
+    def __init__(self, season, league, relay, push_descr, fragment_id, leage_relay=None):
         self.league = league
         self.relay = relay
         self.iat_season_base = "https://www.iat.uni-leipzig.de/datenbanken/blgew{0}/".format(season)
@@ -32,6 +32,13 @@ class BuliParser:
         self.newest_schedule_json = ""
         self.newest_competitions_json = ""
         self.newest_table_json = ""
+        self.schedule_file_name = None
+        self.competition_file_name = None
+        self.table_file_name = None
+        if leage_relay:
+            self.schedule_file_name = "r{}_{}_schedule.json".format(season, leage_relay)
+            self.competition_file_name = "r{}_{}_competitions.json".format(season, leage_relay)
+            self.table_file_name = "r{}_{}_table.json".format(season, leage_relay)
 
     # Helper functions
 
@@ -85,7 +92,7 @@ class BuliParser:
 
         schedule_dict["schedule"] = final_schedule
         schedule_dict["relay"] = self.league + self.relay
-        return json.dumps(schedule_dict)
+        return json.dumps(schedule_dict, sort_keys=True, indent=4, separators=(',', ': '))
 
     def update_schedule(self):
         schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
@@ -97,7 +104,9 @@ class BuliParser:
             print "Local check: Schedule of " + schedule_dict["relay"] + " changed"
             self.newest_schedule_json = schedule_json
             self.send_post(schedule_json, '/set_schedule')
-
+            if self.schedule_file_name:
+                with open(self.schedule_file_name, "w+") as f:
+                    f.write(schedule_json.decode('utf-8'))
 
     def generate_competitions_json_from_url(self, url):
         print "Parsing past competitions ..."
@@ -133,7 +142,7 @@ class BuliParser:
 
         competitions_dict["competitions"] = final_competitions
         competitions_dict["relay"] = self.league + self.relay
-        return json.dumps(competitions_dict)
+        return json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '))
 
     def update_competitions(self):
         competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
@@ -145,6 +154,9 @@ class BuliParser:
             print "Local check: Competitions of " + competitions_dict["relay"] + " changed"
             self.newest_competitions_json = competitions_json
             self.send_post(competitions_json, '/set_competitions')
+            if self.competition_file_name:
+                with open(self.competition_file_name, "w+") as f:
+                    f.write(competitions_json.decode('utf-8'))
 
     def generate_table_json_from_url(self, url):
         print "Parsing table ..."
@@ -177,7 +189,7 @@ class BuliParser:
 
         table_dict["table"] = final_entries
         table_dict["relay"] = self.league + self.relay
-        return json.dumps(table_dict)
+        return json.dumps(table_dict, sort_keys=True, indent=4, separators=(',', ': '))
 
     def update_table(self):
         table_json = self.generate_table_json_from_url(self.iat_table_url)
@@ -189,6 +201,9 @@ class BuliParser:
             print "Local check: Table of " + table_dict["relay"] + " changed"
             self.newest_table_json = table_json
             self.send_post(table_json, '/set_table')
+            if self.table_file_name:
+                with open(self.table_file_name, "w+") as f:
+                    f.write(table_json.decode('utf-8'))
 
     def update_buli(self):
         print "Updating Bundesliga records for BL " + self.league + " - " + self.relay
