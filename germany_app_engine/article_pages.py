@@ -15,7 +15,7 @@ def article_key(url=DEFAULT_ARTICLE_VALUE):
     return ndb.Key('Article', url)
 
 def add_article_to_cache(url, article_dict):
-    if not memcache.add('{}:article'.format(url), json.dumps(article_dict, default=json_serial)):
+    if not memcache.add('{}:article'.format(url), json.dumps(article_dict, default=json_serial), time=60*60*24*7):
         logging.error('Memcache set failed for article ' + article_dict["heading"])
 
 
