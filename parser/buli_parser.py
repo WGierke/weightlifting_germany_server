@@ -7,7 +7,7 @@ import os
 import re
 import requests
 import urllib2
-from utils import get_endpoint
+from utils import get_endpoint, notify_users
 
 ENDPOINT = get_endpoint()
 
@@ -29,9 +29,9 @@ class BuliParser:
         self.fragment_id = fragment_id
         self.error_occured = False
         self.TIMEOUT = 15
-        self.newest_schedule_json = ""
-        self.newest_competitions_json = ""
-        self.newest_table_json = ""
+        self.newest_schedule_json = "{'schedule':[]}"
+        self.newest_competitions_json = '{"competitions": []}'
+        self.newest_table_json = '{"table": []}'
         self.schedule_file_name = None
         self.competition_file_name = None
         self.table_file_name = None
@@ -152,11 +152,27 @@ class BuliParser:
             return
         else:
             print "Local check: Competitions of " + competitions_dict["relay"] + " changed"
-            self.newest_competitions_json = competitions_json
             self.send_post(competitions_json, '/set_competitions')
             if self.competition_file_name:
                 with open(self.competition_file_name, "w+") as f:
                     f.write(competitions_json.decode('utf-8'))
+
+            old_competitions_dict = json.loads(self.newest_competitions_json, encoding='utf-8')["competitions"]
+            new_competitions_dict = json.loads(competitions_json, encoding='utf-8')["competitions"]
+            if not old_competitions_dict:
+                self.newest_competitions_json = competitions_json
+                return
+            messages = []
+            for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
+                message = competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"]
+                print "Notifying user about " + message
+                messages.append(message)
+            notify_users("Neue Wettkampfergebnisse",
+                         "|".join(messages),
+                         self.push_descr,
+                         self.fragment_id,
+                         1)
+            self.newest_competitions_json = competitions_json
 
     def generate_table_json_from_url(self, url):
         print "Parsing table ..."
@@ -199,11 +215,26 @@ class BuliParser:
             return
         else:
             print "Local check: Table of " + table_dict["relay"] + " changed"
-            self.newest_table_json = table_json
             self.send_post(table_json, '/set_table')
             if self.table_file_name:
                 with open(self.table_file_name, "w+") as f:
                     f.write(table_json.decode('utf-8'))
+
+            old_table_dict = json.loads(self.newest_table_json, encoding='utf-8')["table"]
+            new_table_dict = json.loads(table_json, encoding='utf-8')["table"]
+            if not old_table_dict:
+                self.newest_table_json = table_json
+                return
+            messages = []
+            for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
+                print "Notifying user about " + table_entry["place"] + ". " + table_entry["club"]
+                messages.append(table_entry["place"] + ". " + table_entry["club"])
+            notify_users("Neue Tabellenergebnisse",
+                         "|".join(messages),
+                         self.push_descr,
+                         self.fragment_id,
+                         2)
+            self.newest_table_json = table_json
 
     def update_buli(self):
         print "Updating Bundesliga records for BL " + self.league + " - " + self.relay

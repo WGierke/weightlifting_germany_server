@@ -8,11 +8,11 @@ if __name__ == '__main__':
     print "Endpoint: " + get_endpoint()
 
     SEASON = "1516"
-    BuliParser1A = BuliParser(SEASON, "1", "Gruppe+A", "1. Bundesliga - Gruppe A", "2")#, leage_relay="1a")
-    BuliParser1B = BuliParser(SEASON, "1", "Gruppe+B", "1. Bundesliga - Gruppe B", "3")#, leage_relay="1b")
-    BuliParser2South = BuliParser(SEASON, "2", "S%FCdwest", u"2. Bundesliga - Staffel S\u00fcdwest", "5")#, leage_relay="2suedwest")
-    BuliParser2North = BuliParser(SEASON, "2", "Nordost", "2. Bundesliga - Staffel Nordost", "6")#, leage_relay="2nordost")
-    BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2. Bundesliga - Staffel Mitte", "7")#, leage_relay="2mitte")
+    BuliParser1A = BuliParser(SEASON, "1", "Gruppe+A", "1. Bundesliga - Staffel A", "4")#, leage_relay="1a")
+    BuliParser1B = BuliParser(SEASON, "1", "Gruppe+B", "1. Bundesliga - Staffel B", "5")#, leage_relay="1b")
+    BuliParser2South = BuliParser(SEASON, "2", "S%FCdwest", u"2. Bundesliga - Staffel S\u00fcdwest", "7")#, leage_relay="2suedwest")
+    BuliParser2North = BuliParser(SEASON, "2", "Nordost", "2. Bundesliga - Staffel Nordost", "8")#, leage_relay="2nordost")
+    BuliParser2Middle = BuliParser(SEASON, "2", "Mitte", "2. Bundesliga - Staffel Mitte", "9")#, leage_relay="2mitte")
 
     blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
     while True:

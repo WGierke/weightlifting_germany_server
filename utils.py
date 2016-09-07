@@ -1,11 +1,16 @@
-import requests
+#!/usr/bin/python
+# -*- coding: iso-8859-15 -*-
+
+import codecs
+import ConfigParser
 import json
 import os
-import ConfigParser
-import codecs
-import urllib2
+import requests
 import subprocess
+import urllib2
 import yaml
+
+from gcm import GCM
 from datetime import datetime
 from tabulate import tabulate
 
@@ -15,6 +20,8 @@ if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
     config.read('config.ini')
     SLACK_KEY = config.get("slack", "Webhook")
+    APPLICATION_ID = config.get("parse", "X-Parse-Application-Id")
+    GCM_KEY = config.get("gcm", "API-Key")
 
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -38,9 +45,20 @@ def valid_secret_key(request):
     return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
 
 
+def send_get(path):
+    r = requests.get(get_endpoint() + path, headers={"X-Secret-Key": SECRET_KEY})
+    return r.content
+
+
+def send_post(payload, path):
+    r = requests.post(get_endpoint() + path, json=payload, headers={"X-Secret-Key": SECRET_KEY})
+    return r.content
+
+
 def write_news(news_text):
     with codecs.open(NEWS_FILE, 'a', encoding='utf8') as f:
         f.write(news_text)
+
 
 def read_news():
     news = []
@@ -50,13 +68,46 @@ def read_news():
         os.remove(NEWS_FILE)
     return news
 
+
 def send_to_slack(text, username="Germany", important=True):
     color = "#ff0000" if important else "#ffffff"
     requests.post(SLACK_KEY, data=json.dumps({"username": username, "attachments": [{"color": color, "text": text}]}))
 
-def notify_users(article):
-    # Notify app users
-    send_to_slack(article["heading"] + ": " + article["content"][:10], username=article["publisher"], important=False)
+
+def notify_users_about_article(article):
+    message = ""
+    if len(article["content"]) > 30:
+        message = article["content"][:30] + "..."
+    else:
+        message = article["content"]
+    notify_users(article["heading"], message, article["publisher"], 2, 0)
+
+
+def notify_users(title, message, description, fragmentId, subFragmentId):
+    '''New Article    #Victory in Berlin #Schwedt                  #2#0
+       New Competition#Schwedt vs. Berlin#1. Bundesliga - Staffel A#4#1'''
+    msg = "#".join([title, message, description, str(fragmentId), str(subFragmentId)])
+    gcm_token_objects = json.loads(send_get('/get_tokens'))['result']
+    gcm = GCM(GCM_KEY)
+    data = {'update': msg.encode('utf-8')}
+    sent_requests = 0
+    receivers = []
+    for token in gcm_token_objects:
+        if token not in receivers:
+            gcm_push_response = gcm.json_request(registration_ids=[token], data=data)
+            if bool(gcm_push_response):
+                print token[:20] + " is invalid. Sending request to remove it."
+                send_post({"token": token}, "/delete_token")
+            else:
+                print "Sent " + msg.encode('utf-8') + " to " + token[:20]
+                receivers.append(token)
+                sent_requests += 1
+        else:
+            print token[:20] + " is already saved. Sending request to remove it."
+            send_post({"token": token}, "/delete_token")
+    print "Sent to " + str(sent_requests) + " receivers"
+
+
 
 def update_readme(blog_parsers_instances):
     headers = ["Blog Name", "Heading", "Date", "Image", "Content"]

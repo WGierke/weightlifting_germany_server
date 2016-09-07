@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from utils import send_to_slack, notify_users, write_news, get_endpoint
+from utils import send_to_slack, notify_users_about_article, write_news, get_endpoint
 import ConfigParser
 import locale
 import re
@@ -87,7 +87,7 @@ class NewsParser:
                                    "image": new_article["image"],
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
-                        notify_users(payload)
+                        notify_users_about_article(payload)
                         write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
                         print article_url + " already exists"
