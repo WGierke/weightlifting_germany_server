@@ -3,7 +3,7 @@ import webapp2
 from google.appengine.ext import ndb
 from competition_pages import SetSchedule, GetSchedule, SetCompetitions, GetCompetitions, SetTable, GetTable
 from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
-from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
+from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
 from server_utils import valid_secret_key
 
 DEFAULT_TOKEN_VALUE = 'default_token'
@@ -86,6 +86,10 @@ class GermanyServer():
                    ('/add_filter', AddFilter),
                    ('/delete_filter', DeleteFilter),
                    ('/get_filters', GetFilters),
+
+                   ('/add_blog_filter', AddBlogFilter),
+                   ('/delete_blog_filter', DeleteBlogFilter),
+                   ('/get_blog_filters', GetBlogFilters),
 
                    ('/add_protocol', AddSharedProtocol),
                    ('/delete_protocol', DeleteSharedProtocol),

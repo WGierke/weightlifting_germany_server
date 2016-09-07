@@ -12,12 +12,23 @@ def filter_key(user_id=DEFAULT_USER_ID):
     return ndb.Key('Filter', user_id)
 
 
+def blog_filter_key(user_id=DEFAULT_USER_ID):
+    return ndb.Key('BlogFilter', user_id)
+
+
 def protocol_key(parties=DEFAULT_PARTIES_VALUES):
     return ndb.Key('SharedProtocol', parties)
 
 
 class FilterSetting(ndb.Model):
     """Club/Relay a user uses as filter"""
+    user_id = ndb.StringProperty(indexed=False)
+    filter_setting = ndb.StringProperty(indexed=False)
+    timestamp = ndb.DateTimeProperty(auto_now=True)
+
+
+class BlogFilterSetting(ndb.Model):
+    """Blog a user uses as filter"""
     user_id = ndb.StringProperty(indexed=False)
     filter_setting = ndb.StringProperty(indexed=False)
     timestamp = ndb.DateTimeProperty(auto_now=True)
@@ -80,6 +91,61 @@ class DeleteFilter(webapp2.RequestHandler):
                 self.response.write('Deleted filter successfully')
             else:
                 self.response.write('No filter found')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class GetBlogFilters(webapp2.RequestHandler):
+    def get(self):
+        if valid_secret_key(self.request):
+            blog_filter_query = BlogFilterSetting.query()
+            blog_filters = blog_filter_query.fetch(1000)
+            filter_array = []
+            for blog_filter_entity in blog_filters:
+                filter_dict = {"userId": blog_filter_entity.user_id, "createdAt": blog_filter_entity.timestamp.strftime("%s"),
+                               "blogFilterSetting": blog_filter_entity.filter_setting}
+                filter_array.append(filter_dict)
+            response_dict = {"result": filter_array}
+            self.response.write(json.dumps(response_dict, encoding='latin1'))
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class AddBlogFilter(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            user_id = self.request.get('userId')
+            filter_setting = self.request.get('blogFilterSetting')
+            blog_filter_query = BlogFilterSetting.query(ancestor=blog_filter_key(user_id))
+            blog_filters = blog_filter_query.fetch(100)
+            if len(blog_filters) == 0:
+                blog_filter_entity = BlogFilterSetting(parent=blog_filter_key(user_id))
+                blog_filter_entity.filter_setting = filter_setting
+                blog_filter_entity.user_id = user_id
+                blog_filter_entity.put()
+                self.response.write('Added blog filter successfully')
+            else:
+                for blog_filter_entity in blog_filters:
+                    blog_filter_entity.filter_setting = filter_setting
+                    blog_filter_entity.user_id = user_id
+                    blog_filter_entity.put()
+                    self.response.write('Blog filter was updated successfully')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class DeleteBlogFilter(webapp2.RequestHandler):
+    def post(self):
+        if valid_secret_key(self.request):
+            user_id = self.request.get('userId')
+            blog_filter_query = BlogFilterSetting.query(ancestor=blog_filter_key(user_id))
+            filter_settings = blog_filter_query.fetch(100)
+            if len(filter_settings) > 0:
+                for blog_filter_entity in filter_settings:
+                    blog_filter_entity.key.delete()
+                self.response.write('Deleted blog filter successfully')
+            else:
+                self.response.write('No blog filter found')
         else:
             self.response.out.write('Secret Key is not valid')
 
