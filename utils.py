@@ -10,6 +10,7 @@ import subprocess
 import urllib2
 import yaml
 
+from collections import Counter
 from gcm import GCM
 from datetime import datetime
 from tabulate import tabulate
@@ -32,9 +33,13 @@ else:
 
 def get_endpoint():
     if is_production():
-        return "http://weightliftinggermany.appspot.com"
+        return get_production_endpoint()
     else:
         return "http://localhost:8080"
+
+
+def get_production_endpoint():
+    return "http://weightliftinggermany.appspot.com"
 
 
 def is_production():
@@ -45,8 +50,8 @@ def valid_secret_key(request):
     return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == SECRET_KEY
 
 
-def send_get(path):
-    r = requests.get(get_endpoint() + path, headers={"X-Secret-Key": SECRET_KEY})
+def send_get(path, endpoint=get_endpoint()):
+    r = requests.get(endpoint + path, headers={"X-Secret-Key": SECRET_KEY})
     return r.content
 
 
@@ -108,7 +113,6 @@ def notify_users(title, message, description, fragmentId, subFragmentId):
     print "Sent to " + str(sent_requests) + " receivers"
 
 
-
 def update_readme(blog_parsers_instances):
     headers = ["Blog Name", "Heading", "Date", "Image", "Content"]
     table = list()
@@ -132,12 +136,14 @@ def update_readme(blog_parsers_instances):
     with codecs.open("README.md", 'w', encoding='utf8') as f:
         f.write(new_readme)
 
+
 def update_repo():
     commands = [["date", '+"%T"'],
                 ["git", "fetch", "--all"],
                 ["git", "reset", "--hard", "origin/master"]]
     for cmd in commands:
         subprocess.call(cmd)
+
 
 def commit_changes():
     message = "".join(read_news())
@@ -146,3 +152,43 @@ def commit_changes():
                 ["git", "push"]]
     for cmd in commands:
         subprocess.call(cmd)
+
+
+def print_buli_filters():
+    filter_responses = send_get('/get_filters', endpoint=get_production_endpoint())
+    filter_objects = json.loads(filter_responses)["result"]
+    filters = [f["filterSetting"] for f in filter_objects]
+    print "Collected " + str(len(filters)) + " buli filter settings:"
+    filters = Counter(filters).most_common()
+    filters.insert(0, ('Filter', 'Count'))
+    print tabulate(filters)
+
+
+def print_blog_filters():
+    filter_responses = send_get('/get_blog_filters', endpoint=get_production_endpoint())
+    filter_objects = json.loads(filter_responses)["result"]
+    filters = [f["blogFilterSetting"] for f in filter_objects]
+    print "Collected " + str(len(filters)) + " blog filter settings:"
+    filters = Counter(filters).most_common()
+    filters.insert(0, ('BlogFilter', 'Count'))
+    print tabulate(filters)
+
+
+def print_shared_protocols():
+    filter_responses = send_get('/get_protocols', endpoint=get_production_endpoint())
+    filter_objects = json.loads(filter_responses)["result"]
+    filters = [f["parties"] for f in filter_objects]
+    print "Collected " + str(len(filters)) + " shared protocols:"
+    filters = Counter(filters).most_common()
+    filters.insert(0, ('Share', 'Count'))
+    print tabulate(filters)
+
+
+def notify_one_user(token, msg):
+    gcm = GCM(GCM_KEY)
+    data = {'update': msg.encode('utf-8')}
+    gcm_push_response = gcm.json_request(registration_ids=[token], data=data)
+    if bool(gcm_push_response):
+        print token[:20] + " is invalid or outdated"
+    else:
+        print "Sent " + msg.encode('utf-8') + " to " + token[:20]
