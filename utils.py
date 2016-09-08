@@ -79,6 +79,20 @@ def send_to_slack(text, username="Germany", important=True):
     requests.post(SLACK_KEY, data=json.dumps({"username": username, "attachments": [{"color": color, "text": text}]}))
 
 
+def notify_users_about_dev_news(title, message):
+    notify_users(title, message, dev_news=True)
+
+
+def notify_one_user(token, msg):
+    gcm = GCM(GCM_KEY)
+    data = {'update': msg.encode('utf-8')}
+    gcm_push_response = gcm.json_request(registration_ids=[token], data=data)
+    if bool(gcm_push_response):
+        print token[:20] + " is invalid or outdated"
+    else:
+        print "Sent " + msg.encode('utf-8') + " to " + token[:20]
+
+
 def notify_users_about_article(article):
     message = ""
     if len(article["content"]) > 30:
@@ -88,10 +102,14 @@ def notify_users_about_article(article):
     notify_users(article["heading"], message, article["publisher"], 2, 0)
 
 
-def notify_users(title, message, description, fragmentId, subFragmentId):
-    '''New Article    #Victory in Berlin #Schwedt                  #2#0
-       New Competition#Schwedt vs. Berlin#1. Bundesliga - Staffel A#4#1'''
-    msg = "#".join([title, message, description, str(fragmentId), str(subFragmentId)])
+def notify_users(title, message, description=None, fragmentId=None, subFragmentId=None, dev_news=False):
+    '''New Article      #Victory in Berlin #Schwedt                  #2#0
+       New Competition  #Schwedt vs. Berlin#1. Bundesliga - Staffel A#4#1
+       Developer Heading#Developer Message                             '''
+    if dev_news:
+        msg = "#".join([title, message])
+    else:
+        msg = "#".join([title, message, description, str(fragmentId), str(subFragmentId)])
     gcm_token_objects = json.loads(send_get('/get_tokens'))['result']
     gcm = GCM(GCM_KEY)
     data = {'update': msg.encode('utf-8')}
@@ -111,6 +129,10 @@ def notify_users(title, message, description, fragmentId, subFragmentId):
             print token[:20] + " is already saved. Sending request to remove it."
             send_post({"token": token}, "/delete_token")
     print "Sent to " + str(sent_requests) + " receivers"
+
+
+def notify_users_about_developer_news(title, message):
+    notify_users(title, message, "Willi Gierke (App Developer)", 0, 0)
 
 
 def update_readme(blog_parsers_instances):
@@ -182,13 +204,3 @@ def print_shared_protocols():
     filters = Counter(filters).most_common()
     filters.insert(0, ('Share', 'Count'))
     print tabulate(filters)
-
-
-def notify_one_user(token, msg):
-    gcm = GCM(GCM_KEY)
-    data = {'update': msg.encode('utf-8')}
-    gcm_push_response = gcm.json_request(registration_ids=[token], data=data)
-    if bool(gcm_push_response):
-        print token[:20] + " is invalid or outdated"
-    else:
-        print "Sent " + msg.encode('utf-8') + " to " + token[:20]
