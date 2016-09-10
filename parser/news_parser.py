@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from utils import send_to_slack, notify_users_about_article, write_news, get_endpoint
+from utils import send_to_slack, notify_users_about_article, write_news, get_endpoint, is_production
 import ConfigParser
 import locale
 import re
@@ -49,14 +49,14 @@ class NewsParser:
             return False
 
     def parse_articles(self):
-        n = 0
+        page_index = 0
         print "Parsing Blog " + self.BLOG_NAME
         while True:
-            n += 1
-            print "Page " + str(n)
+            page_index += 1
+            print "Page " + str(page_index)
             try:
                 try:
-                    page = urllib2.urlopen(self.ARTICLES_URL + str(n), timeout=NewsParser.TIMEOUT).read()
+                    page = urllib2.urlopen(self.ARTICLES_URL + str(page_index), timeout=NewsParser.TIMEOUT).read()
                 except urllib2.HTTPError, e:
                     if e.code == 404:
                         print "Finished parsing blog"
@@ -65,9 +65,9 @@ class NewsParser:
                         raise Exception(e)
 
                 article_urls = self.parse_article_urls(page)
-                for i in range(len(article_urls)):
-                    article_url = article_urls[i]
-                    if n == 1 and i == 0:
+                for article_index in range(len(article_urls)):
+                    article_url = article_urls[article_index]
+                    if page_index == 1 and article_index == 0:
                         if self.newest_article_url == article_url:
                             print "Local check: " + article_url + " already exists"
                             print "Finished parsing blog"
@@ -87,7 +87,8 @@ class NewsParser:
                                    "image": new_article["image"],
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
-                        notify_users_about_article(payload)
+                        if is_production():
+                            notify_users_about_article(payload)
                         write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
                         print article_url + " already exists"
@@ -98,7 +99,7 @@ class NewsParser:
                         return
 
             except Exception, e:
-                text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(n) + ": "
+                text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(page_index) + ": "
                 text += traceback.format_exc()
                 print text
                 send_to_slack(text)
