@@ -5,6 +5,7 @@ PyYAML==3.11
 requests==2.10.0
 six==1.10.0
 tabulate==0.7.5
+telegram==0.0.1
 waitress==0.9.0
 webapp2==2.5.2
 WebOb==1.6.1

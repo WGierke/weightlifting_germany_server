@@ -8,6 +8,7 @@ import os
 import requests
 import subprocess
 import urllib2
+import telegram
 import yaml
 
 from collections import Counter
@@ -23,6 +24,7 @@ if os.path.isfile("config.ini"):
     SLACK_KEY = config.get("slack", "Webhook")
     APPLICATION_ID = config.get("parse", "X-Parse-Application-Id")
     GCM_KEY = config.get("gcm", "API-Key")
+    TELEGRAM_TOKEN = config.get("telegram", "Token")
 
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -133,6 +135,19 @@ def notify_users(title, message, description=None, fragmentId=None, subFragmentI
 
 def notify_users_about_developer_news(title, message):
     notify_users(title, message, "Willi Gierke (App Developer)", 0, 0)
+
+
+def notify_telegram_channel(markdown_message):
+    bot = telegram.Bot(token=TELEGRAM_TOKEN)
+    bot.sendMessage(chat_id="@gewichthebenBundesligaErgebnisse", text=markdown_message, parse_mode=telegram.ParseMode.MARKDOWN)
+
+
+def markdown_bold(text):
+    return "*{}*".format(text)
+
+
+def markdown_link(link_text, link_target):
+    return "[{}]({})".format(link_text, link_target)
 
 
 def update_readme(blog_parsers_instances):
