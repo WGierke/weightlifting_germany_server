@@ -92,7 +92,7 @@ class BuliParser:
 
         schedule_dict["schedule"] = final_schedule
         schedule_dict["relay"] = self.league + self.relay
-        return json.dumps(schedule_dict, sort_keys=True, indent=4, separators=(',', ': '))
+        return json.dumps(schedule_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_schedule(self):
         schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
@@ -142,7 +142,7 @@ class BuliParser:
 
         competitions_dict["competitions"] = final_competitions
         competitions_dict["relay"] = self.league + self.relay
-        return json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '))
+        return json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_competitions(self):
         competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
@@ -185,7 +185,8 @@ class BuliParser:
         except Exception, e:
             print 'Error while downloading table ', e
             self.error_occured = True
-            return
+            table_dict = {"table": [], "relay": self.league + self.relay}
+            return json.dumps(table_dict)
 
         re_table_entry = re.compile(ur'(?<=class=font4>).*(?=[\r\n]?<\/TD>)')
         table_entries = re.findall(re_table_entry, table)
@@ -205,7 +206,7 @@ class BuliParser:
 
         table_dict["table"] = final_entries
         table_dict["relay"] = self.league + self.relay
-        return json.dumps(table_dict, sort_keys=True, indent=4, separators=(',', ': '))
+        return json.dumps(table_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_table(self):
         table_json = self.generate_table_json_from_url(self.iat_table_url)
