@@ -87,12 +87,12 @@ def notify_users_about_dev_news(title, message):
 
 def notify_one_user(token, msg):
     gcm = GCM(GCM_KEY)
-    data = {'update': msg.encode('utf-8')}
+    data = {'update': msg}
     gcm_push_response = gcm.json_request(registration_ids=[token], data=data)
     if bool(gcm_push_response):
         print token[:20] + " is invalid or outdated"
     else:
-        print "Sent " + msg.encode('utf-8') + " to " + token[:20]
+        print "Sent " + msg + " to " + token[:20]
 
 
 def notify_users_about_article(article):
@@ -114,7 +114,7 @@ def notify_users(title, message, description=None, fragmentId=None, subFragmentI
         msg = "#".join([title, message, description, str(fragmentId), str(subFragmentId)])
     gcm_token_objects = json.loads(send_get('/get_tokens'))['result']
     gcm = GCM(GCM_KEY)
-    data = {'update': msg.encode('utf-8')}
+    data = {'update': msg}
     sent_requests = 0
     receivers = []
     for token in gcm_token_objects:
@@ -124,7 +124,7 @@ def notify_users(title, message, description=None, fragmentId=None, subFragmentI
                 print token[:20] + " is invalid. Sending request to remove it."
                 send_post({"token": token}, "/delete_token")
             else:
-                print "Sent " + msg.encode('utf-8') + " to " + token[:20]
+                print "Sent " + msg + " to " + token[:20]
                 receivers.append(token)
                 sent_requests += 1
         else:
