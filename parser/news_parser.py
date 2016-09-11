@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from utils import send_to_slack, notify_users_about_article, write_news, get_endpoint, is_production
+from utils import send_to_slack, notify_users_about_article, write_news, get_endpoint, is_production, get_production_endpoint
 import ConfigParser
 import locale
 import re
@@ -129,8 +129,8 @@ class NewsParser:
     def parse_article_from_html(self, html):
         raise NotImplementedError("Please Implement this method")
 
-    def send_post(self, payload, path):
-        r = requests.post(ENDPOINT + path, data=payload, headers={"X-Secret-Key": APPSPOT_KEY})
+    def send_post(self, payload, path, endpoint=ENDPOINT):
+        r = requests.post(endpoint + path, data=payload, headers={"X-Secret-Key": APPSPOT_KEY})
         return r.content
 
 
