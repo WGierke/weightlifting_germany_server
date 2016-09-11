@@ -15,23 +15,18 @@ if __name__ == '__main__':
     BuliParser2C = BuliParser(SEASON, "2", "Gruppe+C", "2. Bundesliga - Staffel C", "9")#, leage_relay="2c")
 
     blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser()]
-    while True:
-        try:
-            if is_production():
-                update_repo()
 
-            for parser in [BuliParser1A, BuliParser1B, BuliParser2A, BuliParser2B, BuliParser2C]:
-                parser.update_buli()
+    try:
+        for parser in [BuliParser1A, BuliParser1B, BuliParser2A, BuliParser2B, BuliParser2C]:
+            parser.update_buli()
 
-            for blog_parser_instance in blog_parsers_instances:
-                blog_parser_instance.parse_articles()
+        for blog_parser_instance in blog_parsers_instances:
+            blog_parser_instance.parse_articles()
 
-            update_readme(blog_parsers_instances)
-            if is_production():
-                commit_changes()
-            time.sleep(60 * 60)
-        except:
-            text = "An error occured:" + traceback.format_exc()
-            print text
-            send_to_slack(text)
-            time.sleep(60 * 30)
+        update_readme(blog_parsers_instances)
+        if is_production():
+            commit_changes()
+    except:
+        text = "An error occured:" + traceback.format_exc()
+        print text
+        send_to_slack(text)
