@@ -27,6 +27,6 @@ It then notifys the Android app users of the changes via GCM.
 
 | Blog Name   | Heading                                                                                                                   | Date       | Image   | Content                 |
 |:------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
-| BVDG        | [Zweimal Bronze für Josefine Stoye](http://www.german-weightlifting.de/zweimal-bronze-fuer-josefine-stoye/)               | 2016-09-11 |         | Josefine Stoye erzie... |
+| BVDG        | [Gewichtheben beim SV Henstedt-Ulzburg](http://www.german-weightlifting.de/gewichtheben-beim-sv-henstedt-ulzburg/)        | 2016-09-12 |         | Olympia in Rio ist g... |
 | Speyer      | [AV 03 Speyer – `ONE TEAM´Freizeitkollektion](http://www.av03-speyer.de/2016/08/av-03-speyer-one-teamfreizeitkollektion/) | 2016-08-16 |         | Zusammen mit dem Spo... |
 | Schwedt     | [Deutsche Meisterschaften der Jugend](http://gewichtheben.blauweiss65-schwedt.de/?p=7331)                                 | 2016-07-14 |         | Bei den diesjährigen... |
