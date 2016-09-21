@@ -64,9 +64,9 @@ class NewsParser:
                     else:
                         raise Exception(e)
 
-                article_urls = self.parse_article_urls(page)
-                for article_index in range(len(article_urls)):
-                    article_url = article_urls[article_index]
+                articles = self.parse_initial_articles(page)
+                for article_index in range(len(articles)):
+                    article_url = articles[article_index]["url"]
                     if page_index == 1 and article_index == 0:
                         if self.newest_article_url == article_url:
                             print "Local check: " + article_url + " already exists"
@@ -79,7 +79,7 @@ class NewsParser:
                     article_exists_response = self.send_post(payload, "/article_exists")
                     if article_exists_response == "No":
                         print article_url + " does not exist yet"
-                        new_article = self.parse_article_from_url(article_url)
+                        new_article = self.parse_article_from_article_url(articles[article_index])
                         payload = {"url": new_article["url"],
                                    "date": new_article["date"],
                                    "heading": new_article["heading"],
@@ -106,23 +106,25 @@ class NewsParser:
                 return
 
 
-    def parse_article_urls(self, page):
-        article_urls = []
+    def parse_initial_articles(self, page):
+        articles = []
         tree = etree.HTML(page)
         articles_container = tree.xpath(self.ARTICLES_CONTAINER_XPATH)[0]
         for article_container in articles_container:
             if "class" in article_container.keys() and self.ARTICLES_POST_CLASS in article_container.attrib["class"]:
+                article = {"url": "", "image": ""}
                 for elem in article_container.iter():
-                    if elem.tag == 'a':
-                        article_urls.append(elem.attrib["href"])
-                        break
-        return article_urls
+                    if elem.tag == 'a' and not article["url"]:
+                        article["url"] = elem.attrib["href"]
+                    if elem.tag == 'img' and not article["image"]:
+                        article["image"] = elem.attrib["src"]
+                articles.append(article)
+        return articles
 
     @classmethod
-    def parse_article_from_url(self, article_url):
-        article_page = urllib2.urlopen(article_url, timeout=NewsParser.TIMEOUT).read().decode("utf-8")
-        article = self.parse_article_from_html(article_page)
-        article["url"] = article_url
+    def parse_article_from_article_url(self, initial_article):
+        article_page = urllib2.urlopen(initial_article["url"], timeout=NewsParser.TIMEOUT).read().decode("utf-8")
+        article = self.parse_article_from_html(article_page, initial_article)
         return article
 
     @classmethod
@@ -142,25 +144,24 @@ class SchwedtParser(NewsParser):
     ARTICLES_POST_CLASS = "post"
 
     @classmethod
-    def parse_article_from_html(self, article_page):
+    def parse_article_from_html(self, article_page, article):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
         article_tree = etree.HTML(article_page)
         german_date = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]/span")[0].text
         loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
         date = datetime.strptime(german_date.encode('utf-8'), "%d. %B %Y")
-        article = {"date": str(time.mktime(date.timetuple())),
-                   "heading": article_tree.xpath("//*[@id=\"" + post_id + "\"]/h2")[0].text }
+        article["date"] = str(time.mktime(date.timetuple()))
+        article["heading"] = article_tree.xpath("//*[@id=\"" + post_id + "\"]/h2")[0].text
 
         post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[2]")[0]
         soup = BeautifulSoup(tostring(post_content_holder), "lxml")
         article["content"] = ''.join(soup.findAll(text=True)).strip()
 
-        image = ''
-        for elem in post_content_holder.iter():
-            if elem.tag == 'img':
-                image = elem.attrib['src']
-                break
-        article["image"] = image
+        if not article["image"]:
+            for elem in post_content_holder.iter():
+                if elem.tag == 'img':
+                    article["image"] = elem.attrib['src']
+                    break
         return article
 
 
@@ -172,18 +173,18 @@ class BVDGParser(NewsParser):
     ARTICLES_POST_CLASS = "post"
 
     @classmethod
-    def parse_article_from_html(self, article_page):
+    def parse_article_from_html(self, article_page, article):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
         article_tree = etree.HTML(article_page)
         loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
 
         post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]")[0]
-        image = ''
+        image = article["image"]
         date = ''
         heading = ''
 
         for elem in post_content_holder.iter():
-            if elem.tag == 'img' and image == '':
+            if elem.tag == 'img' and not image:
                 image = elem.attrib['src']
             if elem.tag == 'h2':
                 headline_text_list = list(elem.itertext())
@@ -198,11 +199,12 @@ class BVDGParser(NewsParser):
         for comment_content_delimiter in comment_content_delimiters:
             if comment_content_delimiter in content:
                 content = '\n'.join(content.split(comment_content_delimiter)[1:]).strip()
+                break
 
-        article = {"date": str(time.mktime(date.timetuple())),
-                   "heading": heading,
-                   "image": image,
-                   "content": content}
+        article["date"] = str(time.mktime(date.timetuple()))
+        article["heading"] = heading
+        article["image"] = image
+        article["content"] = content
         return article
 
 class SpeyerParser(NewsParser):
@@ -213,7 +215,7 @@ class SpeyerParser(NewsParser):
     ARTICLES_POST_CLASS = "entry-box text-left"
 
     @classmethod
-    def parse_article_from_html(self, article_page):
+    def parse_article_from_html(self, article_page, article):
         post_id = re.findall(NewsParser.RE_POST_ID, article_page)[0]
         article_tree = etree.HTML(article_page)
         loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
@@ -224,7 +226,7 @@ class SpeyerParser(NewsParser):
         date = " ".join(year_month) + " " + day
         date = datetime.strptime(date.encode('utf-8'), "%Y %m %d")
 
-        image = ''
+        image = article["image"]
         heading = ''
         for elem in post_content_holder.iter():
             if elem.tag == 'img' and image == '':
@@ -236,9 +238,9 @@ class SpeyerParser(NewsParser):
         content = ''.join(soup.findAll(text=True)).strip()
         content = '\n'.join(content.split("\n\n\n\n")[1:])
 
-        article = {"date": str(time.mktime(date.timetuple())),
-                   "heading": heading,
-                   "image": image,
-                   "content": content}
+        article["date"] = str(time.mktime(date.timetuple()))
+        article["heading"] = heading
+        article["image"] = image
+        article["content"] = content
 
         return article
