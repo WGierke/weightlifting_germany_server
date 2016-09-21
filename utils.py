@@ -155,8 +155,7 @@ def update_readme(blog_parsers_instances):
     table = list()
     for blog_parser_instance in blog_parsers_instances:
         newest_url = blog_parser_instance.get_newest_article_url()
-        page = urllib2.urlopen(newest_url).read()
-        article = blog_parser_instance.parse_article_from_html(page, {"url": newest_url, "image":""})
+        article = json.loads(send_get('/get_article?url=' + newest_url))['result']
         row = [blog_parser_instance.BLOG_NAME,
                u"[{}]({})".format(article["heading"], newest_url),
                datetime.fromtimestamp(float(article["date"])).strftime("%Y-%m-%d"),
