@@ -4,11 +4,6 @@
 """
 This class crawls the articles of a specified blog and uploads them as JSON files
 """
-from bs4 import BeautifulSoup
-from datetime import datetime
-from lxml import etree
-from lxml.etree import tostring
-from utils import send_to_slack, notify_users_about_article,get_endpoint, is_production, get_production_endpoint
 import ConfigParser
 import locale
 import re
@@ -17,6 +12,11 @@ import time
 import traceback
 import urllib2
 import os.path
+from bs4 import BeautifulSoup
+from datetime import datetime
+from lxml import etree
+from lxml.etree import tostring
+from utils import send_to_slack, notify_users_about_article, get_endpoint, is_production
 
 ENDPOINT = get_endpoint()
 
@@ -89,6 +89,7 @@ class NewsParser:
                         self.send_post(payload, "/add_article")
                         if is_production():
                             notify_users_about_article(payload)
+                            write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
                         print article_url + " already exists"
                         print "Finished parsing blog"

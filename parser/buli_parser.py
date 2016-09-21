@@ -7,7 +7,7 @@ import os
 import re
 import requests
 import urllib2
-from utils import get_endpoint, notify_users
+from utils import get_endpoint, notify_users, read_json, write_json
 
 ENDPOINT = get_endpoint()
 
@@ -18,7 +18,7 @@ if os.path.isfile("config.ini"):
 
 
 class BuliParser:
-    def __init__(self, season, league, relay, push_descr, fragment_id, leage_relay=None):
+    def __init__(self, season, league, relay, push_descr, fragment_id, leage_relay="LEAGUE_RELAY"):
         self.league = league
         self.relay = relay
         self.iat_season_base = "https://www.iat.uni-leipzig.de/datenbanken/blgew{0}/".format(season)
@@ -29,16 +29,9 @@ class BuliParser:
         self.fragment_id = fragment_id
         self.error_occured = False
         self.TIMEOUT = 15
-        self.newest_schedule_json = "{'schedule':[]}"
-        self.newest_competitions_json = '{"competitions": []}'
-        self.newest_table_json = '{"table": []}'
-        self.schedule_file_name = None
-        self.competition_file_name = None
-        self.table_file_name = None
-        if leage_relay:
-            self.schedule_file_name = "r{}_{}_schedule.json".format(season, leage_relay)
-            self.competition_file_name = "r{}_{}_competitions.json".format(season, leage_relay)
-            self.table_file_name = "r{}_{}_table.json".format(season, leage_relay)
+        self.schedule_file_name = "data/r{}_{}_schedule.json".format(season, leage_relay)
+        self.competition_file_name = "data/r{}_{}_competitions.json".format(season, leage_relay)
+        self.table_file_name = "data/r{}_{}_table.json".format(season, leage_relay)
 
     # Helper functions
 
@@ -70,7 +63,8 @@ class BuliParser:
         except Exception, e:
             print 'Error while downloading schedule ', e
             self.error_occured = True
-            return
+            schedule_dict = {"schedule": [], "relay": self.league + self.relay}
+            return json.dumps(schedule_dict)
 
         re_competition_entry = re.compile(ur'(?<=class=font4>).*(?=[\r\n]?<\/TD>)')
         schedule_entries = re.findall(re_competition_entry, scheduled.replace('</TD></TR>', '</TD>\n</TR>'))
@@ -95,18 +89,18 @@ class BuliParser:
         return json.dumps(schedule_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_schedule(self):
-        schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
-        schedule_dict = json.loads(schedule_json)
-        if sorted(self.newest_schedule_json.decode("utf-8")) == sorted(schedule_json.decode("utf-8")):
-            print "Local check: Schedule of " + schedule_dict["relay"] + " did not change"
+        new_schedule_json = self.generate_schedule_json_from_url(self.iat_schedule_url)
+        if not os.path.isfile(self.schedule_file_name):
+            write_json(self.schedule_file_name, new_schedule_json)
+            return
+        old_schedule_json = read_json(self.schedule_file_name)
+        new_schedule_dict = json.loads(new_schedule_json)
+        if sorted(new_schedule_json.decode("utf-8")) == sorted(old_schedule_json.decode("utf-8")):
+            print "Local check: Schedule of " + new_schedule_dict["relay"] + " did not change"
             return
         else:
-            print "Local check: Schedule of " + schedule_dict["relay"] + " changed"
-            self.newest_schedule_json = schedule_json
-            self.send_post(schedule_json, '/set_schedule')
-            if self.schedule_file_name:
-                with open(self.schedule_file_name, "w+") as f:
-                    f.write(schedule_json.decode('utf-8'))
+            print "Local check: Schedule of " + new_schedule_dict["relay"] + " changed"
+            self.send_post(new_schedule_json, '/set_schedule')
 
     def generate_competitions_json_from_url(self, url):
         print "Parsing past competitions ..."
@@ -119,7 +113,8 @@ class BuliParser:
         except Exception, e:
             print 'Error while downloading competitions ', e
             self.error_occured = True
-            return
+            competitions_dict = {"competitions": [], "relay": self.league + self.relay}
+            return json.dumps(competitions_dict)
 
         re_competition_entry = re.compile(ur'(?<=class=font4>).*(?=[\r\n]?<\/TD>)')
         re_href = re.compile(ur'(?<=href=)[^>]*(?=>)')
@@ -137,7 +132,6 @@ class BuliParser:
             entry["guest"] = competition_entries[i+4]
             entry["score"] = competition_entries[i+5]
             entry["url"] = self.iat_season_base + re.findall(re_href, competition_entries[i+6])[0]
-
             final_competitions.append(entry)
 
         competitions_dict["competitions"] = final_competitions
@@ -145,34 +139,34 @@ class BuliParser:
         return json.dumps(competitions_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_competitions(self):
-        competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
-        competitions_dict = json.loads(competitions_json)
-        if sorted(self.newest_competitions_json.decode("utf-8")) == sorted(competitions_json.decode("utf-8")):
-            print "Local check: Competitions of " + competitions_dict["relay"] + " did not change"
+        new_competitions_json = self.generate_competitions_json_from_url(self.iat_competitions_url)
+        old_competitions_json = read_json(self.competition_file_name)
+        if not os.path.isfile(self.competition_file_name):
+            write_json(self.competition_file_name, new_competitions_json)
+            return
+        #new_competitions_json = '{"competitions": [{"date": "07.05.2016", "home": "TB 03 Roding", "guest": "AV Speyer 03", "location": "Roding", "score": "562.1 : 545.0 :562.0", "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1516/start.php?pid=' + "'123'" +  '&protokoll=1&wkid=E3714956BFC24D6798DCD9C94B0620CC"}],"relay": "1Gruppe+A"}'
+        new_competitions_dict = json.loads(new_competitions_json)
+        if sorted(new_competitions_json.decode("utf-8")) == sorted(old_competitions_json.decode("utf-8")):
+            print "Local check: Competitions of " + new_competitions_dict["relay"] + " did not change"
             return
         else:
-            print "Local check: Competitions of " + competitions_dict["relay"] + " changed"
-            self.send_post(competitions_json, '/set_competitions')
-            if self.competition_file_name:
-                with open(self.competition_file_name, "w+") as f:
-                    f.write(competitions_json.decode('utf-8'))
+            print "Local check: Competitions of " + new_competitions_dict["relay"] + " changed"
+            self.notify_users_about_new_competitions(new_competitions_json, old_competitions_json)
 
-            old_competitions_dict = json.loads(self.newest_competitions_json, encoding='utf-8')["competitions"]
-            new_competitions_dict = json.loads(competitions_json, encoding='utf-8')["competitions"]
-            if not old_competitions_dict:
-                self.newest_competitions_json = competitions_json
-                return
-            messages = []
-            for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
-                message = competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"]
-                print "Notifying user about " + message
-                messages.append(message)
-            notify_users("Neue Wettkampfergebnisse",
-                         "|".join(messages),
-                         self.push_descr,
-                         self.fragment_id,
-                         1)
-            self.newest_competitions_json = competitions_json
+    def notify_users_about_new_competitions(self, new_competitions_json, old_competitions_json):
+        self.send_post(new_competitions_json, '/set_competitions')
+        old_competitions_dict = json.loads(old_competitions_json, encoding='utf-8')["competitions"]
+        new_competitions_dict = json.loads(new_competitions_json, encoding='utf-8')["competitions"]
+        messages = []
+        for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
+            message = competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"]
+            print "Notifying user about " + message
+            messages.append(message)
+        notify_users("Neue Wettkampfergebnisse",
+                     "|".join(messages),
+                     self.push_descr,
+                     self.fragment_id,
+                     1)
 
     def generate_table_json_from_url(self, url):
         print "Parsing table ..."
@@ -209,33 +203,33 @@ class BuliParser:
         return json.dumps(table_dict, sort_keys=True, indent=4, separators=(',', ': '), encoding='latin1')
 
     def update_table(self):
-        table_json = self.generate_table_json_from_url(self.iat_table_url)
-        table_dict = json.loads(table_json)
-        if sorted(self.newest_table_json.decode("utf-8")) == sorted(table_json.decode("utf-8")):
-            print "Local check: Table of " + table_dict["relay"] + " did not change"
+        new_table_json = self.generate_table_json_from_url(self.iat_table_url)
+        old_table_json = read_json(self.table_file_name)
+        if not os.path.isfile(self.table_file_name):
+            write_json(self.table_file_name, new_table_json)
+            return
+        #new_table_json = '{"table": [{"cardinal_points": "18 : 0","club": "AV Speyer 03","max_score": "898.6","place": "1","score": "5056.2 : 4170.6"}],"relay": "1Gruppe+A"}'
+        new_table_dict = json.loads(new_table_json)
+        if sorted(new_table_json.decode("utf-8")) == sorted(old_table_json.decode("utf-8")):
+            print "Local check: Table of " + new_table_dict["relay"] + " did not change"
             return
         else:
-            print "Local check: Table of " + table_dict["relay"] + " changed"
-            self.send_post(table_json, '/set_table')
-            if self.table_file_name:
-                with open(self.table_file_name, "w+") as f:
-                    f.write(table_json.decode('utf-8'))
+            print "Local check: Table of " + new_table_dict["relay"] + " changed"
+            self.notify_users_about_new_placements(new_table_json, old_table_json)
 
-            old_table_dict = json.loads(self.newest_table_json, encoding='utf-8')["table"]
-            new_table_dict = json.loads(table_json, encoding='utf-8')["table"]
-            if not old_table_dict:
-                self.newest_table_json = table_json
-                return
-            messages = []
-            for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
-                print "Notifying user about " + table_entry["place"] + ". " + table_entry["club"]
-                messages.append(table_entry["place"] + ". " + table_entry["club"])
-            notify_users("Neue Tabellenergebnisse",
-                         "|".join(messages),
-                         self.push_descr,
-                         self.fragment_id,
-                         2)
-            self.newest_table_json = table_json
+    def notify_users_about_new_placements(self, new_table_json, old_table_json):
+        self.send_post(new_table_json, '/set_table')
+        old_table_dict = json.loads(old_table_json, encoding='utf-8')["table"]
+        new_table_dict = json.loads(new_table_json, encoding='utf-8')["table"]
+        messages = []
+        for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
+            print "Notifying user about " + table_entry["place"] + ". " + table_entry["club"]
+            messages.append(table_entry["place"] + ". " + table_entry["club"])
+        notify_users("Neue Tabellenergebnisse",
+                     "|".join(messages),
+                     self.push_descr,
+                     self.fragment_id,
+                     2)
 
     def update_buli(self):
         print "Updating Bundesliga records for BL " + self.league + " - " + self.relay

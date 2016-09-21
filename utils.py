@@ -7,7 +7,6 @@ import json
 import os
 import requests
 import subprocess
-import urllib2
 import telegram
 import yaml
 
@@ -72,8 +71,18 @@ def read_news():
     if os.path.isfile(NEWS_FILE):
         with codecs.open(NEWS_FILE, 'r', encoding='utf8') as f:
             news = f.readlines()
-        os.remove(NEWS_FILE)
     return news
+
+
+def read_json(file_name):
+    if os.path.isfile(file_name):
+        with codecs.open(file_name, 'r', encoding='utf8') as f:
+            return f.read()
+
+
+def write_json(file_name, json):
+    with codecs.open(file_name, 'a', encoding='utf8') as f:
+        f.write(json)
 
 
 def send_to_slack(text, username="Germany", important=True):
@@ -104,7 +113,7 @@ def notify_users_about_article(article):
     notify_users(article["heading"], message, article["publisher"], 2, 0)
 
 
-def notify_users(title, message, description=None, fragmentId=None, subFragmentId=None, dev_news=False):
+def notify_users(title, message, description=None, fragmentId=None, subFragmentId=None, dev_news=False, telegram_message=None):
     '''New Article      #Victory in Berlin #Schwedt                  #2#0
        New Competition  #Schwedt vs. Berlin#1. Bundesliga - Staffel A#4#1
        Developer Heading#Developer Message                             '''
@@ -131,6 +140,9 @@ def notify_users(title, message, description=None, fragmentId=None, subFragmentI
             print token[:20] + " is already saved. Sending request to remove it."
             send_post({"token": token}, "/delete_token")
     print "Sent to " + str(sent_requests) + " receivers"
+    send_to_slack("New notification: " + msg, important=False)
+    if telegram_message:
+        notify_telegram_channel(telegram_message)
 
 
 def notify_users_about_developer_news(title, message):
