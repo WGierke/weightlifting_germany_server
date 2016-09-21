@@ -17,7 +17,7 @@ class TestSchwedt(BlogTestCase):
         self.assertEqual(len(schwedt_parser.parse_initial_articles(page)), 4)
 
     def test_url_parsing_with_text(self):
-        article = SchwedtParser.parse_article_from_article_url({"url": "http://gewichtheben.blauweiss65-schwedt.de/?p=7312", "image": ""})
+        article = SchwedtParser.parse_article_from_article_url("http://gewichtheben.blauweiss65-schwedt.de/?p=7312")
         self.assertEqual(article["url"], "http://gewichtheben.blauweiss65-schwedt.de/?p=7312")
         self.assertEqual(article["heading"], "39. Treffen zwischen den Jugendauswahlmannschaften der Region Csongrad (Ungarn) und des Landes Brandenburg")
         self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 6, 24).timetuple())))
@@ -26,7 +26,7 @@ class TestSchwedt(BlogTestCase):
         self.assert_ends_with("der Gewichtheber des TSV Blau-Weiß 65 Schwedt.\nR. Taubert", article["content"])
 
     def test_url_parsing_without_text(self):
-        article = SchwedtParser.parse_article_from_article_url({"url": "http://gewichtheben.blauweiss65-schwedt.de/?p=7195", "image": ""})
+        article = SchwedtParser.parse_article_from_article_url("http://gewichtheben.blauweiss65-schwedt.de/?p=7195")
         self.assertEqual(article["url"], "http://gewichtheben.blauweiss65-schwedt.de/?p=7195")
         self.assertEqual(article["heading"], "Bundesliga OST Gewichtheber vs. TSC Berlin")
         self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 2, 23).timetuple())))

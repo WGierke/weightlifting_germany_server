@@ -17,7 +17,7 @@ class TestSpeyer(BlogTestCase):
         self.assertEqual(len(speyer_parser.parse_initial_articles(page)), 10)
 
     def test_url_parsing_with_picture(self):
-        article = SpeyerParser.parse_article_from_article_url({"url":"http://www.av03-speyer.de/2016/03/gewichtheben-bvdg-auszeichnung-gewichtheberin-des-jahres-2015/", "image": ""})
+        article = SpeyerParser.parse_article_from_article_url("http://www.av03-speyer.de/2016/03/gewichtheben-bvdg-auszeichnung-gewichtheberin-des-jahres-2015/")
         self.assertEqual(article["url"], "http://www.av03-speyer.de/2016/03/gewichtheben-bvdg-auszeichnung-gewichtheberin-des-jahres-2015/")
         self.assertEqual(article["heading"].encode("utf-8"), "Gewichtheben – BVDG-Auszeichnung „Gewichtheber/in des Jahres 2015“")
         self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 3, 17).timetuple())))
@@ -26,7 +26,7 @@ class TestSpeyer(BlogTestCase):
         self.assert_ends_with("Shop: www.bvdg-shop.de", article["content"])
 
     def test_url_parsing_without_picture(self):
-        article = SpeyerParser.parse_article_from_article_url({"url": "http://www.av03-speyer.de/2016/02/gewichtheben-gut-geruestet-fuers-finale/", "image": ""})
+        article = SpeyerParser.parse_article_from_article_url("http://www.av03-speyer.de/2016/02/gewichtheben-gut-geruestet-fuers-finale/")
         self.assertEqual(article["url"], "http://www.av03-speyer.de/2016/02/gewichtheben-gut-geruestet-fuers-finale/")
         self.assertEqual(article["heading"].encode("utf-8"), "Gewichtheben – „Gut gerüstet fürs Finale“")
         self.assertEqual(article["date"], str(time.mktime(datetime.date(2016, 2, 15).timetuple())))
