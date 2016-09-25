@@ -165,7 +165,7 @@ class GermanyServer():
                    ]
 
     def start(self):
-        return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
+        return webapp2.WSGIApplication(self.URL_MAPPING, debug=False)
 
 
 server = GermanyServer()
