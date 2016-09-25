@@ -54,7 +54,6 @@ class CompetitionServerTestCase(ServerTestCase):
     def test_competitions_integration(self):
         BuliParser1B = BuliParser("1516", "1", "Gruppe+B", "1. Bundesliga - Gruppe B", "3")
         competitions_json = BuliParser1B.generate_competitions_json_from_url(BuliParser1B.iat_competitions_url)
-
         response = self.post_authenticated('/set_competitions', json.dumps(competitions_json))
         self.assertEqual(response.normal_body, 'Updated competitions successfully')
 
@@ -75,4 +74,4 @@ class CompetitionServerTestCase(ServerTestCase):
         table_dict = json.loads(response.normal_body)
         self.assertEqual(table_dict["relay"], "1Gruppe+B")
         self.assertEqual(len(table_dict["table"]), 7)
-        #self.assertEqual(table_dict["table"][-1]["club"].encode("utf-8"), u'AC Mei\xdfen')
+        self.assertEqual(table_dict["table"][-1]["club"], u'AC Meißen')

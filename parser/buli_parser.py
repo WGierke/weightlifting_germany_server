@@ -244,4 +244,4 @@ class BuliParser:
     def download_unicode(self, url):
         req = urllib2.urlopen(url, timeout=self.TIMEOUT)
         encoding = req.headers['content-type'].split('charset=')[-1]
-        return unicode(req.read(), encoding).encode("utf-8")
+        return unicode(req.read(), encoding)
