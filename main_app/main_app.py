@@ -1,12 +1,13 @@
 import json
 import webapp2
+from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
-from competition_pages import SetSchedule, GetSchedule, SetCompetitions, GetCompetitions, SetTable, GetTable
 from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
 from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
-from server_utils import valid_secret_key
+from server_utils import valid_secret_key, get_secret_key
 
 DEFAULT_TOKEN_VALUE = 'default_token'
+BULI_DATA_SERVER = 'http://weightliftingcompetitions.appspot.com'
 
 
 def token_key(token_value=DEFAULT_TOKEN_VALUE):
@@ -69,6 +70,67 @@ class DeleteToken(webapp2.RequestHandler):
         else:
             self.response.out.write('Secret Key is not valid')
 
+class SetSchedule(webapp2.RequestHandler):
+    def post(self):
+        self.response.write(forward_post(self.request))
+
+
+class GetSchedule(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(forward_get(self.request))
+
+
+class SetCompetitions(webapp2.RequestHandler):
+    def post(self):
+        self.response.write(forward_post(self.request))
+
+
+class GetCompetitions(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(forward_get(self.request))
+
+
+class SetTable(webapp2.RequestHandler):
+    def post(self):
+        self.response.write(forward_post(self.request))
+
+
+class GetTable(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(forward_get(self.request))
+
+
+def forward_get(request):
+    if valid_secret_key(request):
+        return send_get(BULI_DATA_SERVER + request.path + "?" + request.query_string)
+    else:
+        return 'Secret Key is not valid'
+
+def forward_post(request):
+    if valid_secret_key(request):
+        return send_post(request.body, BULI_DATA_SERVER + request.path)
+    else:
+        return 'Secret Key is not valid'
+
+
+def send_post(payload, url):
+    headers = {'X-Secret-Key': get_secret_key()}
+    result = urlfetch.fetch(
+        url=url,
+        payload=payload,
+        method=urlfetch.POST,
+        headers=headers)
+    return result.content
+
+
+def send_get(url):
+    headers = {'X-Secret-Key': get_secret_key()}
+    result = urlfetch.fetch(
+        url=url,
+        method=urlfetch.GET,
+        headers=headers)
+    return result.content
+
 
 class GermanyServer():
     URL_MAPPING = [('/', MainPage),
@@ -104,6 +166,7 @@ class GermanyServer():
 
     def start(self):
         return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
+
 
 server = GermanyServer()
 app = server.start()

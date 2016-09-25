@@ -7,7 +7,7 @@ import webtest
 import yaml
 
 from google.appengine.ext import testbed
-from germany_app_engine.germany_app_engine import GermanyServer
+from main_app.main_app import GermanyServer
 
 
 class ServerTestCase(unittest.TestCase):
@@ -29,7 +29,7 @@ class ServerTestCase(unittest.TestCase):
         if os.environ.get("SECRET_KEY"):
             self.SECRET_KEY = os.environ.get("SECRET_KEY")
         else:
-            with open('germany_app_engine/app.yaml') as f: 
+            with open('main_app/app.yaml') as f: 
                 self.SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
     def tearDown(self):

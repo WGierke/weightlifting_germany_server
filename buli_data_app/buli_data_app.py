@@ -124,3 +124,29 @@ class GetTable(webapp2.RequestHandler):
                 self.response.write('No table found')
         else:
             self.response.out.write('Secret Key is not valid')
+
+
+class MainPage(webapp2.RequestHandler):
+    def get(self):
+        if valid_secret_key(self.request):
+            self.response.out.write('Valid Secret Key - nice!')
+        else:
+            self.response.out.write('Secret Key is not valid')
+
+
+class BuliDataServer():
+    URL_MAPPING = [('/', MainPage),
+                   ('/set_schedule', SetSchedule),
+                   ('/get_schedule', GetSchedule),
+                   ('/set_competitions', SetCompetitions),
+                   ('/get_competitions', GetCompetitions),
+                   ('/set_table', SetTable),
+                   ('/get_table', GetTable),
+                   ]
+
+    def start(self):
+        return webapp2.WSGIApplication(self.URL_MAPPING, debug=True)
+
+
+server = BuliDataServer()
+app = server.start()

@@ -1,5 +1,5 @@
 import json
-from test_server import ServerTestCase
+from test_main_server import ServerTestCase
 
 
 class AnalyticsServerTestCase(ServerTestCase):

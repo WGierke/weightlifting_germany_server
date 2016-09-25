@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import json
-from test_server import ServerTestCase
+from test_buli_data_server import ServerTestCase
 
 
 class CompetitionServerTestCase(ServerTestCase):

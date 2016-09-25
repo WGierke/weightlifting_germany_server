@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from test_server import ServerTestCase
+from test_main_server import ServerTestCase
 import json
 import time
 import datetime

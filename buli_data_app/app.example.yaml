@@ -1,4 +1,4 @@
-application: weightliftinggermany
+application: weightliftingbulidata
 version: 1
 runtime: python27
 api_version: 1
@@ -11,7 +11,7 @@ libraries:
 
 handlers:
 - url: /.*
-  script: germany_app_engine.app
+  script: buli_data_app.app
 
 env_variables:
   SECRET_KEY: ExampleSecretToken

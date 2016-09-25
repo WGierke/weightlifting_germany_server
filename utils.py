@@ -28,7 +28,7 @@ if os.path.isfile("config.ini"):
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")
 else:
-    with open('germany_app_engine/app.yaml') as f:
+    with open('main_app/app.yaml') as f:
         SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
 
