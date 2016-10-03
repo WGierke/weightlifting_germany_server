@@ -16,7 +16,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
 from lxml.etree import tostring
-from utils import send_to_slack, notify_users_about_article, get_endpoint, is_production
+from utils import send_to_slack, notify_users_about_article, get_endpoint, is_production, write_news
 
 ENDPOINT = get_endpoint()
 
@@ -250,3 +250,92 @@ class SpeyerParser(NewsParser):
         article["content"] = content
 
         return article
+
+class MutterstadtParser(NewsParser):
+    BLOG_NAME = "Mutterstadt"
+    BLOG_BASE_URL = "http://www.ac-mutterstadt.de/"
+    ARTICLES_URL = BLOG_BASE_URL + "index.php?start="
+    ARTICLES_CONTAINER_XPATH = '//*[@id="art-main"]/div/div/div/div/div[1]/div'
+    ARTICLES_POST_CLASS = "items-row cols-1 row-"
+
+    def parse_articles(self):
+        page_index = -5
+        print "Parsing Blog " + self.BLOG_NAME
+        while True:
+            page_index += 5
+            print "Page " + str(page_index)
+            try:
+                try:
+                    page = urllib2.urlopen(self.ARTICLES_URL + str(page_index), timeout=NewsParser.TIMEOUT).read()
+                except urllib2.HTTPError, e:
+                    if e.code == 404:
+                        print "Finished parsing blog"
+                        return
+                    else:
+                        raise Exception(e)
+
+                tree = etree.HTML(page)
+                articles_container = tree.xpath(MutterstadtParser.ARTICLES_CONTAINER_XPATH)[0]
+                articles = []
+                for article in articles_container:
+                    if "class" in articles_container.keys() and "items-row cols-1 row-" in article.attrib["class"]:
+                        articles.append(article)
+
+                if len(articles) == 0:
+                    return
+
+                for article_index in range(len(articles)):
+                    article = articles[article_index]
+                    texts = list(article.itertext())
+
+                    heading = texts[2]
+                    content = texts[11:]
+                    content = [text_part.strip() for text_part in content]
+                    content = [text_part for text_part in content if text_part != '']
+                    content = '\n'.join(content)
+                    loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+                    date = ' '.join(texts[3].split(' ')[2:5])
+                    date = datetime.strptime(date.encode('utf-8'), "%d. %B %Y")
+                    date = str(time.mktime(date.timetuple()))
+                    url = self.ARTICLES_URL + str(0) + "&heading=" + urllib2.quote(heading.encode("utf-8")) + date
+                    image = ''
+                    for elem in list(article.getiterator()):
+                        if elem.tag == 'img':
+                            image = self.BLOG_BASE_URL + elem.attrib["src"]
+                            break
+
+                    if self.newest_article_url == url:
+                        print "Local check: " + heading + " already exists"
+                        print "Finished parsing blog"
+                        return
+                    else:
+                        self.newest_article_url = url
+
+                    payload = {"url": url}
+                    article_exists_response = self.send_post(payload, "/article_exists")
+                    if article_exists_response == "No":
+                        print heading + " does not exist yet"
+                        payload = {"url": url,
+                                   "date": date,
+                                   "heading": heading,
+                                   "content": content,
+                                   "image": image,
+                                   "publisher": self.BLOG_NAME}
+                        self.send_post(payload, "/add_article")
+                        if is_production():
+                            notify_users_about_article(payload)
+                            write_news(self.BLOG_NAME + ": " + heading + "\n")
+                    elif article_exists_response == "Yes":
+                        print url + " already exists"
+                        print "Finished parsing blog"
+                        return
+                    else:
+                        print "/article_exists sent unexpected answer: " + article_exists_response
+                        return
+
+            except Exception, e:
+                text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(page_index) + ": "
+                text += traceback.format_exc()
+                print text
+                send_to_slack(text)
+                return

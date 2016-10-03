@@ -55,7 +55,7 @@ class GetArticle(webapp2.RequestHandler):
 
     def get(self):
         if valid_secret_key(self.request):
-            url = self.request.get("url")
+            url = self.request.query_string.split("url=")[1]
             article_json = memcache.get('{}:article'.format(url))
             article = None
             if article_json is None:
