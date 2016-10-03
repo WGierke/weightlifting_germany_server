@@ -2,6 +2,7 @@ import json
 import time
 import logging
 import webapp2
+import urllib
 
 from google.appengine.ext import ndb
 from google.appengine.api import memcache
@@ -55,7 +56,7 @@ class GetArticle(webapp2.RequestHandler):
 
     def get(self):
         if valid_secret_key(self.request):
-            url = self.request.query_string.split("url=")[1]
+            url = urllib.unquote(self.request.query_string).decode('utf8').split("url=")[1]
             article_json = memcache.get('{}:article'.format(url))
             article = None
             if article_json is None:
