@@ -2,24 +2,10 @@
     "relay": "2Gruppe+C",
     "schedule": [
         {
-            "date": "24.09.2016",
-            "guest": "KSV Gr\u00fcnstadt",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "time": "18:00"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "KSV L\u00f6rrach",
-            "home": "AC Weinheim",
-            "location": "Weinheim",
-            "time": "19:00"
-        },
-        {
             "date": "15.10.2016",
-            "guest": "KSV Gr\u00fcnstadt",
-            "home": "KSV L\u00f6rrach",
-            "location": "L\u00f6rrach-Haagen",
+            "guest": "KSV L\u00f6rrach",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
             "time": "19:00"
         },
         {
@@ -101,16 +87,16 @@
         },
         {
             "date": "11.03.2017",
-            "guest": "KSC Schifferstadt",
-            "home": "KSV Gr\u00fcnstadt",
-            "location": "Gr\u00fcnstadt",
+            "guest": "AC Weinheim",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
             "time": "19:00"
         },
         {
             "date": "11.03.2017",
-            "guest": "AC Weinheim",
-            "home": "KSV L\u00f6rrach",
-            "location": "L\u00f6rrach-Haagen",
+            "guest": "KSV Gr\u00fcnstadt",
+            "home": "KSC Schifferstadt",
+            "location": "Schifferstadt",
             "time": "19:00"
         },
         {

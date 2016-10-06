@@ -1,4 +1,21 @@
 {
-    "competitions": [],
+    "competitions": [
+        {
+            "date": "24.09.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "427.0 : 543.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=EBAD049A7A8F4B03AF7B5D98FFB154C8"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "KSC Schifferstadt",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "481.0 : 522.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=E3B664E255084F758205A4C7CF675428"
+        }
+    ],
     "relay": "2Gruppe+C"
 }

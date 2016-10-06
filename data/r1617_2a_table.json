@@ -1,1 +1,40 @@
-{"table": [], "relay": "2Gruppe+A"}
+{
+    "relay": "2Gruppe+A",
+    "table": [
+        {
+            "cardinal_points": "3 : 0",
+            "club": "AC Mei\u00dfen",
+            "max_score": "581.6",
+            "place": "1",
+            "score": "581.6 : 439"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "SuS Derne",
+            "max_score": "509.0",
+            "place": "2",
+            "score": "509 : 409.2"
+        },
+        {
+            "cardinal_points": "0 : 0",
+            "club": "SV Empor Berlin",
+            "max_score": "0.0",
+            "place": "3",
+            "score": "0 : 0"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "KG G\u00f6rlitz-Zittau",
+            "max_score": "439.0",
+            "place": "4",
+            "score": "439 : 581.6"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "SC L\u00fcchow",
+            "max_score": "409.2",
+            "place": "5",
+            "score": "409.2 : 509"
+        }
+    ]
+}

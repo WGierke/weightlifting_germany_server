@@ -1,4 +1,29 @@
 {
-    "competitions": [],
+    "competitions": [
+        {
+            "date": "24.09.2016",
+            "guest": "AC Germania St.Ilgen",
+            "home": "TB 03 Roding",
+            "location": "Roding",
+            "score": "716.4 : 0.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=B039BC7F80CE48F8B2656ADD00E9CAE1"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "AV Speyer 03",
+            "home": "AC Mutterstadt",
+            "location": "Mutterstadt",
+            "score": "715.4 : 760.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA9AEEA7E4B84447BB3D99E891D1258C"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "SC Pforzheim",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "642.6 : 504.7",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A6430BE7739E4F10851EE5310120AC5E"
+        }
+    ],
     "relay": "1Gruppe+A"
 }

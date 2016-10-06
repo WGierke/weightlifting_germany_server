@@ -1,1 +1,54 @@
-{"table": [], "relay": "1Gruppe+B"}
+{
+    "relay": "1Gruppe+B",
+    "table": [
+        {
+            "cardinal_points": "3 : 0",
+            "club": "Chemnitzer AC",
+            "max_score": "772.0",
+            "place": "1",
+            "score": "772 : 659.5"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "Berliner TSC",
+            "max_score": "764.0",
+            "place": "2",
+            "score": "764 : 451.8"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "SSV Samswegen",
+            "max_score": "731.6",
+            "place": "3",
+            "score": "731.6 : 566.8"
+        },
+        {
+            "cardinal_points": "0 : 0",
+            "club": "Athletenteam Vogtland",
+            "max_score": "0.0",
+            "place": "4",
+            "score": "0 : 0"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "Oder-Sund-Team ",
+            "max_score": "659.5",
+            "place": "5",
+            "score": "659.5 : 772"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "SG Fortschritt Eibau",
+            "max_score": "566.8",
+            "place": "6",
+            "score": "566.8 : 731.6"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "AC Potsdam",
+            "max_score": "451.8",
+            "place": "7",
+            "score": "451.8 : 764"
+        }
+    ]
+}

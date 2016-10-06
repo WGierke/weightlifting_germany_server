@@ -81,7 +81,7 @@ def read_json(file_name):
 
 
 def write_json(file_name, json):
-    with codecs.open(file_name, 'a', encoding='utf8') as f:
+    with codecs.open(file_name, 'w', encoding='utf8') as f:
         f.write(json)
 
 
