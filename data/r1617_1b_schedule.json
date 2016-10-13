@@ -31,17 +31,17 @@
         },
         {
             "date": "12.11.2016",
+            "guest": "SG Fortschritt Eibau",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen",
+            "time": "17:00"
+        },
+        {
+            "date": "12.11.2016",
             "guest": "SSV Samswegen",
             "home": "AC Potsdam",
             "location": "Potsdam",
             "time": "16:00"
-        },
-        {
-            "date": "12.11.2016",
-            "guest": "SG Fortschritt Eibau",
-            "home": "Athletenteam Vogtland",
-            "location": "Rodewisch",
-            "time": "17:00"
         },
         {
             "date": "17.12.2016",
@@ -75,7 +75,7 @@
             "date": "21.01.2017",
             "guest": "Chemnitzer AC",
             "home": "Athletenteam Vogtland",
-            "location": "Rodewisch",
+            "location": "Plauen",
             "time": "17:00"
         },
         {
