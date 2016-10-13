@@ -114,7 +114,6 @@ def notify_users_about_article(article):
 
 
 def notify_users(title, message, description=None, fragmentId=None, subFragmentId=None, dev_news=False, telegram_message=None):
-    return
     '''New Article      #Victory in Berlin #Schwedt                  #2#0
        New Competition  #Schwedt vs. Berlin#1. Bundesliga - Staffel A#4#1
        Developer Heading#Developer Message                             '''
