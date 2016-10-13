@@ -1,4 +1,29 @@
 {
-    "competitions": [],
+    "competitions": [
+        {
+            "date": "24.09.2016",
+            "guest": "SSV Samswegen",
+            "home": "SG Fortschritt Eibau",
+            "location": "Eibau",
+            "score": "566.8 : 731.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=8982F34DBE7345FA80A5A7B05FDD4C32"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "AC Potsdam",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "764.0 : 451.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=527B031182B64466B16438ADCD9C3C55"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "Chemnitzer AC",
+            "home": "Oder-Sund-Team ",
+            "location": "Schwedt/Stralsund",
+            "score": "659.5 : 772.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=59F0CF06AA1F46A0BA947FB5FD62ED6D"
+        }
+    ],
     "relay": "1Gruppe+B"
 }

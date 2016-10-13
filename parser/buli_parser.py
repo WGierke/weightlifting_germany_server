@@ -101,6 +101,7 @@ class BuliParser:
         else:
             print "Local check: Schedule of " + new_schedule_dict["relay"] + " changed"
             self.send_post(new_schedule_json, '/set_schedule')
+            write_json(self.schedule_file_name, new_schedule_json)
 
     def generate_competitions_json_from_url(self, url):
         print "Parsing past competitions ..."
@@ -152,6 +153,7 @@ class BuliParser:
         else:
             print "Local check: Competitions of " + new_competitions_dict["relay"] + " changed"
             self.notify_users_about_new_competitions(new_competitions_json, old_competitions_json)
+            write_json(self.competition_file_name, new_competitions_json)
 
     def notify_users_about_new_competitions(self, new_competitions_json, old_competitions_json):
         self.send_post(new_competitions_json, '/set_competitions')
@@ -216,6 +218,7 @@ class BuliParser:
         else:
             print "Local check: Table of " + new_table_dict["relay"] + " changed"
             self.notify_users_about_new_placements(new_table_json, old_table_json)
+            write_json(self.table_file_name, new_table_json)
 
     def notify_users_about_new_placements(self, new_table_json, old_table_json):
         self.send_post(new_table_json, '/set_table')

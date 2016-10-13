@@ -2,20 +2,6 @@
     "relay": "2Gruppe+B",
     "schedule": [
         {
-            "date": "24.09.2016",
-            "guest": "AC Suhl",
-            "home": "SV90 Gr\u00e4fenroda",
-            "location": "Gr\u00e4fenroda",
-            "time": "16:00"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "KSV Langen",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "time": "16:30"
-        },
-        {
             "date": "15.10.2016",
             "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "KSV Langen",

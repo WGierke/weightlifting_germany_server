@@ -2,27 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "24.09.2016",
-            "guest": "SC Pforzheim",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "time": "19:00"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "AV Speyer 03",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "time": "19:00"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "AC Germania St.Ilgen",
-            "home": "TB 03 Roding",
-            "location": "Roding",
-            "time": "19:00"
-        },
-        {
             "date": "15.10.2016",
             "guest": "SV Germania Obrigheim",
             "home": "AC Germania St.Ilgen",

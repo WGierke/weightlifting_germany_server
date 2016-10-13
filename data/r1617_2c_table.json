@@ -1,1 +1,40 @@
-{"table": [], "relay": "2Gruppe+C"}
+{
+    "relay": "2Gruppe+C",
+    "table": [
+        {
+            "cardinal_points": "3 : 0",
+            "club": "KSV L\u00f6rrach",
+            "max_score": "543.0",
+            "place": "1",
+            "score": "543 : 427"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "KSC Schifferstadt",
+            "max_score": "522.0",
+            "place": "2",
+            "score": "522 : 481"
+        },
+        {
+            "cardinal_points": "0 : 0",
+            "club": "TSV Heinsheim",
+            "max_score": "0.0",
+            "place": "3",
+            "score": "0 : 0"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "KSV Gr\u00fcnstadt",
+            "max_score": "481.0",
+            "place": "4",
+            "score": "481 : 522"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "AC Weinheim",
+            "max_score": "427.0",
+            "place": "5",
+            "score": "427 : 543"
+        }
+    ]
+}

@@ -1,4 +1,21 @@
 {
-    "competitions": [],
+    "competitions": [
+        {
+            "date": "24.09.2016",
+            "guest": "KG G\u00f6rlitz-Zittau",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "581.6 : 439.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C0F8DEA3457B4095B61B8D9347714E99"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "SC L\u00fcchow",
+            "home": "SuS Derne",
+            "location": "Derne",
+            "score": "509.0 : 409.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=DA49B8AD5C214974A71DEBC2057846B6"
+        }
+    ],
     "relay": "2Gruppe+A"
 }

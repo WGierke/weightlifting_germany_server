@@ -1,4 +1,21 @@
 {
-    "competitions": [],
+    "competitions": [
+        {
+            "date": "24.09.2016",
+            "guest": "KSV Langen",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "476.3 : 271.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=725D337F8B914244BB518FE3E9B63D8C"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "AC Suhl",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "456.8 : 286.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=2297EDE122F74B3F887E7750A2D71EC4"
+        }
+    ],
     "relay": "2Gruppe+B"
 }
