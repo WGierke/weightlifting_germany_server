@@ -133,7 +133,7 @@ def notify_users(title, message, description=None, fragmentId=None, subFragmentI
                 print token[:20] + " is invalid. Sending request to remove it."
                 send_post({"token": token}, "/delete_token")
             else:
-                print "Sent " + msg + " to " + token[:20]
+                print u"Sent {} to {}".format(msg.encode("ascii", "ignore"), token[:20])
                 receivers.append(token)
                 sent_requests += 1
         else:
@@ -196,6 +196,7 @@ def update_repo():
 def commit_changes():
     message = "".join(read_news())
     commands = [["git", "add", "--all", "data"],
+                ["git", "add", "README.md"],
                 ["git", "commit", "-m", u"{}".format(message)],
                 ["git", "push"]]
     for cmd in commands:
