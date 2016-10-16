@@ -77,6 +77,7 @@ class GetSchedule(webapp2.RequestHandler):
                 schedule_query = Schedule.query(ancestor=schedule_key(relay))
                 schedules = schedule_query.fetch(100)
                 if len(schedules) > 0:
+                    add_schedule_to_cache(relay, schedules[0].to_dict())
                     self.response.write(schedules[0].json_value)
                 else:
                     self.response.write('No schedule found')
@@ -115,6 +116,7 @@ class GetCompetitions(webapp2.RequestHandler):
                 competition_query = Competitions.query(ancestor=competition_key(relay))
                 competitions = competition_query.fetch(100)
                 if len(competitions) > 0:
+                    add_competition_to_cache(relay, competitions[0].to_dict())
                     self.response.write(competitions[0].json_value)
                 else:
                     self.response.write('No competitions found')
@@ -153,6 +155,7 @@ class GetTable(webapp2.RequestHandler):
                 table_query = Table.query(ancestor=table_key(relay))
                 tables = table_query.fetch(100)
                 if len(tables) > 0:
+                    add_table_to_cache(relay, tables[0].to_dict())
                     self.response.write(tables[0].json_value)
                 else:
                     self.response.write('No table found')
