@@ -196,7 +196,7 @@ def update_repo():
 def commit_changes():
     message = "".join(read_news())
     commands = [["git", "add", "--all", "data"],
-                ["git", "add", "README.md"],
+                ["git", "add", "--all", "README.md"],
                 ["git", "commit", "-m", u"{}".format(message)],
                 ["git", "push"]]
     for cmd in commands:
