@@ -24,11 +24,13 @@ if __name__ == '__main__':
             blog_parser_instance.parse_articles()
 
         update_readme(blog_parsers_instances)
+
         if is_production():
             commit_changes()
 
         if os.path.isfile(NEWS_FILE):
             os.remove(NEWS_FILE)
+
     except:
         text = "An error occured:" + traceback.format_exc()
         print text

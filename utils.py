@@ -63,7 +63,7 @@ def send_post(payload, path):
 
 def write_news(news_text):
     with codecs.open(NEWS_FILE, 'a', encoding='utf8') as f:
-        f.write(news_text)
+        f.write(news_text + "\n")
 
 
 def read_news():
@@ -195,7 +195,7 @@ def update_repo():
 
 def commit_changes():
     message = "".join(read_news())
-    commands = [["git", "add", "--all"],
+    commands = [["git", "add", "--all", "data"],
                 ["git", "commit", "-m", u"{}".format(message)],
                 ["git", "push"]]
     for cmd in commands:

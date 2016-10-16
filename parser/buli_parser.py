@@ -7,7 +7,7 @@ import os
 import re
 import requests
 import urllib2
-from utils import get_endpoint, notify_users, read_json, write_json
+from utils import get_endpoint, notify_users, read_json, write_json, write_news
 
 ENDPOINT = get_endpoint()
 
@@ -102,6 +102,7 @@ class BuliParser:
             print "Local check: Schedule of " + new_schedule_dict["relay"] + " changed"
             self.send_post(new_schedule_json, '/set_schedule')
             write_json(self.schedule_file_name, new_schedule_json)
+            write_news("Updated schedule of " + new_schedule_dict["relay"])
 
     def generate_competitions_json_from_url(self, url):
         print "Parsing past competitions ..."
@@ -164,6 +165,7 @@ class BuliParser:
             message = competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"]
             print "Notifying user about " + message
             messages.append(message)
+            write_news(message)
         notify_users("Neue Wettkampfergebnisse",
                      "|".join(messages),
                      self.push_descr,
@@ -227,7 +229,9 @@ class BuliParser:
         messages = []
         for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
             print "Notifying user about " + table_entry["place"] + ". " + table_entry["club"]
-            messages.append(table_entry["place"] + ". " + table_entry["club"])
+            message = table_entry["place"] + ". " + table_entry["club"]
+            messages.append(message)
+            write_news(message)
         notify_users("Neue Tabellenergebnisse",
                      "|".join(messages),
                      self.push_descr,
