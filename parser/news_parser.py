@@ -6,6 +6,7 @@ This class crawls the articles of a specified blog and uploads them as JSON file
 """
 import ConfigParser
 import locale
+import md5
 import re
 import requests
 import time
@@ -297,7 +298,7 @@ class MutterstadtParser(NewsParser):
                     date = ' '.join(texts[3].split(' ')[2:5])
                     date = datetime.strptime(date.encode('utf-8'), "%d. %B %Y")
                     date = str(time.mktime(date.timetuple()))
-                    url = self.ARTICLES_URL + str(0) + "&heading=" + urllib2.quote(heading.encode("utf-8")) + date
+                    url = self.ARTICLES_URL + str(0) + "&heading=" + md5.new(heading.encode("utf-8")).hexdigest() + date
                     image = ''
                     for elem in list(article.getiterator()):
                         if elem.tag == 'img':

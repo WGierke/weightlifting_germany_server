@@ -15,6 +15,7 @@ DEFAULT_ARTICLE_VALUE = 'default_url'
 def article_key(url=DEFAULT_ARTICLE_VALUE):
     return ndb.Key('Article', url)
 
+
 def add_article_to_cache(url, article_dict):
     if not memcache.add('{}:article'.format(url), json.dumps(article_dict, default=json_serial), time=60*60*24*7):
         logging.error('Memcache set failed for article ' + article_dict["heading"])
@@ -31,6 +32,7 @@ class Article(ndb.Model):
 
 
 class GetArticles(webapp2.RequestHandler):
+
     def get(self):
         if valid_secret_key(self.request):
             publisher = self.request.get('publisher')
@@ -46,6 +48,7 @@ class GetArticles(webapp2.RequestHandler):
 
 
 class GetArticle(webapp2.RequestHandler):
+
     def load_article_from_store(self, url):
         article_query = Article.query(ancestor=article_key(url))
         articles = article_query.fetch(100)
@@ -67,7 +70,7 @@ class GetArticle(webapp2.RequestHandler):
             else:
                 article = Article(**json.loads(article_json, object_pairs_hook=json_deserial))
 
-            result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())), 
+            result = {"url": article.url, "date": str(time.mktime(article.date.timetuple())),
                       "heading": article.heading, "publisher": article.publisher,
                       "content": article.content, "image": article.image}
             response_dict = {"result": result}
@@ -77,6 +80,7 @@ class GetArticle(webapp2.RequestHandler):
 
 
 class AddArticle(webapp2.RequestHandler):
+
     def post(self):
         if valid_secret_key(self.request):
             url = self.request.get("url")
@@ -106,6 +110,7 @@ class AddArticle(webapp2.RequestHandler):
 
 
 class DeleteArticle(webapp2.RequestHandler):
+
     def post(self):
         if valid_secret_key(self.request):
             url = self.request.get('url')
@@ -122,6 +127,7 @@ class DeleteArticle(webapp2.RequestHandler):
 
 
 class ArticleExists(webapp2.RequestHandler):
+
     def post(self):
         if valid_secret_key(self.request):
             url = self.request.get("url")
