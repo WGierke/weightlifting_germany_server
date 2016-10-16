@@ -2,20 +2,6 @@
     "relay": "2Gruppe+C",
     "schedule": [
         {
-            "date": "15.10.2016",
-            "guest": "KSV L\u00f6rrach",
-            "home": "KSV Gr\u00fcnstadt",
-            "location": "Gr\u00fcnstadt",
-            "time": "19:00"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "TSV Heinsheim",
-            "home": "AC Weinheim",
-            "location": "Weinheim",
-            "time": "19:00"
-        },
-        {
             "date": "12.11.2016",
             "guest": "KSV L\u00f6rrach",
             "home": "TSV Heinsheim",

@@ -2,18 +2,18 @@
     "relay": "1Gruppe+B",
     "table": [
         {
-            "cardinal_points": "3 : 0",
+            "cardinal_points": "6 : 0",
             "club": "Chemnitzer AC",
             "max_score": "772.0",
             "place": "1",
-            "score": "772 : 659.5"
+            "score": "1537.8 : 1238.5"
         },
         {
-            "cardinal_points": "3 : 0",
+            "cardinal_points": "6 : 0",
             "club": "Berliner TSC",
             "max_score": "764.0",
             "place": "2",
-            "score": "764 : 451.8"
+            "score": "1503.6 : 1035.6"
         },
         {
             "cardinal_points": "3 : 0",
@@ -23,32 +23,32 @@
             "score": "731.6 : 566.8"
         },
         {
-            "cardinal_points": "0 : 0",
-            "club": "Athletenteam Vogtland",
-            "max_score": "0.0",
-            "place": "4",
-            "score": "0 : 0"
-        },
-        {
-            "cardinal_points": "0 : 3",
+            "cardinal_points": "3 : 3",
             "club": "Oder-Sund-Team ",
-            "max_score": "659.5",
+            "max_score": "730.2",
+            "place": "4",
+            "score": "1389.7 : 1148.2"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "Athletenteam Vogtland",
+            "max_score": "583.8",
             "place": "5",
-            "score": "659.5 : 772"
+            "score": "583.8 : 739.6"
         },
         {
-            "cardinal_points": "0 : 3",
+            "cardinal_points": "0 : 6",
             "club": "SG Fortschritt Eibau",
-            "max_score": "566.8",
+            "max_score": "579.0",
             "place": "6",
-            "score": "566.8 : 731.6"
+            "score": "1145.8 : 1497.4"
         },
         {
-            "cardinal_points": "0 : 3",
+            "cardinal_points": "0 : 6",
             "club": "AC Potsdam",
             "max_score": "451.8",
             "place": "7",
-            "score": "451.8 : 764"
+            "score": "828 : 1494.2"
         }
     ]
 }

@@ -1,6 +1,38 @@
 {
     "competitions": [
         {
+            "date": "15.10.2016",
+            "guest": "Oder-Sund-Team ",
+            "home": "AC Potsdam",
+            "location": "Potsdam",
+            "score": "376.2 : 730.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=CB0FD768E071491C90D9FA42853F6F17"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "Berliner TSC",
+            "home": "Athletenteam Vogtland",
+            "location": "Rodewisch",
+            "score": "583.8 : 739.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=86E16B3F5A1E49A2BD7F74DDAAEB7624"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "SG Fortschritt Eibau",
+            "home": "Chemnitzer AC",
+            "location": "Chemnitz",
+            "score": "765.8 : 579.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30A9F54BFC0D4B95A9D522383A00712B"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "Chemnitzer AC",
+            "home": "Oder-Sund-Team ",
+            "location": "Schwedt/Stralsund",
+            "score": "659.5 : 772.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=59F0CF06AA1F46A0BA947FB5FD62ED6D"
+        },
+        {
             "date": "24.09.2016",
             "guest": "SSV Samswegen",
             "home": "SG Fortschritt Eibau",
@@ -15,14 +47,6 @@
             "location": "Berlin",
             "score": "764.0 : 451.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=527B031182B64466B16438ADCD9C3C55"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "Chemnitzer AC",
-            "home": "Oder-Sund-Team ",
-            "location": "Schwedt/Stralsund",
-            "score": "659.5 : 772.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=59F0CF06AA1F46A0BA947FB5FD62ED6D"
         }
     ],
     "relay": "1Gruppe+B"

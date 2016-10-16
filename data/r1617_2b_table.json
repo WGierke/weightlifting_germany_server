@@ -2,11 +2,11 @@
     "relay": "2Gruppe+B",
     "table": [
         {
-            "cardinal_points": "3 : 0",
+            "cardinal_points": "6 : 0",
             "club": "TB 03 Roding II",
             "max_score": "476.3",
             "place": "1",
-            "score": "476.3 : 271"
+            "score": "928.9 : 619"
         },
         {
             "cardinal_points": "3 : 0",
@@ -24,17 +24,17 @@
         },
         {
             "cardinal_points": "0 : 3",
-            "club": "AC Suhl",
-            "max_score": "286.9",
-            "place": "4",
-            "score": "286.9 : 456.8"
-        },
-        {
-            "cardinal_points": "0 : 3",
             "club": "KSV Langen",
             "max_score": "271.0",
-            "place": "5",
+            "place": "4",
             "score": "271 : 476.3"
+        },
+        {
+            "cardinal_points": "0 : 6",
+            "club": "AC Suhl",
+            "max_score": "348.0",
+            "place": "5",
+            "score": "634.9 : 909.4"
         }
     ]
 }

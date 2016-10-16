@@ -2,27 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "15.10.2016",
-            "guest": "SV Germania Obrigheim",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "time": "20:00"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "TB 03 Roding",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "time": "18:00"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "KSV Durlach",
-            "home": "AV Speyer 03",
-            "location": "Speyer",
-            "time": "16:30"
-        },
-        {
             "date": "12.11.2016",
             "guest": "AC Mutterstadt",
             "home": "KSV Durlach",

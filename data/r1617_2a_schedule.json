@@ -2,20 +2,6 @@
     "relay": "2Gruppe+A",
     "schedule": [
         {
-            "date": "15.10.2016",
-            "guest": "AC Mei\u00dfen",
-            "home": "SV Empor Berlin",
-            "location": "Berlin",
-            "time": "17:00"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "SuS Derne",
-            "home": "KG G\u00f6rlitz-Zittau",
-            "location": "G\u00f6rlitz",
-            "time": "18:00"
-        },
-        {
             "date": "12.11.2016",
             "guest": "SV Empor Berlin",
             "home": "SuS Derne",

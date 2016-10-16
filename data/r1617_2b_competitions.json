@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "15.10.2016",
+            "guest": "TB 03 Roding II",
+            "home": "AC Suhl",
+            "location": "Schleusingen",
+            "score": "348.0 : 452.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=B91E701342824A65B4F37F39660E5CCB"
+        },
+        {
             "date": "24.09.2016",
             "guest": "KSV Langen",
             "home": "TB 03 Roding II",

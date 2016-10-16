@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "15.10.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "L\u00f6rrach-Haagen",
+            "score": "509.0 : 554.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=1A140E9A4CF84948B354AAC4E4DE2FCD"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "TSV Heinsheim",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "390.5 : 635.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=5F5E8D9A035C4EE2A6EDAE8D8614975D"
+        },
+        {
             "date": "24.09.2016",
             "guest": "KSV L\u00f6rrach",
             "home": "AC Weinheim",
