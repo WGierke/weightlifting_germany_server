@@ -148,7 +148,7 @@ class GetTable(webapp2.RequestHandler):
     def get(self):
         if valid_secret_key(self.request):
             relay = self.request.get("relay")
-            table_json = memcache.get('{}:competitions'.format(relay))
+            table_json = memcache.get('{}:table'.format(relay))
             if table_json is None:
                 table_query = Table.query(ancestor=table_key(relay))
                 tables = table_query.fetch(100)
