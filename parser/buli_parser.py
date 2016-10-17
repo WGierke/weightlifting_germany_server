@@ -163,7 +163,7 @@ class BuliParser:
         messages = []
         for competition in self.get_additional_entries(old_competitions_dict, new_competitions_dict):
             message = competition["home"] + " vs. " + competition["guest"] + " - " + competition["score"]
-            print "Notifying user about " + message
+            print u"Notifying user about {}".format(message.encode("ascii", "ignore"))
             messages.append(message)
             write_news(message)
         notify_users("Neue Wettkampfergebnisse",
@@ -228,7 +228,7 @@ class BuliParser:
         new_table_dict = json.loads(new_table_json, encoding='utf-8')["table"]
         messages = []
         for table_entry in self.get_additional_entries(old_table_dict, new_table_dict):
-            print "Notifying user about " + table_entry["place"] + ". " + table_entry["club"]
+            print u"Notifying user about {}. {}".format(table_entry["place"].encode("ascii", "ignore"), table_entry["club"].encode("ascii", "ignore"))
             message = table_entry["place"] + ". " + table_entry["club"]
             messages.append(message)
             write_news(message)
