@@ -195,9 +195,10 @@ def update_repo():
 
 def commit_changes():
     message = "".join(read_news())
+    message = message.encode("ascii", "ignore")
     commands = [["git", "add", "--all", "data"],
                 ["git", "add", "--all", "README.md"],
-                ["git", "commit", "-m", u"{}".format(message)],
+                ["git", "commit", "-m", "{}".format(message)],
                 ["git", "push"]]
     for cmd in commands:
         subprocess.call(cmd)
