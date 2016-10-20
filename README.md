@@ -9,7 +9,7 @@ It then notifys the Android app users of the changes via GCM.
     - [X] BVDG (TopNews)
     - [ ] AC Germania St.Ilgen (website under construction)
     - [ ] [AC Meißen](http://www.ac-meissen.de/index.php?start=1)
-    - [ ] [AC Mutterstadt](http://www.ac-mutterstadt.de/index.php?start=1)
+    - [X] [AC Mutterstadt](http://www.ac-mutterstadt.de/index.php?start=1)
     - [ ] Athletenteam Vogtland [AC Atlas Plauen](https://acatlas.wordpress.com/)
     - [X] AV Speyer 03
     - [ ] Berliner TSC (no specific weightlifting news)
