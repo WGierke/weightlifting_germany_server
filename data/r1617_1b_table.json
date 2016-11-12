@@ -2,53 +2,53 @@
     "relay": "1Gruppe+B",
     "table": [
         {
-            "cardinal_points": "6 : 0",
-            "club": "Chemnitzer AC",
-            "max_score": "772.0",
+            "cardinal_points": "8 : 1",
+            "club": "Berliner TSC",
+            "max_score": "809.3",
             "place": "1",
-            "score": "1537.8 : 1238.5"
+            "score": "2312.9 : 1820.2"
         },
         {
             "cardinal_points": "6 : 0",
-            "club": "Berliner TSC",
-            "max_score": "764.0",
+            "club": "Chemnitzer AC",
+            "max_score": "772.0",
             "place": "2",
-            "score": "1503.6 : 1035.6"
+            "score": "1537.8 : 1238.5"
+        },
+        {
+            "cardinal_points": "4 : 5",
+            "club": "Oder-Sund-Team ",
+            "max_score": "784.6",
+            "place": "3",
+            "score": "2174.3 : 1957.5"
         },
         {
             "cardinal_points": "3 : 0",
             "club": "SSV Samswegen",
             "max_score": "731.6",
-            "place": "3",
+            "place": "4",
             "score": "731.6 : 566.8"
         },
         {
             "cardinal_points": "3 : 3",
-            "club": "Oder-Sund-Team ",
-            "max_score": "730.2",
-            "place": "4",
-            "score": "1389.7 : 1148.2"
-        },
-        {
-            "cardinal_points": "0 : 3",
             "club": "Athletenteam Vogtland",
-            "max_score": "583.8",
+            "max_score": "636.8",
             "place": "5",
-            "score": "583.8 : 739.6"
-        },
-        {
-            "cardinal_points": "0 : 6",
-            "club": "SG Fortschritt Eibau",
-            "max_score": "579.0",
-            "place": "6",
-            "score": "1145.8 : 1497.4"
+            "score": "1220.6 : 1283.1"
         },
         {
             "cardinal_points": "0 : 6",
             "club": "AC Potsdam",
             "max_score": "451.8",
-            "place": "7",
+            "place": "6",
             "score": "828 : 1494.2"
+        },
+        {
+            "cardinal_points": "0 : 9",
+            "club": "SG Fortschritt Eibau",
+            "max_score": "579.0",
+            "place": "7",
+            "score": "1689.3 : 2134.2"
         }
     ]
 }

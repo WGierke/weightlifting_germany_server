@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "12.11.2016",
+            "guest": "KG G\u00f6rlitz-Zittau",
+            "home": "SC L\u00fcchow",
+            "location": "L\u00fcchow",
+            "score": "481.5 : 453.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=650BB41FB2F3448DA1AB0695484291D8"
+        },
+        {
             "date": "15.10.2016",
             "guest": "AC Mei\u00dfen",
             "home": "SV Empor Berlin",

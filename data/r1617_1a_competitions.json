@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "12.11.2016",
+            "guest": "AV Speyer 03",
+            "home": "TB 03 Roding",
+            "location": "Roding",
+            "score": "0.0 : 0.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=53F363CBF28B43ABBD7D1E6505F9A52A"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "SV Germania Obrigheim",
+            "home": "AC Germania St.Ilgen",
+            "location": "Leimen-St.Ilgen",
+            "score": "541.6 : 800.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F973E980330443C0B583FE12E7C230B3"
+        },
+        {
             "date": "15.10.2016",
             "guest": "KSV Durlach",
             "home": "AV Speyer 03",
@@ -15,14 +31,6 @@
             "location": "Pforzheim",
             "score": "519.9 : 670.9",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=3308264F56594EFC9B7C789E609642F4"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "SV Germania Obrigheim",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "score": "541.6 : 800.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F973E980330443C0B583FE12E7C230B3"
         },
         {
             "date": "24.09.2016",

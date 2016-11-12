@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "12.11.2016",
+            "guest": "Oder-Sund-Team ",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "809.3 : 784.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=9ED75F0B82404BB085C55CDA8DBA7953"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "SG Fortschritt Eibau",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen",
+            "score": "636.8 : 543.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=24EAFE99341F4E27BA0667C621295E88"
+        },
+        {
             "date": "15.10.2016",
             "guest": "Oder-Sund-Team ",
             "home": "AC Potsdam",

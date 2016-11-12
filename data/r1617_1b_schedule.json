@@ -3,20 +3,6 @@
     "schedule": [
         {
             "date": "12.11.2016",
-            "guest": "Oder-Sund-Team ",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "time": "16:00"
-        },
-        {
-            "date": "12.11.2016",
-            "guest": "SG Fortschritt Eibau",
-            "home": "Athletenteam Vogtland",
-            "location": "Plauen",
-            "time": "17:00"
-        },
-        {
-            "date": "12.11.2016",
             "guest": "SSV Samswegen",
             "home": "AC Potsdam",
             "location": "Potsdam",
