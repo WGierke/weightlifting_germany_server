@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "12.11.2016",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "471.8 : 498.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F1F72BFB256E4B56A3CA7D1D66AE393B"
+        },
+        {
             "date": "15.10.2016",
             "guest": "TB 03 Roding II",
             "home": "AC Suhl",
