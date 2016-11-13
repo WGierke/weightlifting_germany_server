@@ -2,20 +2,6 @@
     "relay": "2Gruppe+C",
     "schedule": [
         {
-            "date": "12.11.2016",
-            "guest": "KSV L\u00f6rrach",
-            "home": "TSV Heinsheim",
-            "location": "Bad Rappenau - Heinsheim",
-            "time": "20:00"
-        },
-        {
-            "date": "12.11.2016",
-            "guest": "AC Weinheim",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "time": "18:00"
-        },
-        {
             "date": "17.12.2016",
             "guest": "KSC Schifferstadt",
             "home": "TSV Heinsheim",

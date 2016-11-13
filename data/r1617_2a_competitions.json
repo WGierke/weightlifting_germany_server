@@ -2,6 +2,14 @@
     "competitions": [
         {
             "date": "12.11.2016",
+            "guest": "SV Empor Berlin",
+            "home": "SuS Derne",
+            "location": "Derne",
+            "score": "519.0 : 418.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=D7EF05DFF2A74C47889C1908E9BFF603"
+        },
+        {
+            "date": "12.11.2016",
             "guest": "KG G\u00f6rlitz-Zittau",
             "home": "SC L\u00fcchow",
             "location": "L\u00fcchow",

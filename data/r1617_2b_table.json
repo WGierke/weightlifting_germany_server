@@ -17,24 +17,24 @@
         },
         {
             "cardinal_points": "3 : 3",
+            "club": "ESV M\u00fcnchen-Neuaubing",
+            "max_score": "432.7",
+            "place": "3",
+            "score": "781.5 : 780"
+        },
+        {
+            "cardinal_points": "3 : 3",
             "club": "KSV Langen",
             "max_score": "379.0",
-            "place": "3",
+            "place": "4",
             "score": "650 : 825.1"
         },
         {
-            "cardinal_points": "0 : 3",
-            "club": "ESV M\u00fcnchen-Neuaubing",
-            "max_score": "348.8",
-            "place": "4",
-            "score": "348.8 : 379"
-        },
-        {
-            "cardinal_points": "0 : 6",
+            "cardinal_points": "0 : 9",
             "club": "AC Suhl",
-            "max_score": "348.0",
+            "max_score": "401.0",
             "place": "5",
-            "score": "634.9 : 909.4"
+            "score": "1035.9 : 1342.1"
         }
     ]
 }

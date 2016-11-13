@@ -3,24 +3,24 @@
     "table": [
         {
             "cardinal_points": "6 : 0",
-            "club": "KSV L\u00f6rrach",
-            "max_score": "554.8",
-            "place": "1",
-            "score": "1097.8 : 936"
-        },
-        {
-            "cardinal_points": "3 : 0",
             "club": "TSV Heinsheim",
-            "max_score": "635.0",
-            "place": "2",
-            "score": "635 : 390.5"
+            "max_score": "661.2",
+            "place": "1",
+            "score": "1296.2 : 997.5"
         },
         {
-            "cardinal_points": "3 : 0",
+            "cardinal_points": "6 : 0",
             "club": "KSC Schifferstadt",
-            "max_score": "522.0",
+            "max_score": "562.4",
+            "place": "2",
+            "score": "1084.4 : 890"
+        },
+        {
+            "cardinal_points": "6 : 3",
+            "club": "KSV L\u00f6rrach",
+            "max_score": "607.0",
             "place": "3",
-            "score": "522 : 481"
+            "score": "1704.8 : 1597.2"
         },
         {
             "cardinal_points": "0 : 6",
@@ -30,11 +30,11 @@
             "score": "990 : 1076.8"
         },
         {
-            "cardinal_points": "0 : 6",
+            "cardinal_points": "0 : 9",
             "club": "AC Weinheim",
             "max_score": "427.0",
             "place": "5",
-            "score": "817.5 : 1178"
+            "score": "1226.5 : 1740.4"
         }
     ]
 }

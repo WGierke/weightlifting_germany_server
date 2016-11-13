@@ -2,6 +2,14 @@
     "competitions": [
         {
             "date": "12.11.2016",
+            "guest": "AC Suhl",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "score": "432.7 : 401.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7121DCFBA22F4C35956E52E04979AFF4"
+        },
+        {
+            "date": "12.11.2016",
             "guest": "SV90 Gr\u00e4fenroda",
             "home": "TB 03 Roding II",
             "location": "Roding",
