@@ -16,18 +16,18 @@
             "score": "1537.8 : 1238.5"
         },
         {
+            "cardinal_points": "6 : 0",
+            "club": "SSV Samswegen",
+            "max_score": "731.6",
+            "place": "3",
+            "score": "1369 : 1049.6"
+        },
+        {
             "cardinal_points": "4 : 5",
             "club": "Oder-Sund-Team ",
             "max_score": "784.6",
-            "place": "3",
-            "score": "2174.3 : 1957.5"
-        },
-        {
-            "cardinal_points": "3 : 0",
-            "club": "SSV Samswegen",
-            "max_score": "731.6",
             "place": "4",
-            "score": "731.6 : 566.8"
+            "score": "2174.3 : 1957.5"
         },
         {
             "cardinal_points": "3 : 3",
@@ -37,18 +37,18 @@
             "score": "1220.6 : 1283.1"
         },
         {
-            "cardinal_points": "0 : 6",
-            "club": "AC Potsdam",
-            "max_score": "451.8",
-            "place": "6",
-            "score": "828 : 1494.2"
-        },
-        {
             "cardinal_points": "0 : 9",
             "club": "SG Fortschritt Eibau",
             "max_score": "579.0",
-            "place": "7",
+            "place": "6",
             "score": "1689.3 : 2134.2"
+        },
+        {
+            "cardinal_points": "0 : 9",
+            "club": "AC Potsdam",
+            "max_score": "482.8",
+            "place": "7",
+            "score": "1310.8 : 2131.6"
         }
     ]
 }

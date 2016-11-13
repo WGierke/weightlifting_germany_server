@@ -2,13 +2,6 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "12.11.2016",
-            "guest": "SSV Samswegen",
-            "home": "AC Potsdam",
-            "location": "Potsdam",
-            "time": "16:00"
-        },
-        {
             "date": "17.12.2016",
             "guest": "Berliner TSC",
             "home": "Chemnitzer AC",
