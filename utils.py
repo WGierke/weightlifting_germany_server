@@ -167,7 +167,12 @@ def update_readme(blog_parsers_instances):
     table = list()
     for blog_parser_instance in blog_parsers_instances:
         newest_url = blog_parser_instance.get_newest_article_url()
-        article = json.loads(send_get('/get_article?url=' + newest_url))['result']
+        article_json = send_get('/get_article?url=' + newest_url)
+        try:
+            article = json.loads(article_json)['result']
+        except ValueError, e:
+            raise ValueError("Couldn't load article JSON: {} ({})".format(article_json, e.message))
+
         row = [blog_parser_instance.BLOG_NAME,
                u"[{}]({})".format(article["heading"], newest_url),
                datetime.fromtimestamp(float(article["date"])).strftime("%Y-%m-%d"),
