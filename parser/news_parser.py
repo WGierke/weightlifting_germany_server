@@ -13,6 +13,8 @@ import time
 import traceback
 import urllib2
 import os.path
+import logging
+import sys
 from bs4 import BeautifulSoup
 from datetime import datetime
 from lxml import etree
@@ -20,6 +22,8 @@ from lxml.etree import tostring
 from utils import send_to_slack, notify_users_about_article, get_endpoint, is_production, write_news
 
 ENDPOINT = get_endpoint()
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.getLogger("requests").setLevel(logging.WARNING)
 
 if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
@@ -51,16 +55,16 @@ class NewsParser:
 
     def parse_articles(self):
         page_index = 0
-        print "Parsing Blog " + self.BLOG_NAME
+        logging.info("Parsing Blog " + self.BLOG_NAME)
         while True:
             page_index += 1
-            print "Page " + str(page_index)
+            logging.info("Page " + str(page_index))
             try:
                 try:
                     page = urllib2.urlopen(self.ARTICLES_URL + str(page_index), timeout=NewsParser.TIMEOUT).read()
                 except urllib2.HTTPError, e:
                     if e.code == 404:
-                        print "Finished parsing blog"
+                        logging.info("Finished parsing blog")
                         return
                     else:
                         raise Exception(e)
@@ -70,8 +74,8 @@ class NewsParser:
                     article_url = articles[article_index]["url"]
                     if page_index == 1 and article_index == 0:
                         if self.newest_article_url == article_url:
-                            print "Local check: " + article_url + " already exists"
-                            print "Finished parsing blog"
+                            logging.info("Local check: " + article_url + " already exists")
+                            logging.info("Finished parsing blog")
                             return
                         else:
                             self.newest_article_url = article_url
@@ -79,7 +83,7 @@ class NewsParser:
                     payload = {"url": article_url}
                     article_exists_response = self.send_post(payload, "/article_exists")
                     if article_exists_response == "No":
-                        print article_url + " does not exist yet"
+                        logging.info(article_url + " does not exist yet")
                         new_article = self.parse_article_from_article_url(articles[article_index])
                         payload = {"url": new_article["url"],
                                    "date": new_article["date"],
@@ -92,17 +96,17 @@ class NewsParser:
                             notify_users_about_article(payload)
                             write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
-                        print article_url + " already exists"
-                        print "Finished parsing blog"
+                        logging.info(article_url + " already exists")
+                        logging.info("Finished parsing blog")
                         return
                     else:
-                        print "/article_exists sent unexpected answer: " + article_exists_response
+                        logging.info("/article_exists sent unexpected answer: " + article_exists_response)
                         return
 
             except Exception, e:
                 text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(page_index) + ": "
                 text += traceback.format_exc()
-                print text
+                logging.info(text)
                 send_to_slack(text)
                 return
 
@@ -261,16 +265,16 @@ class MutterstadtParser(NewsParser):
 
     def parse_articles(self):
         page_index = -5
-        print "Parsing Blog " + self.BLOG_NAME
+        logging.info("Parsing Blog " + self.BLOG_NAME)
         while True:
             page_index += 5
-            print "Page " + str(page_index)
+            logging.info("Page " + str(page_index))
             try:
                 try:
                     page = urllib2.urlopen(self.ARTICLES_URL + str(page_index), timeout=NewsParser.TIMEOUT).read()
                 except urllib2.HTTPError, e:
                     if e.code == 404:
-                        print "Finished parsing blog"
+                        logging.info("Finished parsing blog")
                         return
                     else:
                         raise Exception(e)
@@ -306,8 +310,8 @@ class MutterstadtParser(NewsParser):
                             break
 
                     if self.newest_article_url == url:
-                        print "Local check: " + heading + " already exists"
-                        print "Finished parsing blog"
+                        logging.info("Local check: " + heading + " already exists")
+                        logging.info("Finished parsing blog")
                         return
                     else:
                         self.newest_article_url = url
@@ -315,7 +319,7 @@ class MutterstadtParser(NewsParser):
                     payload = {"url": url}
                     article_exists_response = self.send_post(payload, "/article_exists")
                     if article_exists_response == "No":
-                        print heading + " does not exist yet"
+                        logging.info(heading + " does not exist yet")
                         payload = {"url": url,
                                    "date": date,
                                    "heading": heading,
@@ -327,16 +331,16 @@ class MutterstadtParser(NewsParser):
                             notify_users_about_article(payload)
                             write_news(self.BLOG_NAME + ": " + heading + "\n")
                     elif article_exists_response == "Yes":
-                        print url + " already exists"
-                        print "Finished parsing blog"
+                        logging.info(url + " already exists")
+                        logging.info("Finished parsing blog")
                         return
                     else:
-                        print "/article_exists sent unexpected answer: " + article_exists_response
+                        logging.info("/article_exists sent unexpected answer: " + article_exists_response)
                         return
 
             except Exception, e:
                 text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(page_index) + ": "
                 text += traceback.format_exc()
-                print text
+                logging.info(text)
                 send_to_slack(text)
                 return
