@@ -23,18 +23,18 @@
             "score": "1369 : 1049.6"
         },
         {
+            "cardinal_points": "6 : 3",
+            "club": "Athletenteam Vogtland",
+            "max_score": "646.0",
+            "place": "4",
+            "score": "1866.6 : 1760.1"
+        },
+        {
             "cardinal_points": "4 : 5",
             "club": "Oder-Sund-Team ",
             "max_score": "784.6",
-            "place": "4",
-            "score": "2174.3 : 1957.5"
-        },
-        {
-            "cardinal_points": "3 : 3",
-            "club": "Athletenteam Vogtland",
-            "max_score": "636.8",
             "place": "5",
-            "score": "1220.6 : 1283.1"
+            "score": "2174.3 : 1957.5"
         },
         {
             "cardinal_points": "0 : 9",
@@ -44,11 +44,11 @@
             "score": "1689.3 : 2134.2"
         },
         {
-            "cardinal_points": "0 : 9",
+            "cardinal_points": "0 : 12",
             "club": "AC Potsdam",
             "max_score": "482.8",
             "place": "7",
-            "score": "1310.8 : 2131.6"
+            "score": "1787.8 : 2777.6"
         }
     ]
 }
