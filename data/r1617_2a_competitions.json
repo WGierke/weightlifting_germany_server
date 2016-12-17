@@ -1,12 +1,12 @@
 {
     "competitions": [
         {
-            "date": "12.11.2016",
-            "guest": "SV Empor Berlin",
-            "home": "SuS Derne",
-            "location": "Derne",
-            "score": "519.0 : 418.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=D7EF05DFF2A74C47889C1908E9BFF603"
+            "date": "17.12.2016",
+            "guest": "SC L\u00fcchow",
+            "home": "SV Empor Berlin",
+            "location": "Berlin",
+            "score": "471.2 : 458.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=5A3F39AAB5864AB9BC8B09731F7F9405"
         },
         {
             "date": "12.11.2016",
@@ -17,12 +17,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=650BB41FB2F3448DA1AB0695484291D8"
         },
         {
-            "date": "15.10.2016",
-            "guest": "AC Mei\u00dfen",
-            "home": "SV Empor Berlin",
-            "location": "Berlin",
-            "score": "450.0 : 602.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=6FA033F2DF2245158B3DA506EC303E7C"
+            "date": "12.11.2016",
+            "guest": "SV Empor Berlin",
+            "home": "SuS Derne",
+            "location": "Derne",
+            "score": "519.0 : 418.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=D7EF05DFF2A74C47889C1908E9BFF603"
         },
         {
             "date": "15.10.2016",
@@ -31,6 +31,14 @@
             "location": "G\u00f6rlitz",
             "score": "477.6 : 425.4",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=BA20C36A48324631942A2DD9A467069D"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "AC Mei\u00dfen",
+            "home": "SV Empor Berlin",
+            "location": "Berlin",
+            "score": "450.0 : 602.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=6FA033F2DF2245158B3DA506EC303E7C"
         },
         {
             "date": "24.09.2016",

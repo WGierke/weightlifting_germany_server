@@ -9,6 +9,14 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C810ED610F2245B7B81EE2AEE6240A66"
         },
         {
+            "date": "17.12.2016",
+            "guest": "Berliner TSC",
+            "home": "Chemnitzer AC",
+            "location": "Chemnitz",
+            "score": "775.6 : 758.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=8AA3DC90D340445184F2D18C77A9B747"
+        },
+        {
             "date": "12.11.2016",
             "guest": "Oder-Sund-Team ",
             "home": "Berliner TSC",
@@ -34,6 +42,14 @@
         },
         {
             "date": "15.10.2016",
+            "guest": "Oder-Sund-Team ",
+            "home": "AC Potsdam",
+            "location": "Potsdam",
+            "score": "376.2 : 730.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=CB0FD768E071491C90D9FA42853F6F17"
+        },
+        {
+            "date": "15.10.2016",
             "guest": "Berliner TSC",
             "home": "Athletenteam Vogtland",
             "location": "Rodewisch",
@@ -47,14 +63,6 @@
             "location": "Chemnitz",
             "score": "765.8 : 579.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30A9F54BFC0D4B95A9D522383A00712B"
-        },
-        {
-            "date": "15.10.2016",
-            "guest": "Oder-Sund-Team ",
-            "home": "AC Potsdam",
-            "location": "Potsdam",
-            "score": "376.2 : 730.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=CB0FD768E071491C90D9FA42853F6F17"
         },
         {
             "date": "24.09.2016",
