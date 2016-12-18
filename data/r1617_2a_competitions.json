@@ -9,6 +9,14 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=5A3F39AAB5864AB9BC8B09731F7F9405"
         },
         {
+            "date": "17.12.2016",
+            "guest": "SuS Derne",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "590.6 : 432.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=2BE07699C37249C5AF5BD9866669D3A7"
+        },
+        {
             "date": "12.11.2016",
             "guest": "KG G\u00f6rlitz-Zittau",
             "home": "SC L\u00fcchow",
@@ -26,19 +34,19 @@
         },
         {
             "date": "15.10.2016",
-            "guest": "SuS Derne",
-            "home": "KG G\u00f6rlitz-Zittau",
-            "location": "G\u00f6rlitz",
-            "score": "477.6 : 425.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=BA20C36A48324631942A2DD9A467069D"
-        },
-        {
-            "date": "15.10.2016",
             "guest": "AC Mei\u00dfen",
             "home": "SV Empor Berlin",
             "location": "Berlin",
             "score": "450.0 : 602.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=6FA033F2DF2245158B3DA506EC303E7C"
+        },
+        {
+            "date": "15.10.2016",
+            "guest": "SuS Derne",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "score": "477.6 : 425.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=BA20C36A48324631942A2DD9A467069D"
         },
         {
             "date": "24.09.2016",

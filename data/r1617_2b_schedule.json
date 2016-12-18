@@ -2,20 +2,6 @@
     "relay": "2Gruppe+B",
     "schedule": [
         {
-            "date": "17.12.2016",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "KSV Langen",
-            "location": "Langen",
-            "time": "19:00"
-        },
-        {
-            "date": "17.12.2016",
-            "guest": "TB 03 Roding II",
-            "home": "ESV M\u00fcnchen-Neuaubing",
-            "location": "M\u00fcnchen-Neuaubing",
-            "time": "18:00"
-        },
-        {
             "date": "21.01.2017",
             "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "SV90 Gr\u00e4fenroda",

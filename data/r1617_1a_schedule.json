@@ -2,27 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "17.12.2016",
-            "guest": "TB 03 Roding",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "time": "19:00"
-        },
-        {
-            "date": "17.12.2016",
-            "guest": "AC Germania St.Ilgen",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "time": "18:00"
-        },
-        {
-            "date": "17.12.2016",
-            "guest": "SV Germania Obrigheim",
-            "home": "AV Speyer 03",
-            "location": "Speyer",
-            "time": "19:00"
-        },
-        {
             "date": "21.01.2017",
             "guest": "AV Speyer 03",
             "home": "AC Germania St.Ilgen",

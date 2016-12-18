@@ -2,53 +2,53 @@
     "relay": "1Gruppe+A",
     "table": [
         {
-            "cardinal_points": "9 : 0",
+            "cardinal_points": "12 : 0",
             "club": "AV Speyer 03",
-            "max_score": "765.2",
+            "max_score": "952.2",
             "place": "1",
-            "score": "2232.9 : 1917.9"
+            "score": "3185.1 : 2839.2"
         },
         {
-            "cardinal_points": "6 : 0",
-            "club": "SV Germania Obrigheim",
-            "max_score": "800.0",
+            "cardinal_points": "7 : 5",
+            "club": "TB 03 Roding",
+            "max_score": "734.5",
             "place": "2",
-            "score": "1586 : 1055.6"
+            "score": "2768.8 : 2027.3"
         },
         {
             "cardinal_points": "6 : 3",
-            "club": "TB 03 Roding",
-            "max_score": "716.4",
+            "club": "SV Germania Obrigheim",
+            "max_score": "921.3",
             "place": "3",
-            "score": "2034.3 : 1285.1"
+            "score": "2507.3 : 2007.8"
+        },
+        {
+            "cardinal_points": "4 : 5",
+            "club": "AC Mutterstadt",
+            "max_score": "742.2",
+            "place": "4",
+            "score": "2188.7 : 2211.2"
         },
         {
             "cardinal_points": "4 : 5",
             "club": "KSV Durlach",
             "max_score": "716.4",
-            "place": "4",
+            "place": "5",
             "score": "1914.5 : 1943.2"
         },
         {
-            "cardinal_points": "2 : 4",
-            "club": "AC Mutterstadt",
-            "max_score": "731.1",
-            "place": "5",
-            "score": "1446.5 : 1476.7"
-        },
-        {
-            "cardinal_points": "0 : 6",
+            "cardinal_points": "2 : 7",
             "club": "AC Germania St.Ilgen",
-            "max_score": "541.6",
+            "max_score": "660.2",
             "place": "6",
-            "score": "541.6 : 1516.4"
+            "score": "1201.8 : 2104.9"
         },
         {
-            "cardinal_points": "0 : 9",
+            "cardinal_points": "1 : 11",
             "club": "SC Pforzheim",
-            "max_score": "519.9",
+            "max_score": "588.5",
             "place": "7",
-            "score": "1538.6 : 2099.5"
+            "score": "2127.1 : 2759.7"
         }
     ]
 }

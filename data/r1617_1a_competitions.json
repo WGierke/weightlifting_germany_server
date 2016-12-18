@@ -1,12 +1,28 @@
 {
     "competitions": [
         {
-            "date": "12.11.2016",
-            "guest": "AC Mutterstadt",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "716.4 : 731.1",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
+            "date": "17.12.2016",
+            "guest": "AC Germania St.Ilgen",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "588.5 : 660.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=D34C203260BB4E8E81B04AA15E66DBF1"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "TB 03 Roding",
+            "home": "AC Mutterstadt",
+            "location": "Mutterstadt",
+            "score": "742.2 : 734.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=70742C1EB6224AA0ABD03FC7B0721D1D"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "SV Germania Obrigheim",
+            "home": "AV Speyer 03",
+            "location": "Speyer",
+            "score": "952.2 : 921.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=B320635BD9604E5EAF206AD6CE53FC0A"
         },
         {
             "date": "12.11.2016",
@@ -23,6 +39,14 @@
             "location": "Roding",
             "score": "647.0 : 765.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=53F363CBF28B43ABBD7D1E6505F9A52A"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "AC Mutterstadt",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "716.4 : 731.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
         },
         {
             "date": "15.10.2016",

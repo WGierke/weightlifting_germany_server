@@ -1,12 +1,20 @@
 {
     "competitions": [
         {
-            "date": "12.11.2016",
-            "guest": "AC Suhl",
+            "date": "17.12.2016",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "486.6 : 488.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30F4EE1144874859BB963CA23ADC73E6"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "TB 03 Roding II",
             "home": "ESV M\u00fcnchen-Neuaubing",
             "location": "M\u00fcnchen-Neuaubing",
-            "score": "432.7 : 401.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7121DCFBA22F4C35956E52E04979AFF4"
+            "score": "355.6 : 483.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C7A23F98DA434B08B959B9433E196640"
         },
         {
             "date": "12.11.2016",
@@ -15,6 +23,14 @@
             "location": "Roding",
             "score": "471.8 : 498.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F1F72BFB256E4B56A3CA7D1D66AE393B"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "AC Suhl",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "score": "432.7 : 401.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7121DCFBA22F4C35956E52E04979AFF4"
         },
         {
             "date": "15.10.2016",
