@@ -2,32 +2,32 @@
     "relay": "2Gruppe+B",
     "table": [
         {
-            "cardinal_points": "9 : 0",
-            "club": "SV90 Gr\u00e4fenroda",
-            "max_score": "498.5",
-            "place": "1",
-            "score": "1444.2 : 1245.3"
-        },
-        {
             "cardinal_points": "9 : 3",
             "club": "TB 03 Roding II",
             "max_score": "483.5",
+            "place": "1",
+            "score": "1884.2 : 1541.1"
+        },
+        {
+            "cardinal_points": "6 : 3",
+            "club": "SV90 Gr\u00e4fenroda",
+            "max_score": "498.5",
             "place": "2",
-            "score": "1884.2 : 1473.1"
+            "score": "1444.2 : 1321.3"
+        },
+        {
+            "cardinal_points": "6 : 3",
+            "club": "KSV Langen",
+            "max_score": "562.6",
+            "place": "3",
+            "score": "1354.6 : 1314"
         },
         {
             "cardinal_points": "3 : 6",
             "club": "ASV M\u00fcnchen-Neuaubing",
             "max_score": "432.7",
-            "place": "3",
-            "score": "1137.1 : 1263.5"
-        },
-        {
-            "cardinal_points": "3 : 6",
-            "club": "KSV Langen",
-            "max_score": "486.6",
             "place": "4",
-            "score": "1136.6 : 1314"
+            "score": "1137.1 : 1337.5"
         },
         {
             "cardinal_points": "0 : 9",
