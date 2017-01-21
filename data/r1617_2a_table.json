@@ -9,18 +9,18 @@
             "score": "1775 : 1321.4"
         },
         {
+            "cardinal_points": "7 : 5",
+            "club": "KG G\u00f6rlitz-Zittau",
+            "max_score": "477.6",
+            "place": "2",
+            "score": "1820.8 : 1918.1"
+        },
+        {
             "cardinal_points": "6 : 6",
             "club": "SuS Derne",
             "max_score": "519.0",
-            "place": "2",
-            "score": "1885.8 : 1896.2"
-        },
-        {
-            "cardinal_points": "4 : 5",
-            "club": "KG G\u00f6rlitz-Zittau",
-            "max_score": "477.6",
             "place": "3",
-            "score": "1369.6 : 1488.5"
+            "score": "1885.8 : 1896.2"
         },
         {
             "cardinal_points": "3 : 6",
@@ -30,11 +30,11 @@
             "score": "1349.3 : 1433.2"
         },
         {
-            "cardinal_points": "2 : 7",
+            "cardinal_points": "2 : 10",
             "club": "SV Empor Berlin",
             "max_score": "471.2",
             "place": "5",
-            "score": "1340 : 1580.4"
+            "score": "1769.6 : 2031.6"
         }
     ]
 }

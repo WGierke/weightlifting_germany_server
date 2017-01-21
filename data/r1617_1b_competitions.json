@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "21.01.2017",
+            "guest": "Chemnitzer AC",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen",
+            "score": "567.4 : 771.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=1A0C56A00A764E5F965CC88957000211"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "Athletenteam Vogtland",
+            "home": "AC Potsdam",
+            "location": "Potsdam",
+            "score": "477.0 : 646.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C810ED610F2245B7B81EE2AEE6240A66"
+        },
+        {
             "date": "17.12.2016",
             "guest": "Berliner TSC",
             "home": "Chemnitzer AC",
@@ -15,14 +31,6 @@
             "location": "Samswegen",
             "score": "809.4 : 790.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A2C05D14E2DD46A38CDB6CC5F17E3EC8"
-        },
-        {
-            "date": "17.12.2016",
-            "guest": "Athletenteam Vogtland",
-            "home": "AC Potsdam",
-            "location": "Potsdam",
-            "score": "477.0 : 646.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C810ED610F2245B7B81EE2AEE6240A66"
         },
         {
             "date": "12.11.2016",
