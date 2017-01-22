@@ -9,12 +9,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F9D70A2A45404186B6055307663EEB73"
         },
         {
-            "date": "17.12.2016",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "KSV Langen",
-            "location": "Langen",
-            "score": "562.6 : 488.9",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30F4EE1144874859BB963CA23ADC73E6"
+            "date": "21.01.2017",
+            "guest": "ASV M\u00fcnchen-Neuaubing",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "480.4 : 341.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C993602CAE014AC184D7D37AA1DD16A8"
         },
         {
             "date": "17.12.2016",
@@ -23,6 +23,14 @@
             "location": "M\u00fcnchen-Neuaubing",
             "score": "355.6 : 483.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C7A23F98DA434B08B959B9433E196640"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "562.6 : 488.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30F4EE1144874859BB963CA23ADC73E6"
         },
         {
             "date": "12.11.2016",

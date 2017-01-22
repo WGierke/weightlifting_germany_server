@@ -2,20 +2,6 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "21.01.2017",
-            "guest": "SSV Samswegen",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "time": "16:00"
-        },
-        {
-            "date": "21.01.2017",
-            "guest": "SG Fortschritt Eibau",
-            "home": "Oder-Sund-Team ",
-            "location": "Schwedt/Stralsund",
-            "time": "18:00"
-        },
-        {
             "date": "04.02.2017",
             "guest": "AC Potsdam",
             "home": "Chemnitzer AC",

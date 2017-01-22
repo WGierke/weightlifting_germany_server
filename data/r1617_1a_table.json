@@ -2,46 +2,46 @@
     "relay": "1Gruppe+A",
     "table": [
         {
-            "cardinal_points": "12 : 0",
+            "cardinal_points": "15 : 0",
             "club": "AV Speyer 03",
             "max_score": "952.2",
             "place": "1",
-            "score": "3185.1 : 2839.2"
+            "score": "3911.4 : 3444.6"
+        },
+        {
+            "cardinal_points": "9 : 3",
+            "club": "SV Germania Obrigheim",
+            "max_score": "921.3",
+            "place": "2",
+            "score": "3333.3 : 2665"
         },
         {
             "cardinal_points": "7 : 5",
+            "club": "KSV Durlach",
+            "max_score": "754.7",
+            "place": "3",
+            "score": "2669.2 : 2674"
+        },
+        {
+            "cardinal_points": "7 : 8",
             "club": "TB 03 Roding",
             "max_score": "734.5",
-            "place": "2",
-            "score": "2768.8 : 2027.3"
+            "place": "4",
+            "score": "3499.6 : 2782"
         },
         {
-            "cardinal_points": "6 : 3",
-            "club": "SV Germania Obrigheim",
-            "max_score": "921.3",
-            "place": "3",
-            "score": "2507.3 : 2007.8"
-        },
-        {
-            "cardinal_points": "4 : 5",
+            "cardinal_points": "4 : 8",
             "club": "AC Mutterstadt",
             "max_score": "742.2",
-            "place": "4",
-            "score": "2188.7 : 2211.2"
-        },
-        {
-            "cardinal_points": "4 : 5",
-            "club": "KSV Durlach",
-            "max_score": "716.4",
             "place": "5",
-            "score": "1914.5 : 1943.2"
+            "score": "2845.9 : 3037.2"
         },
         {
-            "cardinal_points": "2 : 7",
+            "cardinal_points": "2 : 10",
             "club": "AC Germania St.Ilgen",
             "max_score": "660.2",
             "place": "6",
-            "score": "1201.8 : 2104.9"
+            "score": "1807.2 : 2831.2"
         },
         {
             "cardinal_points": "1 : 11",

@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "21.01.2017",
+            "guest": "TSV Heinsheim",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "465.0 : 578.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7F1B8B714A25477C86C9B70BE78F0870"
+        },
+        {
             "date": "17.12.2016",
             "guest": "AC Weinheim",
             "home": "KSV Gr\u00fcnstadt",
