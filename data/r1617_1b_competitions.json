@@ -2,14 +2,6 @@
     "competitions": [
         {
             "date": "21.01.2017",
-            "guest": "Chemnitzer AC",
-            "home": "Athletenteam Vogtland",
-            "location": "Plauen",
-            "score": "567.4 : 771.6",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=1A0C56A00A764E5F965CC88957000211"
-        },
-        {
-            "date": "21.01.2017",
             "guest": "SG Fortschritt Eibau",
             "home": "Oder-Sund-Team ",
             "location": "Schwedt/Stralsund",
@@ -25,12 +17,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=2D17B0DC0BE3434DAEBD5576D2F532AC"
         },
         {
-            "date": "17.12.2016",
-            "guest": "Oder-Sund-Team ",
-            "home": "SSV Samswegen",
-            "location": "Samswegen",
-            "score": "809.4 : 790.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A2C05D14E2DD46A38CDB6CC5F17E3EC8"
+            "date": "21.01.2017",
+            "guest": "Chemnitzer AC",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen",
+            "score": "567.4 : 771.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=1A0C56A00A764E5F965CC88957000211"
         },
         {
             "date": "17.12.2016",
@@ -49,6 +41,14 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=8AA3DC90D340445184F2D18C77A9B747"
         },
         {
+            "date": "17.12.2016",
+            "guest": "Oder-Sund-Team ",
+            "home": "SSV Samswegen",
+            "location": "Samswegen",
+            "score": "809.4 : 790.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A2C05D14E2DD46A38CDB6CC5F17E3EC8"
+        },
+        {
             "date": "12.11.2016",
             "guest": "Oder-Sund-Team ",
             "home": "Berliner TSC",
@@ -61,7 +61,7 @@
             "guest": "SG Fortschritt Eibau",
             "home": "Athletenteam Vogtland",
             "location": "Plauen",
-            "score": "882.2 : 543.5",
+            "score": "636.8 : 543.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=24EAFE99341F4E27BA0667C621295E88"
         },
         {
@@ -98,6 +98,14 @@
         },
         {
             "date": "24.09.2016",
+            "guest": "AC Potsdam",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "764.0 : 451.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=527B031182B64466B16438ADCD9C3C55"
+        },
+        {
+            "date": "24.09.2016",
             "guest": "Chemnitzer AC",
             "home": "Oder-Sund-Team ",
             "location": "Schwedt/Stralsund",
@@ -111,14 +119,6 @@
             "location": "Eibau",
             "score": "566.8 : 731.6",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=8982F34DBE7345FA80A5A7B05FDD4C32"
-        },
-        {
-            "date": "24.09.2016",
-            "guest": "AC Potsdam",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "score": "764.0 : 451.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=527B031182B64466B16438ADCD9C3C55"
         }
     ],
     "relay": "1Gruppe+B"
