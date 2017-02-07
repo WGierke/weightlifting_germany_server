@@ -2,27 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "04.02.2017",
-            "guest": "SV Germania Obrigheim",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "time": "19:00"
-        },
-        {
-            "date": "04.02.2017",
-            "guest": "AC Germania St.Ilgen",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "time": "19:00"
-        },
-        {
-            "date": "04.02.2017",
-            "guest": "SC Pforzheim",
-            "home": "AV Speyer 03",
-            "location": "Speyer",
-            "time": "19:00"
-        },
-        {
             "date": "18.02.2017",
             "guest": "TB 03 Roding",
             "home": "SV Germania Obrigheim",

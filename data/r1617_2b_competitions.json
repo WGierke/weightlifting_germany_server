@@ -1,12 +1,20 @@
 {
     "competitions": [
         {
-            "date": "21.01.2017",
-            "guest": "KSV Langen",
+            "date": "04.02.2017",
+            "guest": "SV90 Gr\u00e4fenroda",
             "home": "AC Suhl",
             "location": "Suhl",
-            "score": "382.8 : 414.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F9D70A2A45404186B6055307663EEB73"
+            "score": "388.0 : 524.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7D78865839A64DFD881CF44C863E6935"
+        },
+        {
+            "date": "04.02.2017",
+            "guest": "TB 03 Roding II",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "400.8 : 474.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=BD88F38EDCAC4EEB8BEB4D175E249457"
         },
         {
             "date": "21.01.2017",
@@ -15,6 +23,14 @@
             "location": "Gr\u00e4fenroda",
             "score": "480.4 : 341.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C993602CAE014AC184D7D37AA1DD16A8"
+        },
+        {
+            "date": "21.01.2017",
+            "guest": "KSV Langen",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "382.8 : 414.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F9D70A2A45404186B6055307663EEB73"
         },
         {
             "date": "17.12.2016",

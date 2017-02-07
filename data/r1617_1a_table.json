@@ -2,53 +2,53 @@
     "relay": "1Gruppe+A",
     "table": [
         {
-            "cardinal_points": "15 : 0",
+            "cardinal_points": "18 : 0",
             "club": "AV Speyer 03",
             "max_score": "952.2",
             "place": "1",
-            "score": "3911.4 : 3444.6"
+            "score": "4795.6 : 3925"
         },
         {
-            "cardinal_points": "9 : 3",
+            "cardinal_points": "11 : 4",
             "club": "SV Germania Obrigheim",
             "max_score": "921.3",
             "place": "2",
-            "score": "3333.3 : 2665"
+            "score": "4150.7 : 3467.2"
         },
         {
-            "cardinal_points": "7 : 5",
+            "cardinal_points": "8 : 7",
             "club": "KSV Durlach",
-            "max_score": "754.7",
+            "max_score": "802.2",
             "place": "3",
-            "score": "2669.2 : 2674"
+            "score": "3471.4 : 3491.4"
+        },
+        {
+            "cardinal_points": "7 : 8",
+            "club": "AC Mutterstadt",
+            "max_score": "742.2",
+            "place": "4",
+            "score": "3574.3 : 3683.6"
         },
         {
             "cardinal_points": "7 : 8",
             "club": "TB 03 Roding",
             "max_score": "734.5",
-            "place": "4",
+            "place": "5",
             "score": "3499.6 : 2782"
         },
         {
-            "cardinal_points": "4 : 8",
-            "club": "AC Mutterstadt",
-            "max_score": "742.2",
-            "place": "5",
-            "score": "2845.9 : 3037.2"
-        },
-        {
-            "cardinal_points": "2 : 10",
+            "cardinal_points": "2 : 13",
             "club": "AC Germania St.Ilgen",
             "max_score": "660.2",
             "place": "6",
-            "score": "1807.2 : 2831.2"
+            "score": "2453.6 : 3559.6"
         },
         {
-            "cardinal_points": "1 : 11",
+            "cardinal_points": "1 : 14",
             "club": "SC Pforzheim",
             "max_score": "588.5",
             "place": "7",
-            "score": "2127.1 : 2759.7"
+            "score": "2607.5 : 3643.9"
         }
     ]
 }

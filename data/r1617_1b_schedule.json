@@ -2,27 +2,6 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "04.02.2017",
-            "guest": "AC Potsdam",
-            "home": "Chemnitzer AC",
-            "location": "Chemnitz",
-            "time": "17:00"
-        },
-        {
-            "date": "04.02.2017",
-            "guest": "Berliner TSC",
-            "home": "SG Fortschritt Eibau",
-            "location": "Eibau",
-            "time": "18:00"
-        },
-        {
-            "date": "04.02.2017",
-            "guest": "Athletenteam Vogtland",
-            "home": "SSV Samswegen",
-            "location": "Samswegen",
-            "time": "18:00"
-        },
-        {
             "date": "18.02.2017",
             "guest": "AC Potsdam",
             "home": "SG Fortschritt Eibau",

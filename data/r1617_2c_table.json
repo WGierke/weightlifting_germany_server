@@ -2,11 +2,11 @@
     "relay": "2Gruppe+C",
     "table": [
         {
-            "cardinal_points": "12 : 0",
+            "cardinal_points": "15 : 0",
             "club": "TSV Heinsheim",
             "max_score": "661.2",
             "place": "1",
-            "score": "2487.4 : 1952.1"
+            "score": "3089.6 : 2433.1"
         },
         {
             "cardinal_points": "9 : 3",
@@ -16,25 +16,25 @@
             "score": "2067.4 : 1908.4"
         },
         {
-            "cardinal_points": "6 : 6",
+            "cardinal_points": "8 : 7",
             "club": "KSV L\u00f6rrach",
             "max_score": "607.0",
             "place": "3",
-            "score": "2110.4 : 2090.6"
+            "score": "2663.8 : 2626.1"
         },
         {
-            "cardinal_points": "3 : 9",
+            "cardinal_points": "4 : 11",
             "club": "KSV Gr\u00fcnstadt",
-            "max_score": "509.0",
+            "max_score": "535.5",
             "place": "4",
-            "score": "1936 : 2130.2"
+            "score": "2471.5 : 2683.6"
         },
         {
-            "cardinal_points": "0 : 12",
+            "cardinal_points": "0 : 15",
             "club": "AC Weinheim",
-            "max_score": "475.0",
+            "max_score": "481.0",
             "place": "5",
-            "score": "1701.5 : 2221.4"
+            "score": "2182.5 : 2823.6"
         }
     ]
 }
