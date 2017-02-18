@@ -2,13 +2,6 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "18.02.2017",
-            "guest": "AC Potsdam",
-            "home": "SG Fortschritt Eibau",
-            "location": "Eibau",
-            "time": "18:00"
-        },
-        {
             "date": "25.02.2017",
             "guest": "Chemnitzer AC",
             "home": "SSV Samswegen",
