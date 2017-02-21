@@ -29,7 +29,7 @@
             "guest": "SV Germania Obrigheim",
             "home": "KSV Durlach",
             "location": "Durlach",
-            "score": "802.2 : 817.4",
+            "score": "802.2 : 672.4",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=01DE0FEA30E847BDB3C90718233E82A3"
         },
         {
@@ -45,7 +45,7 @@
             "guest": "AC Mutterstadt",
             "home": "SV Germania Obrigheim",
             "location": "Obrigheim",
-            "score": "826.0 : 657.2",
+            "score": "679.0 : 657.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=6F9DF7F0136C4560BDFE8A37A23076F4"
         },
         {
@@ -82,14 +82,6 @@
         },
         {
             "date": "12.11.2016",
-            "guest": "AC Mutterstadt",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "716.4 : 731.1",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
-        },
-        {
-            "date": "12.11.2016",
             "guest": "SC Pforzheim",
             "home": "SV Germania Obrigheim",
             "location": "Obrigheim",
@@ -103,6 +95,14 @@
             "location": "Roding",
             "score": "647.0 : 765.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=53F363CBF28B43ABBD7D1E6505F9A52A"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "AC Mutterstadt",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "716.4 : 731.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
         },
         {
             "date": "15.10.2016",
