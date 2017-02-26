@@ -1,19 +1,4 @@
 {
     "relay": "1Gruppe+A",
-    "schedule": [
-        {
-            "date": "25.02.2017",
-            "guest": "KSV Durlach",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "time": "19:00"
-        },
-        {
-            "date": "25.02.2017",
-            "guest": "AC Mutterstadt",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "time": "18:00"
-        }
-    ]
+    "schedule": []
 }

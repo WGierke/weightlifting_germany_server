@@ -2,11 +2,11 @@
     "relay": "2Gruppe+B",
     "table": [
         {
-            "cardinal_points": "15 : 0",
+            "cardinal_points": "18 : 0",
             "club": "SV90 Gr\u00e4fenroda",
-            "max_score": "524.4",
+            "max_score": "527.4",
             "place": "1",
-            "score": "2449 : 1974.5"
+            "score": "2976.4 : 2384.7"
         },
         {
             "cardinal_points": "12 : 3",
@@ -16,25 +16,25 @@
             "score": "2358.5 : 1941.9"
         },
         {
-            "cardinal_points": "6 : 9",
+            "cardinal_points": "9 : 9",
             "club": "KSV Langen",
             "max_score": "486.6",
             "place": "3",
-            "score": "2093.4 : 2171.1"
+            "score": "2542 : 2564.1"
         },
         {
-            "cardinal_points": "3 : 9",
+            "cardinal_points": "3 : 12",
             "club": "ASV M\u00fcnchen-Neuaubing",
             "max_score": "432.7",
             "place": "4",
-            "score": "1478.3 : 1817.9"
+            "score": "1888.5 : 2345.3"
         },
         {
-            "cardinal_points": "0 : 15",
+            "cardinal_points": "0 : 18",
             "club": "AC Suhl",
             "max_score": "401.0",
             "place": "5",
-            "score": "1806.7 : 2280.5"
+            "score": "2199.7 : 2729.1"
         }
     ]
 }

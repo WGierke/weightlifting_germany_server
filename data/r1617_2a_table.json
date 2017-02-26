@@ -2,25 +2,25 @@
     "relay": "2Gruppe+A",
     "table": [
         {
-            "cardinal_points": "15 : 0",
+            "cardinal_points": "18 : 0",
             "club": "AC Mei\u00dfen",
             "max_score": "602.8",
             "place": "1",
-            "score": "2793.2 : 2101.8"
+            "score": "3366 : 2464.8"
         },
         {
-            "cardinal_points": "8 : 7",
+            "cardinal_points": "9 : 9",
             "club": "SuS Derne",
             "max_score": "519.0",
             "place": "2",
-            "score": "2359 : 2366.9"
+            "score": "2823.8 : 2840.5"
         },
         {
-            "cardinal_points": "7 : 8",
+            "cardinal_points": "9 : 9",
             "club": "KG G\u00f6rlitz-Zittau",
             "max_score": "477.6",
             "place": "3",
-            "score": "2220.2 : 2453.7"
+            "score": "2693.8 : 2918.5"
         },
         {
             "cardinal_points": "4 : 11",
@@ -30,11 +30,11 @@
             "score": "2201 : 2389"
         },
         {
-            "cardinal_points": "2 : 10",
+            "cardinal_points": "2 : 13",
             "club": "SV Empor Berlin",
             "max_score": "471.2",
             "place": "5",
-            "score": "1769.6 : 2031.6"
+            "score": "2132.6 : 2604.4"
         }
     ]
 }

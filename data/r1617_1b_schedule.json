@@ -1,12 +1,4 @@
 {
     "relay": "1Gruppe+B",
-    "schedule": [
-        {
-            "date": "25.02.2017",
-            "guest": "Chemnitzer AC",
-            "home": "SSV Samswegen",
-            "location": "Samswegen",
-            "time": "18:00"
-        }
-    ]
+    "schedule": []
 }

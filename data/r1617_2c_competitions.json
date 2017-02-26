@@ -1,12 +1,20 @@
 {
     "competitions": [
         {
-            "date": "04.02.2017",
-            "guest": "KSV L\u00f6rrach",
-            "home": "KSV Gr\u00fcnstadt",
-            "location": "Gr\u00fcnstadt",
-            "score": "535.5 : 553.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=11B0B5DF75B347C09AFC998E13D24D83"
+            "date": "25.02.2017",
+            "guest": "TSV Heinsheim",
+            "home": "KSC Schifferstadt",
+            "location": "Schifferstadt",
+            "score": "576.8 : 600.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=1BA53AD517134BD89D2C6E143F9E816E"
+        },
+        {
+            "date": "25.02.2017",
+            "guest": "KSV Gr\u00fcnstadt",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "488.0 : 573.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=FAFB08D09F774ABEA829D090BE4D6209"
         },
         {
             "date": "04.02.2017",
@@ -15,6 +23,14 @@
             "location": "Bad Rappenau - Heinsheim",
             "score": "602.2 : 481.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=5A6389E99D604AEC93B22B6876D272CA"
+        },
+        {
+            "date": "04.02.2017",
+            "guest": "KSV L\u00f6rrach",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "535.5 : 553.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=11B0B5DF75B347C09AFC998E13D24D83"
         },
         {
             "date": "28.01.2017",
@@ -50,19 +66,19 @@
         },
         {
             "date": "12.11.2016",
-            "guest": "AC Weinheim",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "score": "562.4 : 409.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=75437CBD09FF4F529DE8A0D6D2F8B2FD"
-        },
-        {
-            "date": "12.11.2016",
             "guest": "KSV L\u00f6rrach",
             "home": "TSV Heinsheim",
             "location": "Bad Rappenau - Heinsheim",
             "score": "661.2 : 607.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A0CCEE34712E40AFA0FCB77D545A6CF4"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "AC Weinheim",
+            "home": "KSC Schifferstadt",
+            "location": "Schifferstadt",
+            "score": "562.4 : 409.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=75437CBD09FF4F529DE8A0D6D2F8B2FD"
         },
         {
             "date": "15.10.2016",
@@ -82,19 +98,19 @@
         },
         {
             "date": "24.09.2016",
-            "guest": "KSV L\u00f6rrach",
-            "home": "AC Weinheim",
-            "location": "Weinheim",
-            "score": "427.0 : 543.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=EBAD049A7A8F4B03AF7B5D98FFB154C8"
-        },
-        {
-            "date": "24.09.2016",
             "guest": "KSC Schifferstadt",
             "home": "KSV Gr\u00fcnstadt",
             "location": "Gr\u00fcnstadt",
             "score": "481.0 : 522.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=E3B664E255084F758205A4C7CF675428"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "427.0 : 543.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=EBAD049A7A8F4B03AF7B5D98FFB154C8"
         }
     ],
     "relay": "2Gruppe+C"

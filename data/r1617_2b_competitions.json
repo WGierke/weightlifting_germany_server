@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "25.02.2017",
+            "guest": "AC Suhl",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "448.6 : 393.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=03341203541544749D4AA15FA6AF0EA2"
+        },
+        {
+            "date": "25.02.2017",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "ASV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "score": "410.2 : 527.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=9ED40E8646274E5AB76DC991F7732B2F"
+        },
+        {
             "date": "04.02.2017",
             "guest": "SV90 Gr\u00e4fenroda",
             "home": "AC Suhl",
@@ -18,14 +34,6 @@
         },
         {
             "date": "21.01.2017",
-            "guest": "ASV M\u00fcnchen-Neuaubing",
-            "home": "SV90 Gr\u00e4fenroda",
-            "location": "Gr\u00e4fenroda",
-            "score": "480.4 : 341.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C993602CAE014AC184D7D37AA1DD16A8"
-        },
-        {
-            "date": "21.01.2017",
             "guest": "KSV Langen",
             "home": "AC Suhl",
             "location": "Suhl",
@@ -33,12 +41,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F9D70A2A45404186B6055307663EEB73"
         },
         {
-            "date": "17.12.2016",
-            "guest": "TB 03 Roding II",
-            "home": "ASV M\u00fcnchen-Neuaubing",
-            "location": "M\u00fcnchen-Neuaubing",
-            "score": "355.6 : 483.5",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C7A23F98DA434B08B959B9433E196640"
+            "date": "21.01.2017",
+            "guest": "ASV M\u00fcnchen-Neuaubing",
+            "home": "SV90 Gr\u00e4fenroda",
+            "location": "Gr\u00e4fenroda",
+            "score": "480.4 : 341.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C993602CAE014AC184D7D37AA1DD16A8"
         },
         {
             "date": "17.12.2016",
@@ -47,6 +55,14 @@
             "location": "Langen",
             "score": "486.6 : 488.9",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=30F4EE1144874859BB963CA23ADC73E6"
+        },
+        {
+            "date": "17.12.2016",
+            "guest": "TB 03 Roding II",
+            "home": "ASV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "score": "355.6 : 483.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C7A23F98DA434B08B959B9433E196640"
         },
         {
             "date": "12.11.2016",
@@ -82,19 +98,19 @@
         },
         {
             "date": "24.09.2016",
-            "guest": "KSV Langen",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "score": "476.3 : 339.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=725D337F8B914244BB518FE3E9B63D8C"
-        },
-        {
-            "date": "24.09.2016",
             "guest": "AC Suhl",
             "home": "SV90 Gr\u00e4fenroda",
             "location": "Gr\u00e4fenroda",
             "score": "456.8 : 286.9",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=2297EDE122F74B3F887E7750A2D71EC4"
+        },
+        {
+            "date": "24.09.2016",
+            "guest": "KSV Langen",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "476.3 : 339.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=725D337F8B914244BB518FE3E9B63D8C"
         }
     ],
     "relay": "2Gruppe+B"

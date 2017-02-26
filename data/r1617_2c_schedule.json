@@ -2,20 +2,6 @@
     "relay": "2Gruppe+C",
     "schedule": [
         {
-            "date": "25.02.2017",
-            "guest": "TSV Heinsheim",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "time": "18:00"
-        },
-        {
-            "date": "25.02.2017",
-            "guest": "KSV Gr\u00fcnstadt",
-            "home": "AC Weinheim",
-            "location": "Weinheim",
-            "time": "19:00"
-        },
-        {
             "date": "11.03.2017",
             "guest": "AC Weinheim",
             "home": "KSV L\u00f6rrach",

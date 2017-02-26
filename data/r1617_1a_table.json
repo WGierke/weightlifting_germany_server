@@ -16,18 +16,18 @@
             "score": "4672.7 : 4118.6"
         },
         {
-            "cardinal_points": "10 : 5",
-            "club": "KSV Durlach",
-            "max_score": "802.2",
-            "place": "3",
-            "score": "3471.4 : 3346.4"
-        },
-        {
-            "cardinal_points": "7 : 8",
+            "cardinal_points": "10 : 8",
             "club": "AC Mutterstadt",
             "max_score": "742.2",
+            "place": "3",
+            "score": "4302.5 : 4081.6"
+        },
+        {
+            "cardinal_points": "10 : 8",
+            "club": "KSV Durlach",
+            "max_score": "802.2",
             "place": "4",
-            "score": "3574.3 : 3536.6"
+            "score": "4084.4 : 4158.4"
         },
         {
             "cardinal_points": "7 : 11",
@@ -37,18 +37,18 @@
             "score": "4151 : 3596"
         },
         {
-            "cardinal_points": "2 : 13",
+            "cardinal_points": "5 : 13",
             "club": "AC Germania St.Ilgen",
-            "max_score": "660.2",
+            "max_score": "812.0",
             "place": "6",
-            "score": "2453.6 : 3559.6"
+            "score": "3265.6 : 4172.6"
         },
         {
-            "cardinal_points": "1 : 14",
+            "cardinal_points": "1 : 17",
             "club": "SC Pforzheim",
             "max_score": "588.5",
             "place": "7",
-            "score": "2607.5 : 3643.9"
+            "score": "3152.5 : 4372.1"
         }
     ]
 }

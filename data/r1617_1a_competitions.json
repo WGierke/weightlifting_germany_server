@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "25.02.2017",
+            "guest": "AC Mutterstadt",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "545.0 : 728.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=A1497D4435ED46BA8D0F5E3C78B49DAB"
+        },
+        {
+            "date": "25.02.2017",
+            "guest": "KSV Durlach",
+            "home": "AC Germania St.Ilgen",
+            "location": "Leimen-St.Ilgen",
+            "score": "812.0 : 613.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=2AE6E1CEAA664939A3F59F61E4860B1A"
+        },
+        {
             "date": "18.02.2017",
             "guest": "TB 03 Roding",
             "home": "SV Germania Obrigheim",
@@ -82,6 +98,14 @@
         },
         {
             "date": "12.11.2016",
+            "guest": "AC Mutterstadt",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "716.4 : 731.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
+        },
+        {
+            "date": "12.11.2016",
             "guest": "SC Pforzheim",
             "home": "SV Germania Obrigheim",
             "location": "Obrigheim",
@@ -95,14 +119,6 @@
             "location": "Roding",
             "score": "647.0 : 765.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=53F363CBF28B43ABBD7D1E6505F9A52A"
-        },
-        {
-            "date": "12.11.2016",
-            "guest": "AC Mutterstadt",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "716.4 : 731.1",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=AA56183980204852B8D561BA6A81948E"
         },
         {
             "date": "15.10.2016",
