@@ -11,7 +11,7 @@
         {
             "date": "25.02.2017",
             "guest": "SV90 Gr\u00e4fenroda",
-            "home": "ASV M\u00fcnchen-Neuaubing",
+            "home": "ESV M\u00fcnchen-Neuaubing",
             "location": "M\u00fcnchen-Neuaubing",
             "score": "410.2 : 527.4",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=9ED40E8646274E5AB76DC991F7732B2F"
@@ -42,7 +42,7 @@
         },
         {
             "date": "21.01.2017",
-            "guest": "ASV M\u00fcnchen-Neuaubing",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "SV90 Gr\u00e4fenroda",
             "location": "Gr\u00e4fenroda",
             "score": "480.4 : 341.2",
@@ -59,10 +59,18 @@
         {
             "date": "17.12.2016",
             "guest": "TB 03 Roding II",
-            "home": "ASV M\u00fcnchen-Neuaubing",
+            "home": "ESV M\u00fcnchen-Neuaubing",
             "location": "M\u00fcnchen-Neuaubing",
             "score": "355.6 : 483.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=C7A23F98DA434B08B959B9433E196640"
+        },
+        {
+            "date": "12.11.2016",
+            "guest": "AC Suhl",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "score": "432.7 : 401.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7121DCFBA22F4C35956E52E04979AFF4"
         },
         {
             "date": "12.11.2016",
@@ -71,14 +79,6 @@
             "location": "Roding",
             "score": "471.8 : 498.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=F1F72BFB256E4B56A3CA7D1D66AE393B"
-        },
-        {
-            "date": "12.11.2016",
-            "guest": "AC Suhl",
-            "home": "ASV M\u00fcnchen-Neuaubing",
-            "location": "M\u00fcnchen-Neuaubing",
-            "score": "432.7 : 401.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1617/start.php?pid='123'&protokoll=1&wkid=7121DCFBA22F4C35956E52E04979AFF4"
         },
         {
             "date": "15.10.2016",
@@ -90,7 +90,7 @@
         },
         {
             "date": "15.10.2016",
-            "guest": "ASV M\u00fcnchen-Neuaubing",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "KSV Langen",
             "location": "Langen",
             "score": "453.0 : 348.8",
