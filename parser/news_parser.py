@@ -199,7 +199,8 @@ class BVDGParser(NewsParser):
                 image = elem.attrib['src']
             if elem.tag == 'h2':
                 headline_text_list = list(elem.itertext())
-                date = headline_text_list[0] + " 2016"
+                date = headline_text_list[0] + " " + str(datetime.now().year)
+                date = date.replace("Mrz", "März")
                 date = datetime.strptime(date.encode('utf-8'), "%d %b %Y")
                 heading = headline_text_list[1].strip()
 
