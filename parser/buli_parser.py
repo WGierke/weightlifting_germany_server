@@ -32,6 +32,7 @@ class BuliParser:
         self.schedule_file_name = "data/r{}_{}_schedule.json".format(season, leage_relay)
         self.competition_file_name = "data/r{}_{}_competitions.json".format(season, leage_relay)
         self.table_file_name = "data/r{}_{}_table.json".format(season, leage_relay)
+        self.NOTIFY = False
 
     # Helper functions
 
@@ -153,7 +154,8 @@ class BuliParser:
             return
         else:
             print "Local check: Competitions of " + new_competitions_dict["relay"] + " changed"
-            self.notify_users_about_new_competitions(new_competitions_json, old_competitions_json)
+            if self.NOTIFY:
+                self.notify_users_about_new_competitions(new_competitions_json, old_competitions_json)
             write_json(self.competition_file_name, new_competitions_json)
 
     def notify_users_about_new_competitions(self, new_competitions_json, old_competitions_json):
@@ -219,7 +221,8 @@ class BuliParser:
             return
         else:
             print "Local check: Table of " + new_table_dict["relay"] + " changed"
-            self.notify_users_about_new_placements(new_table_json, old_table_json)
+            if self.NOTIFY:
+                self.notify_users_about_new_placements(new_table_json, old_table_json)
             write_json(self.table_file_name, new_table_json)
 
     def notify_users_about_new_placements(self, new_table_json, old_table_json):
