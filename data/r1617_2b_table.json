@@ -2,39 +2,39 @@
     "relay": "2Gruppe+B",
     "table": [
         {
-            "cardinal_points": "18 : 0",
+            "cardinal_points": "23 : 1",
             "club": "SV90 Gr\u00e4fenroda",
-            "max_score": "527.4",
+            "max_score": "536.1",
             "place": "1",
-            "score": "2976.4 : 2384.7"
+            "score": "4015.4 : 3304.2"
         },
         {
-            "cardinal_points": "12 : 3",
+            "cardinal_points": "19 : 5",
             "club": "TB 03 Roding II",
-            "max_score": "483.5",
+            "max_score": "511.5",
             "place": "2",
-            "score": "2358.5 : 1941.9"
+            "score": "3851.5 : 3092"
         },
         {
-            "cardinal_points": "9 : 9",
+            "cardinal_points": "12 : 12",
             "club": "KSV Langen",
             "max_score": "486.6",
             "place": "3",
-            "score": "2542 : 2564.1"
+            "score": "3401.6 : 3467"
         },
         {
-            "cardinal_points": "3 : 12",
+            "cardinal_points": "3 : 21",
             "club": "ESV M\u00fcnchen-Neuaubing",
             "max_score": "432.7",
             "place": "4",
-            "score": "1888.5 : 2345.3"
+            "score": "2961.2 : 3697.1"
         },
         {
-            "cardinal_points": "0 : 18",
+            "cardinal_points": "3 : 21",
             "club": "AC Suhl",
-            "max_score": "401.0",
+            "max_score": "414.0",
             "place": "5",
-            "score": "2199.7 : 2729.1"
+            "score": "2888.2 : 3557.6"
         }
     ]
 }

@@ -1,47 +1,4 @@
 {
     "relay": "2Gruppe+B",
-    "schedule": [
-        {
-            "date": "11.03.2017",
-            "guest": "KSV Langen",
-            "home": "ESV M\u00fcnchen-Neuaubing",
-            "location": "M\u00fcnchen-Neuaubing",
-            "time": "18:00"
-        },
-        {
-            "date": "11.03.2017",
-            "guest": "AC Suhl",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "time": "16:30"
-        },
-        {
-            "date": "25.03.2017",
-            "guest": "KSV Langen",
-            "home": "SV90 Gr\u00e4fenroda",
-            "location": "Gr\u00e4fenroda",
-            "time": "16:00"
-        },
-        {
-            "date": "25.03.2017",
-            "guest": "ESV M\u00fcnchen-Neuaubing",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "time": "16:30"
-        },
-        {
-            "date": "08.04.2017",
-            "guest": "TB 03 Roding II",
-            "home": "SV90 Gr\u00e4fenroda",
-            "location": "Gr\u00e4fenroda",
-            "time": "16:00"
-        },
-        {
-            "date": "08.04.2017",
-            "guest": "ESV M\u00fcnchen-Neuaubing",
-            "home": "AC Suhl",
-            "location": "Suhl",
-            "time": "17:00"
-        }
-    ]
+    "schedule": []
 }
