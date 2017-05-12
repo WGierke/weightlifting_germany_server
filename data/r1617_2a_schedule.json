@@ -1,1 +1,12 @@
-{"relay": "2Gruppe+A", "schedule": []}
+{
+    "relay": "2Gruppe+A",
+    "schedule": [
+        {
+            "date": "11.03.2017",
+            "guest": "SC L\u00fcchow",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "time": "16:00"
+        }
+    ]
+}

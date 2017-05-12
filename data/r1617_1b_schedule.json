@@ -1,1 +1,12 @@
-{"relay": "1Gruppe+B", "schedule": []}
+{
+    "relay": "1Gruppe+B",
+    "schedule": [
+        {
+            "date": "25.03.2017",
+            "guest": "KSV Durlach",
+            "home": "Oder-Sund-Team ",
+            "location": "Schwedt/Stralsund",
+            "time": "18:00"
+        }
+    ]
+}
