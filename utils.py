@@ -8,7 +8,10 @@ import os
 import requests
 import subprocess
 import telegram
-import yaml
+try:
+    import yaml
+except Exception as e:
+    print("Failed to import yaml: {}".format(e))
 
 from collections import Counter
 from gcm import GCM

@@ -1,8 +1,12 @@
 import os
+
+try:
+    import yaml
+except Exception as e:
+    print("Failed to import yaml: {}".format(e))
+
 from datetime import datetime
 from functools import wraps
-
-import yaml
 
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")

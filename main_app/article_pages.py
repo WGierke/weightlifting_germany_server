@@ -36,7 +36,7 @@ class GetArticles(webapp2.RequestHandler):
     def get(self):
         publisher = self.request.get('publisher')
         offset = self.request.get('offset')
-        offset = offset if offset != '' else 0
+        offset = int(offset) if offset != '' else 0
         articles = Article.query(Article.publisher == publisher).order(-Article.date)
         article_array = []
         for article_entity in articles.fetch(10, offset=offset):

@@ -1,8 +1,7 @@
 import json
 
 import webapp2
-from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, \
-    AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
+from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
 from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
