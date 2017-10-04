@@ -63,7 +63,7 @@ class AnalyticsServerTestCase(ServerTestCase):
         self.assertEqual(result[0]["userId"], "2")
         self.assertEqual(result[0]["filterSetting"], "schwedt")
 
-        response = self.post_authenticated("/delete_filter", params={"userId": "2", "filterSetting": "schwedt"})
+        self.post_authenticated("/delete_filter", params={"userId": "2", "filterSetting": "schwedt"})
         response = self.get_authenticated("/get_filters")
         result = json.loads(response.normal_body)["result"]
         self.assertEqual(len(result), 0)
@@ -102,8 +102,8 @@ class AnalyticsServerTestCase(ServerTestCase):
         response = self.get_authenticated("/get_blog_filters")
         self.assertEqual(response.normal_body, '{"result": []}')
 
-        response = self.post_authenticated("/add_blog_filter", params={"userId": "1", "blogFilterSetting": "all"})
-        response = self.post_authenticated("/add_blog_filter", params={"userId": "2", "blogFilterSetting": "schwedt"})
+        self.post_authenticated("/add_blog_filter", params={"userId": "1", "blogFilterSetting": "all"})
+        self.post_authenticated("/add_blog_filter", params={"userId": "2", "blogFilterSetting": "schwedt"})
         response = self.get_authenticated("/get_blog_filters")
         result = json.loads(response.normal_body)["result"]
         self.assertEqual(len(result), 2)
@@ -182,7 +182,7 @@ class AnalyticsServerTestCase(ServerTestCase):
 
         response = self.post_authenticated("/delete_protocol", params={"competitionParties": "MyParty2"})
         self.assertEqual(response.normal_body, 'No protocol found')
-        response = self.get_authenticated("/get_protocols")
+        self.get_authenticated("/get_protocols")
         self.assertEqual(len(result), 1)
         self.assertEqual(result[0]["parties"], "MyParty")
 

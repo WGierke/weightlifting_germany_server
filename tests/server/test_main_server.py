@@ -3,10 +3,11 @@
 
 import os
 import unittest
+
 import webtest
 import yaml
-
 from google.appengine.ext import testbed
+
 from main_app.main_app import GermanyServer
 
 
@@ -29,7 +30,7 @@ class ServerTestCase(unittest.TestCase):
         if os.environ.get("SECRET_KEY"):
             self.SECRET_KEY = os.environ.get("SECRET_KEY")
         else:
-            with open('main_app/app.yaml') as f: 
+            with open('main_app/app.yaml') as f:
                 self.SECRET_KEY = yaml.load(f)["env_variables"]["SECRET_KEY"]
 
     def tearDown(self):
@@ -45,7 +46,8 @@ class ServerTestCase(unittest.TestCase):
         return self.testapp.post(route, params=params, headers={"X-Secret-Key": self.SECRET_KEY})
 
     def post_authenticated_json(self, route, json):
-        return self.testapp.post(route, params=json, headers={"X-Secret-Key": self.SECRET_KEY}, content_type="application/json")
+        return self.testapp.post(route, params=json, headers={"X-Secret-Key": self.SECRET_KEY},
+                                 content_type="application/json")
 
 
 class TokenValidationServerTestCase(ServerTestCase):
@@ -81,7 +83,6 @@ class TokenValidationServerTestCase(ServerTestCase):
         self.assertEqual(response.normal_body, 'Added token successfully')
         response = self.get_authenticated("/get_tokens")
         self.assertEqual(response.normal_body, '{"result": ["MyToken", "MyToken2"]}')
-
 
     def test_token_deleting(self):
         response = self.get_authenticated("/get_tokens")

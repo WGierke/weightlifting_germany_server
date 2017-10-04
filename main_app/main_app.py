@@ -1,10 +1,12 @@
 import json
+
 import webapp2
+from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, \
+    AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
+from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
 from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
-from article_pages import AddArticle, GetArticle, GetArticles, ArticleExists, DeleteArticle
-from analytics_pages import AddFilter, GetFilters, DeleteFilter, AddBlogFilter, GetBlogFilters, DeleteBlogFilter, AddSharedProtocol, GetSharedProtocols, DeleteSharedProtocol
-from server_utils import valid_secret_key, get_secret_key
+from server_utils import get_secret_key, authenticated
 
 DEFAULT_TOKEN_VALUE = 'default_token'
 BULI_DATA_SERVER = 'http://weightliftingcompetitions.appspot.com'
@@ -20,55 +22,48 @@ class Token(ndb.Model):
 
 
 class MainPage(webapp2.RequestHandler):
+    @authenticated
     def get(self):
-        if valid_secret_key(self.request):
-            self.response.out.write('Valid Secret Key - nice!')
-        else:
-            self.response.out.write('Secret Key is not valid')
+        self.response.out.write('Valid Secret Key - nice!')
 
 
 class GetTokens(webapp2.RequestHandler):
+    @authenticated
     def get(self):
-        if valid_secret_key(self.request):
-            token_query = Token.query()
-            tokens = token_query.fetch(1000)
-            response_dict = {"result": map(lambda (x): x.value, tokens)}
-            self.response.write(json.dumps(response_dict, encoding='latin1'))
-        else:
-            self.response.out.write('Secret Key is not valid')
+        token_query = Token.query()
+        tokens = token_query.fetch(1000)
+        response_dict = {"result": map(lambda (x): x.value, tokens)}
+        self.response.write(json.dumps(response_dict, encoding='latin1'))
 
 
 class AddToken(webapp2.RequestHandler):
+    @authenticated
     def post(self):
-        if valid_secret_key(self.request):
-            value = self.request.get('token')
-            token_query = Token.query(ancestor=token_key(value))
-            tokens = token_query.fetch(100)
-            if len(tokens) == 0:
-                token = Token(parent=token_key(value))
-                token.value = value
-                token.put()
-                self.response.write('Added token successfully')
-            else:
-                self.response.write('This token is already saved')
+        value = self.request.get('token')
+        token_query = Token.query(ancestor=token_key(value))
+        tokens = token_query.fetch(100)
+        if len(tokens) == 0:
+            token = Token(parent=token_key(value))
+            token.value = value
+            token.put()
+            self.response.write('Added token successfully')
         else:
-            self.response.out.write('Secret Key is not valid')
+            self.response.write('This token is already saved')
 
 
 class DeleteToken(webapp2.RequestHandler):
+    @authenticated
     def post(self):
-        if valid_secret_key(self.request):
-            value = self.request.get('token')
-            token_query = Token.query(ancestor=token_key(value))
-            tokens = token_query.fetch(100)
-            if len(tokens) > 0:
-                for token in tokens:
-                    token.key.delete()
-                self.response.write('Deleted token successfully')
-            else:
-                self.response.write('No token found')
+        value = self.request.get('token')
+        token_query = Token.query(ancestor=token_key(value))
+        tokens = token_query.fetch(100)
+        if len(tokens) > 0:
+            for token in tokens:
+                token.key.delete()
+            self.response.write('Deleted token successfully')
         else:
-            self.response.out.write('Secret Key is not valid')
+            self.response.write('No token found')
+
 
 class SetSchedule(webapp2.RequestHandler):
     def post(self):
@@ -100,17 +95,14 @@ class GetTable(webapp2.RequestHandler):
         self.response.write(forward_get(self.request))
 
 
+@authenticated
 def forward_get(request):
-    if valid_secret_key(request):
-        return send_get(BULI_DATA_SERVER + request.path + "?" + request.query_string)
-    else:
-        return 'Secret Key is not valid'
+    return send_get(BULI_DATA_SERVER + request.path + "?" + request.query_string)
 
+
+@authenticated
 def forward_post(request):
-    if valid_secret_key(request):
-        return send_post(request.body, BULI_DATA_SERVER + request.path)
-    else:
-        return 'Secret Key is not valid'
+    return send_post(request.body, BULI_DATA_SERVER + request.path)
 
 
 def send_post(payload, url):

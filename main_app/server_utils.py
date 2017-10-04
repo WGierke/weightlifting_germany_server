@@ -1,7 +1,8 @@
 import os
-import yaml
-
 from datetime import datetime
+from functools import wraps
+
+import yaml
 
 if os.environ.get("SECRET_KEY"):
     SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -16,6 +17,17 @@ def get_secret_key():
 
 def valid_secret_key(request):
     return 'X-Secret-Key' in request.headers and request.headers["X-Secret-Key"] == get_secret_key()
+
+
+def authenticated(f):
+    @wraps(f)
+    def wrapped(*args, **kwargs):
+        self = args[0]
+        if valid_secret_key(self.request):
+            return f(*args, **kwargs)
+        return self.response.out.write('Secret Key is not valid')
+
+    return wrapped
 
 
 def json_serial(obj):
