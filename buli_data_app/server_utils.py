@@ -29,6 +29,16 @@ def authenticated(f):
 
     return wrapped
 
+def needs_relay(f):
+    @wraps(f)
+    def wrapped(*args, **kwargs):
+        self = args[0]
+        if "relay" not in self.request.query and "relay" not in self.request.body:
+            return self.response.out.write('"relay" parameter needed')
+        return f(*args, **kwargs)
+
+    return wrapped
+
 
 def json_serial(obj):
     if isinstance(obj, datetime):

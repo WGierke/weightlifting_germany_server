@@ -4,7 +4,7 @@ import logging
 import webapp2
 from google.appengine.api import memcache
 from google.appengine.ext import ndb
-from server_utils import json_serial, json_deserial, authenticated
+from server_utils import json_serial, json_deserial, authenticated, needs_relay
 
 DEFAULT_RELAY_VALUE = 'default_relay'
 
@@ -55,6 +55,7 @@ def add_table_to_cache(relay, table_dict):
 
 class SetSchedule(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def post(self):
         json_value = json.loads(self.request.body, encoding="utf-8")
         relay = json.loads(json_value)["relay"]
@@ -71,6 +72,7 @@ class SetSchedule(webapp2.RequestHandler):
 
 class GetSchedule(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def get(self):
         relay = self.request.get("relay")
         schedule_json = memcache.get('{}:schedule'.format(relay))
@@ -90,6 +92,7 @@ class GetSchedule(webapp2.RequestHandler):
 
 class SetCompetitions(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def post(self):
         json_value = json.loads(self.request.body, encoding="utf-8")
         relay = json.loads(json_value)["relay"]
@@ -106,6 +109,7 @@ class SetCompetitions(webapp2.RequestHandler):
 
 class GetCompetitions(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def get(self):
         relay = self.request.get("relay")
         competitions_json = memcache.get('{}:competitions'.format(relay))
@@ -125,6 +129,7 @@ class GetCompetitions(webapp2.RequestHandler):
 
 class SetTable(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def post(self):
         json_value = json.loads(self.request.body, encoding="utf-8")
         relay = json.loads(json_value)["relay"]
@@ -141,6 +146,7 @@ class SetTable(webapp2.RequestHandler):
 
 class GetTable(webapp2.RequestHandler):
     @authenticated
+    @needs_relay
     def get(self):
         relay = self.request.get("relay")
         table_json = memcache.get('{}:table'.format(relay))
