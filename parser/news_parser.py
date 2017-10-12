@@ -6,19 +6,21 @@ This class crawls the articles of a specified blog and uploads them as JSON file
 """
 import ConfigParser
 import locale
+import logging
 import md5
+import os.path
 import re
-import requests
+import sys
 import time
 import traceback
 import urllib2
-import os.path
-import logging
-import sys
-from bs4 import BeautifulSoup
 from datetime import datetime
+
+import requests
+from bs4 import BeautifulSoup
 from lxml import etree
 from lxml.etree import tostring
+
 from utils import send_to_slack, notify_users_about_article, get_endpoint, is_production, write_news
 
 ENDPOINT = get_endpoint()
@@ -32,6 +34,7 @@ if os.path.isfile("config.ini"):
 else:
     print "config.ini is needed"
     sys.exit(1)
+
 
 class NewsParser:
     TIMEOUT = 15
@@ -112,7 +115,6 @@ class NewsParser:
                 logging.info(text)
                 send_to_slack(text)
                 return
-
 
     def parse_initial_articles(self, page):
         articles = []
@@ -208,7 +210,7 @@ class BVDGParser(NewsParser):
 
         soup = BeautifulSoup(tostring(post_content_holder), "lxml")
         content = ''.join(soup.findAll(text=True)).strip()
-        #Remove time, category and comments
+        # Remove time, category and comments
         comment_content_delimiters = [u"\n\n\n", u"\n\n\xa0\n"]
         for comment_content_delimiter in comment_content_delimiters:
             if comment_content_delimiter in content:
@@ -220,6 +222,7 @@ class BVDGParser(NewsParser):
         article["image"] = image
         article["content"] = content
         return article
+
 
 class SpeyerParser(NewsParser):
     BLOG_NAME = "Speyer"
@@ -258,6 +261,7 @@ class SpeyerParser(NewsParser):
         article["content"] = content
 
         return article
+
 
 class MutterstadtParser(NewsParser):
     BLOG_NAME = "Mutterstadt"
@@ -307,6 +311,101 @@ class MutterstadtParser(NewsParser):
                     date = datetime.strptime(date.encode('utf-8'), "%d. %B %Y")
                     date = str(time.mktime(date.timetuple()))
                     url = self.ARTICLES_URL + str(0) + "&heading=" + md5.new(heading.encode("utf-8")).hexdigest() + date
+                    image = ''
+                    for elem in list(article.getiterator()):
+                        if elem.tag == 'img':
+                            image = self.BLOG_BASE_URL + elem.attrib["src"]
+                            break
+
+                    if self.newest_article_url == url:
+                        logging.info("Local check: " + heading + " already exists")
+                        logging.info("Finished parsing blog")
+                        return
+                    else:
+                        self.newest_article_url = url
+
+                    payload = {"url": url}
+                    article_exists_response = self.send_post(payload, "/article_exists")
+                    if article_exists_response == "No":
+                        logging.info(heading + " does not exist yet")
+                        payload = {"url": url,
+                                   "date": date,
+                                   "heading": heading,
+                                   "content": content,
+                                   "image": image,
+                                   "publisher": self.BLOG_NAME}
+                        self.send_post(payload, "/add_article")
+                        if is_production():
+                            notify_users_about_article(payload)
+                            write_news(self.BLOG_NAME + ": " + heading + "\n")
+                    elif article_exists_response == "Yes":
+                        logging.info(url + " already exists")
+                        logging.info("Finished parsing blog")
+                        return
+                    else:
+                        logging.info("/article_exists sent unexpected answer: " + article_exists_response)
+                        return
+
+            except Exception, e:
+                text = "Error while parsing news for " + self.BLOG_NAME + " on page " + str(page_index) + ": "
+                text += traceback.format_exc()
+                logging.info(text)
+                send_to_slack(text)
+                return
+
+
+class RodingParser(NewsParser):
+    BLOG_NAME = "Roding"
+    BLOG_BASE_URL = "http://www.tb03-gewichtheben.de/"
+    ARTICLES_URL = BLOG_BASE_URL + "page/"
+    ARTICLES_CONTAINER_XPATH = '//*[@id="content"]/div/table/tr/td'
+    ARTICLES_POST_CLASS = "post"
+
+    def get_content_from_url(self, url, post_id):
+        page = urllib2.urlopen(url).read()
+        tree = etree.HTML(page)
+        content_container = tree.xpath("//*[@id='{}']/div".format(post_id))[0]
+        texts = list(content_container.itertext())
+        return ' '.join(texts[1:-2])
+
+    def parse_articles(self):
+        page_index = 0
+        logging.info("Parsing Blog " + self.BLOG_NAME)
+        while True:
+            page_index += 1
+            logging.info("Page " + str(page_index))
+            try:
+                try:
+                    page = urllib2.urlopen(self.ARTICLES_URL + str(page_index), timeout=NewsParser.TIMEOUT).read()
+                except urllib2.HTTPError, e:
+                    if e.code == 404:
+                        logging.info("Finished parsing blog")
+                        return
+                    else:
+                        raise Exception(e)
+
+                tree = etree.HTML(page)
+                articles_container = tree.xpath(RodingParser.ARTICLES_CONTAINER_XPATH)[0]
+                articles = []
+                for article in articles_container.getchildren():
+                    if "post" in article.attrib["class"]:
+                        articles.append(article)
+
+                if len(articles) == 0:
+                    return
+
+                for article_index, article in enumerate(articles):
+                    post_id = article.attrib['id']
+                    texts = list(article.itertext())
+
+                    heading = texts[1]
+                    locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
+                    date = texts[3]
+                    date = ' '.join(date.split(' ')[1:3])
+                    date = datetime.strptime(date.encode('utf-8'), "%d.%B %Y")
+                    date = str(time.mktime(date.timetuple()))
+                    url = article.find('h2').find('a').attrib['href']
+                    content = self.get_content_from_url(url, post_id)
                     image = ''
                     for elem in list(article.getiterator()):
                         if elem.tag == 'img':
