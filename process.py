@@ -1,7 +1,7 @@
 import os
 import traceback
 from parser.buli_parser import BuliParser
-from parser.news_parser import BVDGParser, SpeyerParser, SchwedtParser, MutterstadtParser, RodingParser
+from parser.news_parser import BVDGParser, SpeyerParser, SchwedtParser, MutterstadtParser, RodingParser, ChemnitzParser
 from utils import update_readme, commit_changes, send_to_slack, get_endpoint, is_production, NEWS_FILE
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     BuliParser2A = BuliParser(SEASON, "2", "Gruppe+A", "2. Bundesliga - Staffel A", "7", leage_relay="2a")
     BuliParser2B = BuliParser(SEASON, "2", "Gruppe+B", "2. Bundesliga - Staffel B", "8", leage_relay="2b")
 
-    blog_parsers_instances = [BVDGParser(), SpeyerParser(), SchwedtParser(), MutterstadtParser(), RodingParser()]
+    blog_parsers_instances = [ChemnitzParser()]# [BVDGParser(), SpeyerParser(), SchwedtParser(), MutterstadtParser(), RodingParser()]
 
     try:
         for parser in [BuliParser1A, BuliParser1B, BuliParser2A, BuliParser2B]:
