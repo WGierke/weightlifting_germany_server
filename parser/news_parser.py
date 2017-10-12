@@ -29,6 +29,9 @@ if os.path.isfile("config.ini"):
     config = ConfigParser.RawConfigParser(allow_no_value=True)
     config.read('config.ini')
     APPSPOT_KEY = config.get("appspot", "X-Secret-Key")
+else:
+    print "config.ini is needed"
+    sys.exit(1)
 
 class NewsParser:
     TIMEOUT = 15
@@ -191,7 +194,9 @@ class BVDGParser(NewsParser):
 
         post_content_holder = article_tree.xpath("//*[@id=\"" + post_id + "\"]/div[1]")[0]
         image = article["image"]
-        date = ''
+
+        date = re.findall('(?<=<meta property="article:published_time" content=").*(?=\+)', article_page)[0]
+        date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S")
         heading = ''
 
         for elem in post_content_holder.iter():
@@ -199,9 +204,6 @@ class BVDGParser(NewsParser):
                 image = elem.attrib['src']
             if elem.tag == 'h2':
                 headline_text_list = list(elem.itertext())
-                date = headline_text_list[0] + " " + str(datetime.now().year)
-                date = date.replace("Mrz", "März")
-                date = datetime.strptime(date.encode('utf-8'), "%d %b %Y")
                 heading = headline_text_list[1].strip()
 
         soup = BeautifulSoup(tostring(post_content_holder), "lxml")
@@ -299,6 +301,7 @@ class MutterstadtParser(NewsParser):
                     content = [text_part.strip() for text_part in content]
                     content = [text_part for text_part in content if text_part != '']
                     content = '\n'.join(content)
+                    content = re.sub('(E-Mail\n\| Zugriffe: \d+\n)', '', content)
                     loc = locale.setlocale(locale.LC_ALL, 'de_DE.utf8')
                     date = ' '.join(texts[3].split(' ')[2:5])
                     date = datetime.strptime(date.encode('utf-8'), "%d. %B %Y")
