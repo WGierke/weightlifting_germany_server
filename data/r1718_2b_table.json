@@ -1,0 +1,47 @@
+{
+    "relay": "2Gruppe+B",
+    "table": [
+        {
+            "cardinal_points": "6 : 0",
+            "club": "KSV Regensburg",
+            "max_score": "556.8",
+            "place": "1",
+            "score": "1113.6 : 858.8"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "SV90 Gr\u00e4fenroda",
+            "max_score": "466.4",
+            "place": "2",
+            "score": "466.4 : 447"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "TB 03 Roding II",
+            "max_score": "398.0",
+            "place": "3",
+            "score": "398 : 378.3"
+        },
+        {
+            "cardinal_points": "3 : 3",
+            "club": "AC Suhl",
+            "max_score": "409.2",
+            "place": "4",
+            "score": "787.5 : 785"
+        },
+        {
+            "cardinal_points": "3 : 6",
+            "club": "KG G\u00f6rlitz-Zittau",
+            "max_score": "452.8",
+            "place": "5",
+            "score": "1352.6 : 1429.2"
+        },
+        {
+            "cardinal_points": "0 : 9",
+            "club": "SV Empor Berlin",
+            "max_score": "406.0",
+            "place": "6",
+            "score": "1199 : 1418.8"
+        }
+    ]
+}

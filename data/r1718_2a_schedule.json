@@ -1,0 +1,180 @@
+{
+    "relay": "2Gruppe+A",
+    "schedule": [
+        {
+            "date": "14.10.2017",
+            "guest": "KSV L\u00f6rrach",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "time": "19:00"
+        },
+        {
+            "date": "14.10.2017",
+            "guest": "KSV Langen ESV M\u00fcnchen-Neuaubing",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "time": "15:00"
+        },
+        {
+            "date": "28.10.2017",
+            "guest": "AC Weinheim",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "time": "19:00"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "time": "19:00"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "ASV Ladenburg",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "time": "19:00"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "AV Speyer 03 II AC Weinheim",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "time": "18:00"
+        },
+        {
+            "date": "25.11.2017",
+            "guest": "AC Weinheim",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "time": "19:00"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "AV Speyer 03 II",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "time": "19:00"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "time": "19:00"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "time": "19:00"
+        },
+        {
+            "date": "20.01.2018",
+            "guest": "ASV Ladenburg",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "time": "18:00"
+        },
+        {
+            "date": "20.01.2018",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "time": "16:00"
+        },
+        {
+            "date": "20.01.2018",
+            "guest": "KSV Gr\u00fcnstadt",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "time": "19:00"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "KSV Langen",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "time": "19:00"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "KSV L\u00f6rrach ESV M\u00fcnchen-Neuaubing",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "time": "19:00"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "AC Weinheim",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "time": "16:00"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "AV Speyer 03 II ASV Ladenburg",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "time": "18:00"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "KSV Langen",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "time": "18:00"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "time": "19:00"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "time": "18:00"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "KSV Gr\u00fcnstadt",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "time": "16:00"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "KSV Langen ASV Ladenburg",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "time": "19:00"
+        },
+        {
+            "date": "07.04.2018",
+            "guest": "AV Speyer 03 II",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "time": "19:00"
+        },
+        {
+            "date": "07.04.2018",
+            "guest": "ASV Ladenburg",
+            "home": "KSV L\u00f6rrach",
+            "location": "L\u00f6rrach-Haagen",
+            "time": "18:00"
+        },
+        {
+            "date": "07.04.2018",
+            "guest": "KSV Gr\u00fcnstadt AC Weinheim",
+            "home": "ESV M\u00fcnchen-Neuaubing",
+            "location": "M\u00fcnchen-Neuaubing",
+            "time": "18:00"
+        }
+    ]
+}

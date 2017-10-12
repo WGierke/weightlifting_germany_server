@@ -1,0 +1,37 @@
+{
+    "competitions": [
+        {
+            "date": "07.10.2017",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "score": "447.0 : 466.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=DE50004ADDCC4C9896AFE417242DD4F5"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "KSV Regensburg SV Empor Berlin",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "score": "452.8 : 556.8 :406.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=701C22E134044DF5BB62F2B15CD5D766"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "TB 03 Roding II",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "378.3 : 398.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=755AD339C0DF4158B4FA0BA71AFD235E"
+        },
+        {
+            "date": "16.09.2017",
+            "guest": "SV Empor Berlin",
+            "home": "AC Suhl",
+            "location": "Suhl",
+            "score": "409.2 : 387.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0B61D8173A574C168360679E97CCC03C"
+        }
+    ],
+    "relay": "2Gruppe+B"
+}

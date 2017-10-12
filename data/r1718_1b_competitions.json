@@ -1,0 +1,37 @@
+{
+    "competitions": [
+        {
+            "date": "30.09.2017",
+            "guest": "AC Potsdam",
+            "home": "TSV Schwedt",
+            "location": "Schwedt",
+            "score": "637.4 : 547.9",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=17657653C9B148C891FC7A2C3F990E67"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "Berliner TSC",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "624.6 : 719.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=8B696E03D9284057B73D2E94810201A6"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "SG Fortschritt Eibau",
+            "home": "SSV Samswegen",
+            "location": "Samswegen",
+            "score": "875.8 : 541.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=FB70F42F379048409582A647D64805BC"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "Athletenteam Vogtland",
+            "home": "Chemnitzer AC",
+            "location": "Chemnitz",
+            "score": "757.0 : 585.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9245EE0C93AD426FB4E72A4DFA3C50F0"
+        }
+    ],
+    "relay": "1Gruppe+B"
+}

@@ -1,0 +1,54 @@
+{
+    "relay": "2Gruppe+A",
+    "table": [
+        {
+            "cardinal_points": "3 : 0",
+            "club": "AV Speyer 03 II",
+            "max_score": "584.9",
+            "place": "1",
+            "score": "584.9 : 338.6"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "KSV L\u00f6rrach",
+            "max_score": "497.5",
+            "place": "2",
+            "score": "497.5 : 285"
+        },
+        {
+            "cardinal_points": "3 : 0",
+            "club": "KSV Gr\u00fcnstadt",
+            "max_score": "472.4",
+            "place": "3",
+            "score": "472.4 : 336.3"
+        },
+        {
+            "cardinal_points": "0 : 0",
+            "club": "AC Weinheim",
+            "max_score": "0.0",
+            "place": "4",
+            "score": "0 : 0"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "ESV M\u00fcnchen-Neuaubing",
+            "max_score": "338.6",
+            "place": "5",
+            "score": "338.6 : 584.9"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "ASV Ladenburg",
+            "max_score": "336.3",
+            "place": "6",
+            "score": "336.3 : 472.4"
+        },
+        {
+            "cardinal_points": "0 : 3",
+            "club": "KSV Langen",
+            "max_score": "285.0",
+            "place": "7",
+            "score": "285 : 497.5"
+        }
+    ]
+}
