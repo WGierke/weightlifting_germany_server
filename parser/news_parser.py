@@ -409,7 +409,7 @@ class RodingParser(NewsParser):
                     image = ''
                     for elem in list(article.getiterator()):
                         if elem.tag == 'img':
-                            image = self.BLOG_BASE_URL + elem.attrib["src"]
+                            image = elem.attrib["src"]
                             break
 
                     if self.newest_article_url == url:
