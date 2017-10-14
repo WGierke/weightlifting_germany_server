@@ -66,42 +66,42 @@ class DeleteToken(webapp2.RequestHandler):
 
 class SetSchedule(webapp2.RequestHandler):
     def post(self):
-        self.response.write(forward_post(self.request))
+        self.response.write(forward_post(self))
 
 
 class GetSchedule(webapp2.RequestHandler):
     def get(self):
-        self.response.write(forward_get(self.request))
+        self.response.write(forward_get(self))
 
 
 class SetCompetitions(webapp2.RequestHandler):
     def post(self):
-        self.response.write(forward_post(self.request))
+        self.response.write(forward_post(self))
 
 
 class GetCompetitions(webapp2.RequestHandler):
     def get(self):
-        self.response.write(forward_get(self.request))
+        self.response.write(forward_get(self))
 
 
 class SetTable(webapp2.RequestHandler):
     def post(self):
-        self.response.write(forward_post(self.request))
+        self.response.write(forward_post(self))
 
 
 class GetTable(webapp2.RequestHandler):
     def get(self):
-        self.response.write(forward_get(self.request))
+        self.response.write(forward_get(self))
 
 
 @authenticated
-def forward_get(request):
-    return send_get(BULI_DATA_SERVER + request.path + "?" + request.query_string)
+def forward_get(obj):
+    return send_get(BULI_DATA_SERVER + obj.request.path + "?" + obj.request.query_string)
 
 
 @authenticated
-def forward_post(request):
-    return send_post(request.body, BULI_DATA_SERVER + request.path)
+def forward_post(obj):
+    return send_post(obj.request.body, BULI_DATA_SERVER + obj.request.path)
 
 
 def send_post(payload, url):
