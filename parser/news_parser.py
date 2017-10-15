@@ -59,7 +59,7 @@ class NewsParser:
         except Exception, e:
             return False
 
-    def parse_articles(self):
+    def parse_articles(self, notify):
         page_index = 0
         logging.info("Parsing Blog " + self.BLOG_NAME)
         while True:
@@ -98,7 +98,7 @@ class NewsParser:
                                    "image": new_article["image"],
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
-                        if is_production():
+                        if is_production() and notify:
                             notify_users_about_article(payload)
                             write_news(self.BLOG_NAME + ": " + new_article["heading"] + "\n")
                     elif article_exists_response == "Yes":
@@ -270,7 +270,7 @@ class MutterstadtParser(NewsParser):
     ARTICLES_CONTAINER_XPATH = '//*[@id="art-main"]/div/div/div/div/div[1]/div'
     ARTICLES_POST_CLASS = "items-row cols-1 row-"
 
-    def parse_articles(self):
+    def parse_articles(self, notify):
         page_index = -5
         logging.info("Parsing Blog " + self.BLOG_NAME)
         while True:
@@ -335,7 +335,7 @@ class MutterstadtParser(NewsParser):
                                    "image": image,
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
-                        if is_production():
+                        if is_production() and notify:
                             notify_users_about_article(payload)
                             write_news(self.BLOG_NAME + ": " + heading + "\n")
                     elif article_exists_response == "Yes":
@@ -368,7 +368,7 @@ class RodingParser(NewsParser):
         texts = list(content_container.itertext())
         return ' '.join(texts[1:-2])
 
-    def parse_articles(self):
+    def parse_articles(self, notify):
         page_index = 0
         logging.info("Parsing Blog " + self.BLOG_NAME)
         while True:
@@ -430,7 +430,7 @@ class RodingParser(NewsParser):
                                    "image": image,
                                    "publisher": self.BLOG_NAME}
                         self.send_post(payload, "/add_article")
-                        if is_production():
+                        if is_production() and notify:
                             notify_users_about_article(payload)
                             write_news(self.BLOG_NAME + ": " + heading + "\n")
                     elif article_exists_response == "Yes":

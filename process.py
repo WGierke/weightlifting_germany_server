@@ -1,10 +1,14 @@
 import os
+import argparse
 import traceback
 from parser.buli_parser import BuliParser
 from parser.news_parser import BVDGParser, SpeyerParser, SchwedtParser, MutterstadtParser, RodingParser
 from utils import update_readme, commit_changes, send_to_slack, get_endpoint, is_production, NEWS_FILE
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Send new articles or competition results to the server")
+    parser.add_argument('--notify', action='store_true')
+    args = parser.parse_args()
     print "Endpoint: " + get_endpoint()
 
     SEASON = "1718"
@@ -17,10 +21,10 @@ if __name__ == '__main__':
 
     try:
         for parser in [BuliParser1A, BuliParser1B, BuliParser2A, BuliParser2B]:
-            parser.update_buli()
+            parser.update_buli(args.notify)
 
         for blog_parser_instance in blog_parsers_instances:
-            blog_parser_instance.parse_articles()
+            blog_parser_instance.parse_articles(args.notify)
 
         update_readme(blog_parsers_instances)
 
