@@ -170,6 +170,8 @@ def update_readme(blog_parsers_instances):
     table = list()
     for blog_parser_instance in blog_parsers_instances:
         newest_url = blog_parser_instance.get_newest_article_url()
+        if newest_url is None:
+            continue
         article_json = send_get('/get_article?url=' + newest_url)
         try:
             article = json.loads(article_json)['result']
