@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "21.10.2017",
+            "guest": "TB 03 Roding II",
+            "home": "KSV Regensburg",
+            "location": "Regensburg",
+            "score": "496.6 : 478.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=14271F724447455F8C167F446F82E468"
+        },
+        {
             "date": "14.10.2017",
             "guest": "AC Suhl",
             "home": "SV90 Gr\u00e4fenroda",
