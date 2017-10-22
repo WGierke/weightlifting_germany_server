@@ -53,7 +53,7 @@ class AddToken(webapp2.RequestHandler):
 class DeleteToken(webapp2.RequestHandler):
     @authenticated
     def post(self):
-        value = self.request.get('token')
+        value = json.loads(self.request.body)["token"]
         token_query = Token.query(ancestor=token_key(value))
         tokens = token_query.fetch(100)
         if len(tokens) > 0:
