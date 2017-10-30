@@ -2,13 +2,6 @@
     "relay": "2Gruppe+A",
     "schedule": [
         {
-            "date": "28.10.2017",
-            "guest": "AC Weinheim",
-            "home": "ASV Ladenburg",
-            "location": "Ladenburg",
-            "time": "19:00"
-        },
-        {
             "date": "11.11.2017",
             "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "KSV Gr\u00fcnstadt",

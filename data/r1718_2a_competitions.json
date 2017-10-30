@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "28.10.2017",
+            "guest": "AC Weinheim",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "score": "412.0 : 471.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=757D3F6B88294123B207A9D8113DB16F"
+        },
+        {
             "date": "14.10.2017",
             "guest": "KSV Langen ESV M\u00fcnchen-Neuaubing",
             "home": "AV Speyer 03 II",
