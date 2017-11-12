@@ -2,53 +2,53 @@
     "relay": "2Gruppe+A",
     "table": [
         {
-            "cardinal_points": "9 : 0",
+            "cardinal_points": "12 : 3",
             "club": "AV Speyer 03 II",
             "max_score": "584.9",
             "place": "1",
-            "score": "1589.5 : 922.9"
+            "score": "2635.5 : 1958.8"
         },
         {
-            "cardinal_points": "6 : 0",
+            "cardinal_points": "9 : 0",
             "club": "KSV Gr\u00fcnstadt",
-            "max_score": "500.0",
+            "max_score": "534.2",
             "place": "2",
-            "score": "972.4 : 772.5"
+            "score": "1506.6 : 1100.5"
         },
         {
-            "cardinal_points": "3 : 0",
-            "club": "AC Weinheim",
-            "max_score": "471.0",
-            "place": "3",
-            "score": "471 : 412"
-        },
-        {
-            "cardinal_points": "3 : 3",
+            "cardinal_points": "9 : 3",
             "club": "KSV L\u00f6rrach",
-            "max_score": "497.5",
-            "place": "4",
-            "score": "933.7 : 785"
+            "max_score": "560.9",
+            "place": "3",
+            "score": "2055.5 : 1783"
         },
         {
             "cardinal_points": "3 : 6",
-            "club": "KSV Langen",
-            "max_score": "337.8",
-            "place": "5",
-            "score": "960.6 : 1246.3"
+            "club": "AC Weinheim",
+            "max_score": "475.0",
+            "place": "4",
+            "score": "1421 : 1495.9"
         },
         {
-            "cardinal_points": "0 : 6",
+            "cardinal_points": "3 : 6",
             "club": "ASV Ladenburg",
             "max_score": "412.0",
-            "place": "6",
-            "score": "748.3 : 943.4"
+            "place": "5",
+            "score": "1148.3 : 1227"
         },
         {
-            "cardinal_points": "0 : 9",
+            "cardinal_points": "3 : 9",
+            "club": "KSV Langen",
+            "max_score": "337.8",
+            "place": "6",
+            "score": "1244.2 : 1646.3"
+        },
+        {
+            "cardinal_points": "0 : 12",
             "club": "ESV M\u00fcnchen-Neuaubing",
             "max_score": "338.6",
             "place": "7",
-            "score": "831.6 : 1425"
+            "score": "1159.6 : 1959.2"
         }
     ]
 }

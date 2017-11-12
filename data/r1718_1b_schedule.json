@@ -2,39 +2,18 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "11.11.2017",
-            "guest": "Chemnitzer AC",
-            "home": "SG Fortschritt Eibau",
-            "location": "Eibau",
-            "time": "18:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "SSV Samswegen",
-            "home": "AC Mei\u00dfen",
-            "location": "Mei\u00dfen",
-            "time": "18:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "AC Potsdam",
-            "home": "Athletenteam Vogtland",
-            "location": "Plauen/Rodewisch",
-            "time": "17:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "Berliner TSC",
-            "home": "TSV Schwedt",
-            "location": "Schwedt/Stralsund",
-            "time": "18:00"
-        },
-        {
             "date": "16.12.2017",
             "guest": "TSV Schwedt",
             "home": "Athletenteam Vogtland",
             "location": "Plauen/Rodewisch",
             "time": "14:00"
+        },
+        {
+            "date": "13.01.2018",
+            "guest": "Chemnitzer AC",
+            "home": "SG Fortschritt Eibau",
+            "location": "Eibau",
+            "time": "18:00"
         },
         {
             "date": "03.02.2018",

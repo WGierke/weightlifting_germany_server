@@ -2,60 +2,60 @@
     "relay": "1Gruppe+B",
     "table": [
         {
-            "cardinal_points": "6 : 0",
+            "cardinal_points": "9 : 0",
             "club": "Berliner TSC",
-            "max_score": "719.4",
+            "max_score": "752.0",
             "place": "1",
-            "score": "1424.4 : 1229.6"
+            "score": "2176.4 : 1937.2"
         },
         {
-            "cardinal_points": "3 : 0",
+            "cardinal_points": "6 : 0",
             "club": "SSV Samswegen",
             "max_score": "875.8",
             "place": "2",
-            "score": "875.8 : 541.2"
+            "score": "1660.2 : 1135.3"
+        },
+        {
+            "cardinal_points": "6 : 3",
+            "club": "AC Potsdam",
+            "max_score": "574.4",
+            "place": "3",
+            "score": "1693.6 : 1512.2"
         },
         {
             "cardinal_points": "3 : 0",
             "club": "Chemnitzer AC",
             "max_score": "757.0",
-            "place": "3",
+            "place": "4",
             "score": "757 : 585.2"
         },
         {
-            "cardinal_points": "3 : 0",
-            "club": "TSV Schwedt",
-            "max_score": "637.4",
-            "place": "4",
-            "score": "637.4 : 547.9"
-        },
-        {
             "cardinal_points": "3 : 3",
-            "club": "AC Potsdam",
-            "max_score": "574.4",
+            "club": "TSV Schwedt",
+            "max_score": "707.6",
             "place": "5",
-            "score": "1122.3 : 1038.2"
-        },
-        {
-            "cardinal_points": "0 : 3",
-            "club": "Athletenteam Vogtland",
-            "max_score": "585.2",
-            "place": "6",
-            "score": "585.2 : 757"
+            "score": "1345 : 1299.9"
         },
         {
             "cardinal_points": "0 : 6",
             "club": "SG Fortschritt Eibau",
             "max_score": "605.0",
-            "place": "7",
+            "place": "6",
             "score": "1146.2 : 1580.8"
         },
         {
             "cardinal_points": "0 : 6",
+            "club": "Athletenteam Vogtland",
+            "max_score": "585.2",
+            "place": "7",
+            "score": "1059.2 : 1328.3"
+        },
+        {
+            "cardinal_points": "0 : 9",
             "club": "AC Mei\u00dfen",
             "max_score": "624.6",
             "place": "8",
-            "score": "1025.4 : 1293.8"
+            "score": "1619.5 : 2078.2"
         }
     ]
 }

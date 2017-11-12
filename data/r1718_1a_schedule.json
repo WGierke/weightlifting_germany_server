@@ -2,34 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "11.11.2017",
-            "guest": "KSC Schifferstadt",
-            "home": "TSV Heinsheim",
-            "location": "Bad Rappenau",
-            "time": "20:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "TB 03 Roding",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "time": "19:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "SC Pforzheim",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "time": "19:00"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "SV Germania Obrigheim",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "time": "19:00"
-        },
-        {
             "date": "09.12.2017",
             "guest": "TB 03 Roding",
             "home": "AC Germania St.Ilgen",

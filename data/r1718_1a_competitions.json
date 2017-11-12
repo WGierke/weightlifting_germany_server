@@ -1,6 +1,38 @@
 {
     "competitions": [
         {
+            "date": "11.11.2017",
+            "guest": "TB 03 Roding",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "731.6 : 732.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=C1E47BC98489420284A18CF803933467"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "SC Pforzheim",
+            "home": "AC Germania St.Ilgen",
+            "location": "Leimen-St.Ilgen",
+            "score": "795.4 : 605.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=23FC805BF3624BD18098B96C73B89597"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "KSC Schifferstadt",
+            "home": "TSV Heinsheim",
+            "location": "Bad Rappenau",
+            "score": "655.0 : 552.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=59D06FAE06D541BD88B9837D9182ED96"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "SV Germania Obrigheim",
+            "home": "AC Mutterstadt",
+            "location": "Mutterstadt",
+            "score": "801.8 : 827.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0DDAAC686F0944BAB20017EDF16BB119"
+        },
+        {
             "date": "14.10.2017",
             "guest": "KSC Schifferstadt",
             "home": "TB 03 Roding",
@@ -34,22 +66,6 @@
         },
         {
             "date": "30.09.2017",
-            "guest": "SC Pforzheim",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "score": "547.0 : 586.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5561B5432F224EB1BCE0406A748500BC"
-        },
-        {
-            "date": "30.09.2017",
-            "guest": "AC Mutterstadt",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "score": "597.1 : 800.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=F6EE5848A9E949258B9FE561A13FBE45"
-        },
-        {
-            "date": "30.09.2017",
             "guest": "AV Speyer 03",
             "home": "KSV Durlach",
             "location": "Durlach",
@@ -63,6 +79,22 @@
             "location": "Bad Rappenau",
             "score": "717.0 : 707.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D998BD2B94E34F10A3F602DC59F4E115"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "SC Pforzheim",
+            "home": "KSC Schifferstadt",
+            "location": "Schifferstadt",
+            "score": "547.0 : 586.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5561B5432F224EB1BCE0406A748500BC"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "AC Mutterstadt",
+            "home": "AC Germania St.Ilgen",
+            "location": "Leimen-St.Ilgen",
+            "score": "597.1 : 800.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=F6EE5848A9E949258B9FE561A13FBE45"
         }
     ],
     "relay": "1Gruppe+A"
