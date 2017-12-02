@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "25.11.2017",
+            "guest": "AC Weinheim",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "442.6 : 504.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=6A9E1FA8CF684EADBBAA6648B9E022CA"
+        },
+        {
             "date": "11.11.2017",
             "guest": "ASV Ladenburg",
             "home": "KSV Langen",

@@ -2,13 +2,6 @@
     "relay": "2Gruppe+A",
     "schedule": [
         {
-            "date": "25.11.2017",
-            "guest": "AC Weinheim",
-            "home": "KSV Langen",
-            "location": "Langen",
-            "time": "19:00"
-        },
-        {
             "date": "16.12.2017",
             "guest": "AV Speyer 03 II",
             "home": "ASV Ladenburg",
@@ -20,7 +13,7 @@
             "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
             "home": "KSV Langen",
             "location": "Langen",
-            "time": "19:00"
+            "time": "17:00"
         },
         {
             "date": "16.12.2017",
@@ -118,7 +111,7 @@
             "guest": "AV Speyer 03 II",
             "home": "KSV Langen",
             "location": "Langen",
-            "time": "19:00"
+            "time": "16:00"
         },
         {
             "date": "07.04.2018",
