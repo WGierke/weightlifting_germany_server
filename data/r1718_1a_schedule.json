@@ -2,34 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "09.12.2017",
-            "guest": "TB 03 Roding",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "time": "19:00"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "KSV Durlach",
-            "home": "AC Mutterstadt",
-            "location": "Mutterstadt",
-            "time": "19:00"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "AV Speyer 03",
-            "home": "SV Germania Obrigheim",
-            "location": "Obrigheim",
-            "time": "19:00"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "TSV Heinsheim",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "time": "18:00"
-        },
-        {
             "date": "20.01.2018",
             "guest": "AC Germania St.Ilgen",
             "home": "KSV Durlach",

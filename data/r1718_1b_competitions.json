@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "16.12.2017",
+            "guest": "TSV Schwedt",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen",
+            "score": "646.5 : 647.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5C97C27E7D974F40A845992DD33EA663"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "SSV Samswegen",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "594.1 : 784.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0D926A3C17284F21AEB99B25EAD8C3F0"
+        },
+        {
             "date": "11.11.2017",
             "guest": "AC Potsdam",
             "home": "Athletenteam Vogtland",
@@ -15,14 +31,6 @@
             "location": "Schwedt",
             "score": "707.6 : 752.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=CC298E4EB2CE44B1870CD0DF08145C30"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "SSV Samswegen",
-            "home": "AC Mei\u00dfen",
-            "location": "Mei\u00dfen",
-            "score": "594.1 : 784.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0D926A3C17284F21AEB99B25EAD8C3F0"
         },
         {
             "date": "14.10.2017",

@@ -2,20 +2,6 @@
     "relay": "2Gruppe+B",
     "schedule": [
         {
-            "date": "16.12.2017",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "time": "16:30"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "KSV Regensburg",
-            "home": "AC Suhl",
-            "location": "Suhl",
-            "time": "17:00"
-        },
-        {
             "date": "20.01.2018",
             "guest": "TB 03 Roding II",
             "home": "KG G\u00f6rlitz-Zittau",

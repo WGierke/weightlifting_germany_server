@@ -2,27 +2,6 @@
     "relay": "2Gruppe+A",
     "schedule": [
         {
-            "date": "16.12.2017",
-            "guest": "AV Speyer 03 II",
-            "home": "ASV Ladenburg",
-            "location": "Ladenburg",
-            "time": "19:00"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
-            "home": "KSV Langen",
-            "location": "Langen",
-            "time": "17:00"
-        },
-        {
-            "date": "16.12.2017",
-            "guest": "ESV M\u00fcnchen-Neuaubing",
-            "home": "AC Weinheim",
-            "location": "Weinheim",
-            "time": "19:00"
-        },
-        {
             "date": "20.01.2018",
             "guest": "ASV Ladenburg",
             "home": "ESV M\u00fcnchen-Neuaubing",

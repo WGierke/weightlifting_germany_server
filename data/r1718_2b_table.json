@@ -2,25 +2,25 @@
     "relay": "2Gruppe+B",
     "table": [
         {
-            "cardinal_points": "12 : 0",
+            "cardinal_points": "15 : 0",
             "club": "KSV Regensburg",
             "max_score": "556.8",
             "place": "1",
-            "score": "2146 : 1849.1"
+            "score": "2622.2 : 2211.9"
         },
         {
-            "cardinal_points": "9 : 3",
+            "cardinal_points": "10 : 5",
             "club": "SV90 Gr\u00e4fenroda",
             "max_score": "512.3",
             "place": "2",
-            "score": "1927.7 : 1760"
+            "score": "2411 : 2254.6"
         },
         {
-            "cardinal_points": "6 : 6",
+            "cardinal_points": "8 : 7",
             "club": "TB 03 Roding II",
-            "max_score": "478.0",
+            "max_score": "494.6",
             "place": "3",
-            "score": "1776.6 : 1763.3"
+            "score": "2271.2 : 2246.6"
         },
         {
             "cardinal_points": "6 : 9",
@@ -30,18 +30,18 @@
             "score": "2222.2 : 2234"
         },
         {
-            "cardinal_points": "3 : 9",
-            "club": "AC Suhl",
-            "max_score": "409.2",
-            "place": "5",
-            "score": "1476.7 : 1709.9"
-        },
-        {
             "cardinal_points": "3 : 12",
             "club": "SV Empor Berlin",
             "max_score": "487.4",
-            "place": "6",
+            "place": "5",
             "score": "2127.8 : 2360.7"
+        },
+        {
+            "cardinal_points": "3 : 12",
+            "club": "AC Suhl",
+            "max_score": "409.2",
+            "place": "6",
+            "score": "1839.5 : 2186.1"
         }
     ]
 }

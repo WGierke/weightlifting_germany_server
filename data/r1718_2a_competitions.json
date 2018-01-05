@@ -1,6 +1,30 @@
 {
     "competitions": [
         {
+            "date": "16.12.2017",
+            "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "420.4 : 592.4 :455.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=980AFB66665E4A4ABF3D7666BEE0F66F"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "AV Speyer 03 II",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "score": "309.2 : 524.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=17D65BA9CADD4C199CEB52C09E348228"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "478.0 : 348.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D403589D0CF943188A142B95D1A60976"
+        },
+        {
             "date": "25.11.2017",
             "guest": "AC Weinheim",
             "home": "KSV Langen",
@@ -42,19 +66,19 @@
         },
         {
             "date": "14.10.2017",
-            "guest": "KSV Langen ESV M\u00fcnchen-Neuaubing",
-            "home": "AV Speyer 03 II",
-            "location": "Speyer",
-            "score": "502.3 : 337.8 :246.5",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B90023EED9B844198AD6F148EF48838B"
-        },
-        {
-            "date": "14.10.2017",
             "guest": "KSV L\u00f6rrach",
             "home": "KSV Gr\u00fcnstadt",
             "location": "Gr\u00fcnstadt",
             "score": "500.0 : 436.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=56BAE3ACD74344809548FB5EBC50CC86"
+        },
+        {
+            "date": "14.10.2017",
+            "guest": "KSV Langen ESV M\u00fcnchen-Neuaubing",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "score": "502.3 : 337.8 :246.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B90023EED9B844198AD6F148EF48838B"
         },
         {
             "date": "30.09.2017",
