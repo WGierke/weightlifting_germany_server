@@ -2,27 +2,6 @@
     "relay": "2Gruppe+B",
     "schedule": [
         {
-            "date": "20.01.2018",
-            "guest": "TB 03 Roding II",
-            "home": "KG G\u00f6rlitz-Zittau",
-            "location": "G\u00f6rlitz",
-            "time": "16:00"
-        },
-        {
-            "date": "20.01.2018",
-            "guest": "SV Empor Berlin",
-            "home": "KSV Regensburg",
-            "location": "Regensburg",
-            "time": "18:00"
-        },
-        {
-            "date": "20.01.2018",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "AC Suhl",
-            "location": "Suhl",
-            "time": "17:00"
-        },
-        {
             "date": "03.02.2018",
             "guest": "TB 03 Roding II",
             "home": "SV90 Gr\u00e4fenroda",

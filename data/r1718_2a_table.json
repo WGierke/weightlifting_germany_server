@@ -2,53 +2,53 @@
     "relay": "2Gruppe+A",
     "table": [
         {
-            "cardinal_points": "15 : 0",
+            "cardinal_points": "18 : 0",
             "club": "KSV Gr\u00fcnstadt",
             "max_score": "592.4",
             "place": "1",
-            "score": "2691.4 : 1976.3"
+            "score": "3209.2 : 2475.8"
         },
         {
-            "cardinal_points": "15 : 3",
+            "cardinal_points": "18 : 3",
             "club": "AV Speyer 03 II",
-            "max_score": "584.9",
+            "max_score": "600.6",
             "place": "2",
-            "score": "3159.7 : 2268"
+            "score": "3760.3 : 2715.1"
         },
         {
-            "cardinal_points": "11 : 7",
+            "cardinal_points": "11 : 10",
             "club": "KSV L\u00f6rrach",
             "max_score": "560.9",
             "place": "3",
-            "score": "2966.3 : 2795.8"
+            "score": "3413.4 : 3396.4"
         },
         {
-            "cardinal_points": "9 : 6",
+            "cardinal_points": "9 : 9",
             "club": "AC Weinheim",
             "max_score": "504.0",
             "place": "4",
-            "score": "2403 : 2286.9"
+            "score": "2902.5 : 2804.7"
+        },
+        {
+            "cardinal_points": "6 : 9",
+            "club": "ASV Ladenburg",
+            "max_score": "467.0",
+            "place": "5",
+            "score": "1924.5 : 2164.6"
         },
         {
             "cardinal_points": "4 : 17",
             "club": "KSV Langen",
             "max_score": "442.6",
-            "place": "5",
+            "place": "6",
             "score": "2527.6 : 3198.1"
         },
         {
-            "cardinal_points": "3 : 9",
-            "club": "ASV Ladenburg",
-            "max_score": "412.0",
-            "place": "6",
-            "score": "1457.5 : 1751.2"
-        },
-        {
-            "cardinal_points": "0 : 15",
+            "cardinal_points": "0 : 18",
             "club": "ESV M\u00fcnchen-Neuaubing",
-            "max_score": "348.4",
+            "max_score": "413.4",
             "place": "7",
-            "score": "1508 : 2437.2"
+            "score": "1921.4 : 2904.2"
         }
     ]
 }
