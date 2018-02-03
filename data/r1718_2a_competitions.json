@@ -1,6 +1,30 @@
 {
     "competitions": [
         {
+            "date": "03.02.2018",
+            "guest": "KSV Langen",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "556.2 : 311.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B7A5EF0B52F14130A8068A874224ACD5"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "KSV L\u00f6rrach ESV M\u00fcnchen-Neuaubing",
+            "home": "ASV Ladenburg",
+            "location": "Ladenburg",
+            "score": "475.0 : 473.0 :419.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=C90EC42E7A314F15A0E58CF44D77DBC2"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "AC Weinheim",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "score": "572.0 : 467.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=01786F7FBBFB4ABCA82B1994EBBD5267"
+        },
+        {
             "date": "20.01.2018",
             "guest": "KSV Gr\u00fcnstadt",
             "home": "AC Weinheim",

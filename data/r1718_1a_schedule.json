@@ -2,34 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "03.02.2018",
-            "guest": "KSC Schifferstadt",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "time": "19:00"
-        },
-        {
-            "date": "03.02.2018",
-            "guest": "TSV Heinsheim",
-            "home": "AC Germania St.Ilgen",
-            "location": "Leimen-St.Ilgen",
-            "time": "19:00"
-        },
-        {
-            "date": "03.02.2018",
-            "guest": "SV Germania Obrigheim",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "time": "18:00"
-        },
-        {
-            "date": "03.02.2018",
-            "guest": "TB 03 Roding",
-            "home": "AV Speyer 03",
-            "location": "Speyer",
-            "time": "19:00"
-        },
-        {
             "date": "17.02.2018",
             "guest": "KSV Durlach",
             "home": "TSV Heinsheim",
