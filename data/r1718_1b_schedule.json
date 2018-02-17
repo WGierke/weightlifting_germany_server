@@ -3,20 +3,6 @@
     "schedule": [
         {
             "date": "17.02.2018",
-            "guest": "Chemnitzer AC",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "time": "17:00"
-        },
-        {
-            "date": "17.02.2018",
-            "guest": "Athletenteam Vogtland",
-            "home": "SG Fortschritt Eibau",
-            "location": "Eibau",
-            "time": "18:00"
-        },
-        {
-            "date": "17.02.2018",
             "guest": "AC Potsdam",
             "home": "SSV Samswegen",
             "location": "Samswegen",

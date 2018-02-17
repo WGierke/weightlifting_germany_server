@@ -2,11 +2,35 @@
     "competitions": [
         {
             "date": "17.02.2018",
+            "guest": "Athletenteam Vogtland",
+            "home": "SG Fortschritt Eibau",
+            "location": "Eibau",
+            "score": "643.3 : 669.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=2EE3503414B047408A4739830A4B4134"
+        },
+        {
+            "date": "17.02.2018",
             "guest": "AC Mei\u00dfen",
             "home": "TSV Schwedt",
             "location": "Schwedt/Stralsund",
             "score": "668.6 : 523.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D40DC535F1E345E88C05471BBF2493A0"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "Chemnitzer AC",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "737.0 : 860.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=CBEC28F71DF24FD9B51C35E8E5968981"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "SG Fortschritt Eibau",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "626.4 : 581.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=3BF7E4AA368B4854B1E4B0E3F033B1B2"
         },
         {
             "date": "03.02.2018",
@@ -18,14 +42,6 @@
         },
         {
             "date": "03.02.2018",
-            "guest": "SSV Samswegen",
-            "home": "TSV Schwedt",
-            "location": "Schwedt",
-            "score": "638.2 : 813.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A60CE54410F543DC99ECB7513251FEFC"
-        },
-        {
-            "date": "03.02.2018",
             "guest": "Chemnitzer AC",
             "home": "AC Potsdam",
             "location": "Potsdam",
@@ -34,11 +50,11 @@
         },
         {
             "date": "03.02.2018",
-            "guest": "SG Fortschritt Eibau",
-            "home": "AC Mei\u00dfen",
-            "location": "Mei\u00dfen",
-            "score": "626.4 : 581.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=3BF7E4AA368B4854B1E4B0E3F033B1B2"
+            "guest": "SSV Samswegen",
+            "home": "TSV Schwedt",
+            "location": "Schwedt",
+            "score": "638.2 : 813.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A60CE54410F543DC99ECB7513251FEFC"
         },
         {
             "date": "13.01.2018",
@@ -58,14 +74,6 @@
         },
         {
             "date": "11.11.2017",
-            "guest": "AC Potsdam",
-            "home": "Athletenteam Vogtland",
-            "location": "Plauen/Rodewisch",
-            "score": "474.0 : 571.3",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=3F7490B74489453AB85A2D605738A8D2"
-        },
-        {
-            "date": "11.11.2017",
             "guest": "Berliner TSC",
             "home": "TSV Schwedt",
             "location": "Schwedt",
@@ -81,12 +89,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0D926A3C17284F21AEB99B25EAD8C3F0"
         },
         {
-            "date": "14.10.2017",
-            "guest": "SG Fortschritt Eibau",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "score": "705.0 : 605.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0C611F4CC0AE48C4951BE5B98582EE92"
+            "date": "11.11.2017",
+            "guest": "AC Potsdam",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen/Rodewisch",
+            "score": "474.0 : 571.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=3F7490B74489453AB85A2D605738A8D2"
         },
         {
             "date": "14.10.2017",
@@ -95,6 +103,22 @@
             "location": "Potsdam",
             "score": "574.4 : 400.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BCC5611FA24D48AD90ED340F5D0C53E7"
+        },
+        {
+            "date": "14.10.2017",
+            "guest": "SG Fortschritt Eibau",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "705.0 : 605.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0C611F4CC0AE48C4951BE5B98582EE92"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "Athletenteam Vogtland",
+            "home": "Chemnitzer AC",
+            "location": "Chemnitz",
+            "score": "757.0 : 585.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9245EE0C93AD426FB4E72A4DFA3C50F0"
         },
         {
             "date": "30.09.2017",
@@ -106,14 +130,6 @@
         },
         {
             "date": "30.09.2017",
-            "guest": "Berliner TSC",
-            "home": "AC Mei\u00dfen",
-            "location": "Mei\u00dfen",
-            "score": "624.6 : 719.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=8B696E03D9284057B73D2E94810201A6"
-        },
-        {
-            "date": "30.09.2017",
             "guest": "SG Fortschritt Eibau",
             "home": "SSV Samswegen",
             "location": "Samswegen",
@@ -122,11 +138,11 @@
         },
         {
             "date": "30.09.2017",
-            "guest": "Athletenteam Vogtland",
-            "home": "Chemnitzer AC",
-            "location": "Chemnitz",
-            "score": "757.0 : 585.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9245EE0C93AD426FB4E72A4DFA3C50F0"
+            "guest": "Berliner TSC",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "624.6 : 719.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=8B696E03D9284057B73D2E94810201A6"
         }
     ],
     "relay": "1Gruppe+B"
