@@ -2,13 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "17.02.2018",
-            "guest": "SV Germania Obrigheim",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "time": "18:00"
-        },
-        {
             "date": "10.03.2018",
             "guest": "KSV Durlach",
             "home": "SC Pforzheim",

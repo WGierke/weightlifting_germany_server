@@ -16,18 +16,18 @@
             "score": "4463.5 : 3514.3"
         },
         {
+            "cardinal_points": "15 : 3",
+            "club": "SV Germania Obrigheim",
+            "max_score": "934.5",
+            "place": "3",
+            "score": "4710.2 : 4056.3"
+        },
+        {
             "cardinal_points": "13 : 8",
             "club": "TSV Heinsheim",
             "max_score": "717.0",
-            "place": "3",
-            "score": "4664.5 : 4570"
-        },
-        {
-            "cardinal_points": "12 : 3",
-            "club": "SV Germania Obrigheim",
-            "max_score": "934.5",
             "place": "4",
-            "score": "4124.4 : 3595"
+            "score": "4664.5 : 4570"
         },
         {
             "cardinal_points": "9 : 9",
@@ -58,11 +58,11 @@
             "score": "3233.4 : 4047.2"
         },
         {
-            "cardinal_points": "1 : 14",
+            "cardinal_points": "1 : 17",
             "club": "KSC Schifferstadt",
             "max_score": "552.4",
             "place": "9",
-            "score": "2032.5 : 3257"
+            "score": "2493.8 : 3842.8"
         }
     ]
 }
