@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "17.02.2018",
+            "guest": "AC Suhl",
+            "home": "SV Empor Berlin",
+            "location": "Berlin",
+            "score": "497.0 : 434.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=4FD87095510640889B0D1645FDC55CAE"
+        },
+        {
             "date": "03.02.2018",
             "guest": "SV Empor Berlin",
             "home": "KG G\u00f6rlitz-Zittau",
@@ -26,6 +34,14 @@
         },
         {
             "date": "20.01.2018",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "AC Suhl",
+            "location": "Schleusingen",
+            "score": "422.4 : 455.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=880BF88B5FEA49D195375979CD6D6BFA"
+        },
+        {
+            "date": "20.01.2018",
             "guest": "TB 03 Roding II",
             "home": "KG G\u00f6rlitz-Zittau",
             "location": "G\u00f6rlitz",
@@ -39,14 +55,6 @@
             "location": "Regensburg",
             "score": "496.6 : 450.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=6F5911B194E7497A9B5609C7B18687B8"
-        },
-        {
-            "date": "20.01.2018",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "AC Suhl",
-            "location": "Schleusingen",
-            "score": "422.4 : 455.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=880BF88B5FEA49D195375979CD6D6BFA"
         },
         {
             "date": "16.12.2017",

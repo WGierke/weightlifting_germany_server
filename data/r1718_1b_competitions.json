@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "17.02.2018",
+            "guest": "AC Mei\u00dfen",
+            "home": "TSV Schwedt",
+            "location": "Schwedt/Stralsund",
+            "score": "668.6 : 523.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D40DC535F1E345E88C05471BBF2493A0"
+        },
+        {
             "date": "03.02.2018",
             "guest": "Athletenteam Vogtland",
             "home": "Berliner TSC",
