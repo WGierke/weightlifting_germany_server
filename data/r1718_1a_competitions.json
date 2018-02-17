@@ -17,6 +17,14 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=843F1D8C48C74C64A95BD33F0B99E39D"
         },
         {
+            "date": "17.02.2018",
+            "guest": "KSV Durlach",
+            "home": "TSV Heinsheim",
+            "location": "Bad Rappenau",
+            "score": "687.2 : 683.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=6351383FBED9425DB2F0F49323435669"
+        },
+        {
             "date": "03.02.2018",
             "guest": "KSC Schifferstadt",
             "home": "KSV Durlach",
@@ -50,14 +58,6 @@
         },
         {
             "date": "20.01.2018",
-            "guest": "TSV Heinsheim",
-            "home": "SV Germania Obrigheim",
-            "location": "Obrigheim",
-            "score": "823.0 : 662.5",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=52882E6873AF46C8A16015BA6D2172CF"
-        },
-        {
-            "date": "20.01.2018",
             "guest": "AC Germania St.Ilgen",
             "home": "KSV Durlach",
             "location": "Durlach",
@@ -79,6 +79,14 @@
             "location": "Speyer",
             "score": "674.0 : 329.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BB3C15A45E464CE2BB64F20D5187688C"
+        },
+        {
+            "date": "20.01.2018",
+            "guest": "TSV Heinsheim",
+            "home": "SV Germania Obrigheim",
+            "location": "Obrigheim",
+            "score": "823.0 : 662.5",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=52882E6873AF46C8A16015BA6D2172CF"
         },
         {
             "date": "16.12.2017",
@@ -114,14 +122,6 @@
         },
         {
             "date": "11.11.2017",
-            "guest": "TB 03 Roding",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "731.6 : 732.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=C1E47BC98489420284A18CF803933467"
-        },
-        {
-            "date": "11.11.2017",
             "guest": "SC Pforzheim",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
@@ -143,6 +143,14 @@
             "location": "Mutterstadt",
             "score": "801.8 : 827.1",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0DDAAC686F0944BAB20017EDF16BB119"
+        },
+        {
+            "date": "11.11.2017",
+            "guest": "TB 03 Roding",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "731.6 : 732.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=C1E47BC98489420284A18CF803933467"
         },
         {
             "date": "14.10.2017",
