@@ -3,24 +3,24 @@
     "table": [
         {
             "cardinal_points": "12 : 0",
+            "club": "SSV Samswegen",
+            "max_score": "875.8",
+            "place": "1",
+            "score": "3192 : 2344.9"
+        },
+        {
+            "cardinal_points": "12 : 0",
             "club": "Chemnitzer AC",
             "max_score": "860.6",
-            "place": "1",
+            "place": "2",
             "score": "2898.2 : 2417.8"
         },
         {
             "cardinal_points": "12 : 3",
             "club": "Berliner TSC",
             "max_score": "752.0",
-            "place": "2",
-            "score": "3640.4 : 3439.8"
-        },
-        {
-            "cardinal_points": "9 : 0",
-            "club": "SSV Samswegen",
-            "max_score": "875.8",
             "place": "3",
-            "score": "2473.4 : 1773.5"
+            "score": "3640.4 : 3439.8"
         },
         {
             "cardinal_points": "9 : 6",
@@ -30,11 +30,11 @@
             "score": "3299 : 3282.6"
         },
         {
-            "cardinal_points": "6 : 6",
+            "cardinal_points": "6 : 9",
             "club": "AC Potsdam",
             "max_score": "588.2",
             "place": "5",
-            "score": "2281.8 : 2141"
+            "score": "2853.2 : 2859.6"
         },
         {
             "cardinal_points": "3 : 12",

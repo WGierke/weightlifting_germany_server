@@ -2,11 +2,27 @@
     "competitions": [
         {
             "date": "17.02.2018",
+            "guest": "KSV L\u00f6rrach",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "511.0 : 454.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9347E9F736B44737ABFDFBCB6F51E9E9"
+        },
+        {
+            "date": "17.02.2018",
             "guest": "KSV Langen",
             "home": "ESV M\u00fcnchen-Neuaubing",
             "location": "M\u00fcnchen-Neuaubing",
             "score": "446.2 : 426.6",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=420B5AA1581647D2A5FBABE7B52EA034"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "AV Speyer 03 II ASV Ladenburg",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "569.6 : 629.8 :467.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=979642ECAC4A46F8A258C5ECE89C5859"
         },
         {
             "date": "03.02.2018",
@@ -58,14 +74,6 @@
         },
         {
             "date": "16.12.2017",
-            "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
-            "home": "KSV Langen",
-            "location": "Langen",
-            "score": "420.4 : 592.4 :455.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=980AFB66665E4A4ABF3D7666BEE0F66F"
-        },
-        {
-            "date": "16.12.2017",
             "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "AC Weinheim",
             "location": "Weinheim",
@@ -79,6 +87,14 @@
             "location": "Ladenburg",
             "score": "309.2 : 524.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=17D65BA9CADD4C199CEB52C09E348228"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "KSV Gr\u00fcnstadt KSV L\u00f6rrach",
+            "home": "KSV Langen",
+            "location": "Langen",
+            "score": "420.4 : 592.4 :455.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=980AFB66665E4A4ABF3D7666BEE0F66F"
         },
         {
             "date": "25.11.2017",
