@@ -2,13 +2,6 @@
     "relay": "1Gruppe+B",
     "schedule": [
         {
-            "date": "24.02.2018",
-            "guest": "SSV Samswegen",
-            "home": "Chemnitzer AC",
-            "location": "Chemnitz",
-            "time": "17:00"
-        },
-        {
             "date": "10.03.2018",
             "guest": "TSV Schwedt",
             "home": "SG Fortschritt Eibau",

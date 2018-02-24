@@ -1,6 +1,22 @@
 {
     "competitions": [
         {
+            "date": "24.02.2018",
+            "guest": "SSV Samswegen",
+            "home": "Chemnitzer AC",
+            "location": "Chemnitz",
+            "score": "877.0 : 890.6",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=0D75DE4FF61C47C4B24CEECDFACF2991"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "AC Mei\u00dfen",
+            "home": "TSV Schwedt",
+            "location": "Schwedt/Stralsund",
+            "score": "668.6 : 523.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D40DC535F1E345E88C05471BBF2493A0"
+        },
+        {
             "date": "17.02.2018",
             "guest": "Chemnitzer AC",
             "home": "Berliner TSC",
@@ -23,14 +39,6 @@
             "location": "Eibau",
             "score": "643.3 : 669.6",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=2EE3503414B047408A4739830A4B4134"
-        },
-        {
-            "date": "17.02.2018",
-            "guest": "AC Mei\u00dfen",
-            "home": "TSV Schwedt",
-            "location": "Schwedt/Stralsund",
-            "score": "668.6 : 523.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D40DC535F1E345E88C05471BBF2493A0"
         },
         {
             "date": "03.02.2018",
