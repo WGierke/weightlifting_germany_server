@@ -2,11 +2,35 @@
     "competitions": [
         {
             "date": "10.03.2018",
+            "guest": "KSV Gr\u00fcnstadt",
+            "home": "AV Speyer 03 II",
+            "location": "Speyer",
+            "score": "682.7 : 658.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=2C48D83B96924B93A42A612AC8EF3D27"
+        },
+        {
+            "date": "10.03.2018",
             "guest": "ESV M\u00fcnchen-Neuaubing",
             "home": "KSV L\u00f6rrach",
             "location": "L\u00f6rrach-Haagen",
             "score": "498.6 : 285.4",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B8EF66AAE1EE45A3BD59CD93E9BADB34"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "KSV Langen ASV Ladenburg",
+            "home": "AC Weinheim",
+            "location": "Weinheim",
+            "score": "494.0 : 401.6 :463.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=34B99565E90A4CF38A5F6D3FEF0E8161"
+        },
+        {
+            "date": "17.02.2018",
+            "guest": "AV Speyer 03 II ASV Ladenburg",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "569.6 : 629.8 :467.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=979642ECAC4A46F8A258C5ECE89C5859"
         },
         {
             "date": "17.02.2018",
@@ -23,14 +47,6 @@
             "location": "M\u00fcnchen-Neuaubing",
             "score": "446.2 : 426.6",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=420B5AA1581647D2A5FBABE7B52EA034"
-        },
-        {
-            "date": "17.02.2018",
-            "guest": "AV Speyer 03 II ASV Ladenburg",
-            "home": "KSV Gr\u00fcnstadt",
-            "location": "Gr\u00fcnstadt",
-            "score": "569.6 : 629.8 :467.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=979642ECAC4A46F8A258C5ECE89C5859"
         },
         {
             "date": "03.02.2018",
@@ -114,6 +130,14 @@
         },
         {
             "date": "11.11.2017",
+            "guest": "ESV M\u00fcnchen-Neuaubing",
+            "home": "KSV Gr\u00fcnstadt",
+            "location": "Gr\u00fcnstadt",
+            "score": "534.2 : 328.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A995BF687F934A3E97ED687493B51FFC"
+        },
+        {
+            "date": "11.11.2017",
             "guest": "AV Speyer 03 II AC Weinheim",
             "home": "KSV L\u00f6rrach",
             "location": "L\u00f6rrach-Haagen",
@@ -127,14 +151,6 @@
             "location": "Langen",
             "score": "283.6 : 400.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=66507978BAE04B17BCCA76BFEBB93675"
-        },
-        {
-            "date": "11.11.2017",
-            "guest": "ESV M\u00fcnchen-Neuaubing",
-            "home": "KSV Gr\u00fcnstadt",
-            "location": "Gr\u00fcnstadt",
-            "score": "534.2 : 328.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A995BF687F934A3E97ED687493B51FFC"
         },
         {
             "date": "28.10.2017",

@@ -2,27 +2,6 @@
     "relay": "1Gruppe+A",
     "schedule": [
         {
-            "date": "10.03.2018",
-            "guest": "SV Germania Obrigheim",
-            "home": "TB 03 Roding",
-            "location": "Roding",
-            "time": "19:00"
-        },
-        {
-            "date": "10.03.2018",
-            "guest": "AC Germania St.Ilgen",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "time": "18:00"
-        },
-        {
-            "date": "10.03.2018",
-            "guest": "AC Mutterstadt",
-            "home": "AV Speyer 03",
-            "location": "Speyer",
-            "time": "19:00"
-        },
-        {
             "date": "07.04.2018",
             "guest": "AV Speyer 03",
             "home": "TSV Heinsheim",
