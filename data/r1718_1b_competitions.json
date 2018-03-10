@@ -1,6 +1,30 @@
 {
     "competitions": [
         {
+            "date": "10.03.2018",
+            "guest": "Chemnitzer AC",
+            "home": "AC Mei\u00dfen",
+            "location": "Mei\u00dfen",
+            "score": "551.7 : 512.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B7508BBD5D5948C2BFCC7B3B65D68E7A"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "Berliner TSC",
+            "home": "AC Potsdam",
+            "location": "Potsdam",
+            "score": "536.8 : 622.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=75E3B54FAF6E4ED8808DE4D4C9F180EF"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "SSV Samswegen",
+            "home": "Athletenteam Vogtland",
+            "location": "Plauen/Rodewisch",
+            "score": "561.8 : 708.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=088F6EF67DBE4BB39F8AE24C8CDB76DF"
+        },
+        {
             "date": "24.02.2018",
             "guest": "SSV Samswegen",
             "home": "Chemnitzer AC",
@@ -50,19 +74,19 @@
         },
         {
             "date": "03.02.2018",
-            "guest": "Athletenteam Vogtland",
-            "home": "Berliner TSC",
-            "location": "Berlin",
-            "score": "727.0 : 642.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A6A3668C7F6745F68EB8AF39680CD7A9"
-        },
-        {
-            "date": "03.02.2018",
             "guest": "Chemnitzer AC",
             "home": "AC Potsdam",
             "location": "Potsdam",
             "score": "588.2 : 628.8",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5051FCC287D34DEFAA730F53FB5912DB"
+        },
+        {
+            "date": "03.02.2018",
+            "guest": "Athletenteam Vogtland",
+            "home": "Berliner TSC",
+            "location": "Berlin",
+            "score": "727.0 : 642.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A6A3668C7F6745F68EB8AF39680CD7A9"
         },
         {
             "date": "03.02.2018",

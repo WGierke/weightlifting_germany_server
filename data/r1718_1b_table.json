@@ -2,25 +2,25 @@
     "relay": "1Gruppe+B",
     "table": [
         {
-            "cardinal_points": "14 : 1",
+            "cardinal_points": "17 : 1",
             "club": "SSV Samswegen",
             "max_score": "890.6",
             "place": "1",
-            "score": "4082.6 : 3221.9"
+            "score": "4790.6 : 3783.7"
         },
         {
-            "cardinal_points": "13 : 2",
+            "cardinal_points": "14 : 4",
             "club": "Chemnitzer AC",
             "max_score": "877.0",
             "place": "2",
-            "score": "3775.2 : 3308.4"
+            "score": "4288 : 3860.1"
         },
         {
-            "cardinal_points": "12 : 3",
+            "cardinal_points": "14 : 4",
             "club": "Berliner TSC",
             "max_score": "752.0",
             "place": "3",
-            "score": "3640.4 : 3439.8"
+            "score": "4262.4 : 3976.6"
         },
         {
             "cardinal_points": "9 : 6",
@@ -30,25 +30,25 @@
             "score": "3299 : 3282.6"
         },
         {
-            "cardinal_points": "6 : 9",
+            "cardinal_points": "7 : 11",
             "club": "AC Potsdam",
             "max_score": "588.2",
             "place": "5",
-            "score": "2853.2 : 2859.6"
+            "score": "3390 : 3481.6"
         },
         {
-            "cardinal_points": "3 : 12",
-            "club": "Athletenteam Vogtland",
-            "max_score": "669.6",
-            "place": "6",
-            "score": "3017.3 : 3345.8"
-        },
-        {
-            "cardinal_points": "2 : 13",
+            "cardinal_points": "4 : 14",
             "club": "AC Mei\u00dfen",
             "max_score": "626.4",
+            "place": "6",
+            "score": "3320.6 : 3840.8"
+        },
+        {
+            "cardinal_points": "3 : 15",
+            "club": "Athletenteam Vogtland",
+            "max_score": "669.6",
             "place": "7",
-            "score": "2768.9 : 3328"
+            "score": "3579.1 : 4053.8"
         },
         {
             "cardinal_points": "1 : 14",
