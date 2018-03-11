@@ -2,22 +2,6 @@
     "competitions": [
         {
             "date": "10.03.2018",
-            "guest": "AC Germania St.Ilgen",
-            "home": "KSC Schifferstadt",
-            "location": "Schifferstadt",
-            "score": "438.0 : 587.4",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A11EDA8D693D40EC959A5899F55393E0"
-        },
-        {
-            "date": "10.03.2018",
-            "guest": "KSV Durlach",
-            "home": "SC Pforzheim",
-            "location": "Pforzheim",
-            "score": "149.0 : 0.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=8EBF74C20F6645C2917EC5CA002A7457"
-        },
-        {
-            "date": "10.03.2018",
             "guest": "SV Germania Obrigheim",
             "home": "TB 03 Roding",
             "location": "Roding",
@@ -31,6 +15,22 @@
             "location": "Speyer",
             "score": "877.6 : 794.7",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=042AB26E3F8B4CB8830978E972C18B4C"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "KSV Durlach",
+            "home": "SC Pforzheim",
+            "location": "Pforzheim",
+            "score": "556.6 : 637.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=8EBF74C20F6645C2917EC5CA002A7457"
+        },
+        {
+            "date": "10.03.2018",
+            "guest": "AC Germania St.Ilgen",
+            "home": "KSC Schifferstadt",
+            "location": "Schifferstadt",
+            "score": "438.0 : 587.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=A11EDA8D693D40EC959A5899F55393E0"
         },
         {
             "date": "17.02.2018",
@@ -66,14 +66,6 @@
         },
         {
             "date": "03.02.2018",
-            "guest": "KSC Schifferstadt",
-            "home": "KSV Durlach",
-            "location": "Durlach",
-            "score": "634.6 : 316.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BE5547F44BB74054B2143439CF67B5EA"
-        },
-        {
-            "date": "03.02.2018",
             "guest": "TSV Heinsheim",
             "home": "AC Germania St.Ilgen",
             "location": "Leimen-St.Ilgen",
@@ -97,12 +89,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=176E879EDC5E4D858A04F1916B29362C"
         },
         {
-            "date": "20.01.2018",
-            "guest": "AC Germania St.Ilgen",
+            "date": "03.02.2018",
+            "guest": "KSC Schifferstadt",
             "home": "KSV Durlach",
             "location": "Durlach",
-            "score": "541.0 : 516.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B8F0CC9124404860895BD3F2BEE34EDD"
+            "score": "634.6 : 316.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BE5547F44BB74054B2143439CF67B5EA"
         },
         {
             "date": "20.01.2018",
@@ -111,6 +103,14 @@
             "location": "Speyer",
             "score": "674.0 : 329.5",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BB3C15A45E464CE2BB64F20D5187688C"
+        },
+        {
+            "date": "20.01.2018",
+            "guest": "AC Germania St.Ilgen",
+            "home": "KSV Durlach",
+            "location": "Durlach",
+            "score": "541.0 : 516.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=B8F0CC9124404860895BD3F2BEE34EDD"
         },
         {
             "date": "20.01.2018",
@@ -130,14 +130,6 @@
         },
         {
             "date": "16.12.2017",
-            "guest": "AV Speyer 03",
-            "home": "SV Germania Obrigheim",
-            "location": "Obrigheim",
-            "score": "934.5 : 947.1",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9972F4591E844EF2AADFBBB59781606E"
-        },
-        {
-            "date": "16.12.2017",
             "guest": "KSV Durlach",
             "home": "AC Mutterstadt",
             "location": "Mutterstadt",
@@ -151,6 +143,14 @@
             "location": "Pforzheim",
             "score": "517.6 : 650.6",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=D0E2B1C8E0E2487CA548343BE01EC889"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "AV Speyer 03",
+            "home": "SV Germania Obrigheim",
+            "location": "Obrigheim",
+            "score": "934.5 : 947.1",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=9972F4591E844EF2AADFBBB59781606E"
         },
         {
             "date": "09.12.2017",
