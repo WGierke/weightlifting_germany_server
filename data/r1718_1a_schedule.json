@@ -24,10 +24,10 @@
         },
         {
             "date": "07.04.2018",
-            "guest": "AC Mutterstadt",
-            "home": "KSC Schifferstadt",
+            "guest": "KSC Schifferstadt",
+            "home": "AC Mutterstadt",
             "location": "Schifferstadt",
-            "time": "18:00"
+            "time": "19:00"
         }
     ]
 }
