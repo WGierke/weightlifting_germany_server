@@ -1,6 +1,14 @@
 {
     "competitions": [
         {
+            "date": "17.03.2018",
+            "guest": "KG G\u00f6rlitz-Zittau",
+            "home": "KSV Regensburg",
+            "location": "Regensburg",
+            "score": "461.4 : 411.4",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=BEA30A0EB22B42C0BAF698830C59529C"
+        },
+        {
             "date": "10.03.2018",
             "guest": "SV90 Gr\u00e4fenroda",
             "home": "SV Empor Berlin",
@@ -66,14 +74,6 @@
         },
         {
             "date": "20.01.2018",
-            "guest": "SV Empor Berlin",
-            "home": "KSV Regensburg",
-            "location": "Regensburg",
-            "score": "496.6 : 450.2",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=6F5911B194E7497A9B5609C7B18687B8"
-        },
-        {
-            "date": "20.01.2018",
             "guest": "TB 03 Roding II",
             "home": "KG G\u00f6rlitz-Zittau",
             "location": "G\u00f6rlitz",
@@ -89,12 +89,12 @@
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=880BF88B5FEA49D195375979CD6D6BFA"
         },
         {
-            "date": "16.12.2017",
-            "guest": "SV90 Gr\u00e4fenroda",
-            "home": "TB 03 Roding II",
-            "location": "Roding",
-            "score": "494.6 : 483.3",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=EFC3DDD8716240AD82F45497D0769829"
+            "date": "20.01.2018",
+            "guest": "SV Empor Berlin",
+            "home": "KSV Regensburg",
+            "location": "Regensburg",
+            "score": "496.6 : 450.2",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=6F5911B194E7497A9B5609C7B18687B8"
         },
         {
             "date": "16.12.2017",
@@ -103,6 +103,14 @@
             "location": "Suhl",
             "score": "362.8 : 476.2",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=2780E54A839F46398D0548E5BAEF1096"
+        },
+        {
+            "date": "16.12.2017",
+            "guest": "SV90 Gr\u00e4fenroda",
+            "home": "TB 03 Roding II",
+            "location": "Roding",
+            "score": "494.6 : 483.3",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=EFC3DDD8716240AD82F45497D0769829"
         },
         {
             "date": "11.11.2017",
@@ -170,22 +178,6 @@
         },
         {
             "date": "30.09.2017",
-            "guest": "KSV Regensburg",
-            "home": "KG G\u00f6rlitz-Zittau",
-            "location": "G\u00f6rlitz",
-            "score": "452.8 : 556.8",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5A0D1186EF324B7CAB3ABC362F487FB7"
-        },
-        {
-            "date": "30.09.2017",
-            "guest": "SV Empor Berlin",
-            "home": "KG G\u00f6rlitz-Zittau",
-            "location": "G\u00f6rlitz",
-            "score": "452.8 : 406.0",
-            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=701C22E134044DF5BB62F2B15CD5D766"
-        },
-        {
-            "date": "30.09.2017",
             "guest": "SV Empor Berlin",
             "home": "KSV Regensburg",
             "location": "G\u00f6rlitz",
@@ -199,6 +191,22 @@
             "location": "Suhl",
             "score": "378.3 : 398.0",
             "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=755AD339C0DF4158B4FA0BA71AFD235E"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "KSV Regensburg",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "score": "452.8 : 556.8",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=5A0D1186EF324B7CAB3ABC362F487FB7"
+        },
+        {
+            "date": "30.09.2017",
+            "guest": "SV Empor Berlin",
+            "home": "KG G\u00f6rlitz-Zittau",
+            "location": "G\u00f6rlitz",
+            "score": "452.8 : 406.0",
+            "url": "https://www.iat.uni-leipzig.de/datenbanken/blgew1718/start.php?pid='123'&protokoll=1&wkid=701C22E134044DF5BB62F2B15CD5D766"
         },
         {
             "date": "16.09.2017",
