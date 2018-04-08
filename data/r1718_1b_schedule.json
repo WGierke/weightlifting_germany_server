@@ -1,33 +1,4 @@
 {
     "relay": "1Gruppe+B",
-    "schedule": [
-        {
-            "date": "07.04.2018",
-            "guest": "TSV Schwedt",
-            "home": "Chemnitzer AC",
-            "location": "Chemnitz",
-            "time": "17:00"
-        },
-        {
-            "date": "07.04.2018",
-            "guest": "AC Potsdam",
-            "home": "SG Fortschritt Eibau",
-            "location": "Eibau",
-            "time": "18:00"
-        },
-        {
-            "date": "07.04.2018",
-            "guest": "AC Mei\u00dfen",
-            "home": "Athletenteam Vogtland",
-            "location": "Plauen/Rodewisch",
-            "time": "17:00"
-        },
-        {
-            "date": "07.04.2018",
-            "guest": "Berliner TSC",
-            "home": "SSV Samswegen",
-            "location": "Samswegen",
-            "time": "18:00"
-        }
-    ]
+    "schedule": []
 }
