@@ -2,60 +2,60 @@
     "relay": "1Gruppe+B",
     "table": [
         {
-            "cardinal_points": "17 : 1",
+            "cardinal_points": "19 : 2",
             "club": "SSV Samswegen",
             "max_score": "890.6",
             "place": "1",
-            "score": "4790.6 : 3783.7"
+            "score": "5591 : 4480.7"
         },
         {
-            "cardinal_points": "14 : 4",
+            "cardinal_points": "17 : 4",
             "club": "Chemnitzer AC",
             "max_score": "877.0",
             "place": "2",
-            "score": "4288 : 3860.1"
+            "score": "5144 : 4540.5"
         },
         {
-            "cardinal_points": "14 : 4",
+            "cardinal_points": "15 : 6",
             "club": "Berliner TSC",
             "max_score": "752.0",
             "place": "3",
-            "score": "4262.4 : 3976.6"
+            "score": "4959.4 : 4777"
         },
         {
-            "cardinal_points": "11 : 7",
+            "cardinal_points": "11 : 10",
             "club": "TSV Schwedt",
             "max_score": "707.6",
             "place": "4",
-            "score": "3990 : 3947.1"
+            "score": "4670.4 : 4803.1"
         },
         {
-            "cardinal_points": "7 : 11",
+            "cardinal_points": "7 : 14",
             "club": "AC Potsdam",
-            "max_score": "588.2",
+            "max_score": "597.6",
             "place": "5",
-            "score": "3390 : 3481.6"
+            "score": "3987.6 : 4134.8"
         },
         {
-            "cardinal_points": "4 : 14",
-            "club": "AC Mei\u00dfen",
-            "max_score": "626.4",
-            "place": "6",
-            "score": "3320.6 : 3840.8"
-        },
-        {
-            "cardinal_points": "3 : 15",
+            "cardinal_points": "5 : 16",
             "club": "Athletenteam Vogtland",
             "max_score": "669.6",
-            "place": "7",
-            "score": "3579.1 : 4053.8"
+            "place": "6",
+            "score": "4216.1 : 4683"
         },
         {
-            "cardinal_points": "2 : 16",
+            "cardinal_points": "5 : 16",
             "club": "SG Fortschritt Eibau",
             "max_score": "664.5",
+            "place": "7",
+            "score": "4195.8 : 4817.2"
+        },
+        {
+            "cardinal_points": "5 : 16",
+            "club": "AC Mei\u00dfen",
+            "max_score": "629.2",
             "place": "8",
-            "score": "3542.6 : 4219.6"
+            "score": "3949.8 : 4477.8"
         }
     ]
 }
