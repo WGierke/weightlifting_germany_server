@@ -1,12 +1,1 @@
-{
-    "relay": "2Gruppe+A",
-    "schedule": [
-        {
-            "date": "21.04.2018",
-            "guest": "KSV Gr\u00fcnstadt KSV Regensburg",
-            "home": "AV Speyer 03 II",
-            "location": "Speyer",
-            "time": "17:00"
-        }
-    ]
-}
+{"relay": "2Gruppe+A", "schedule": []}

@@ -1,12 +1,1 @@
-{
-    "relay": "1Gruppe+B",
-    "schedule": [
-        {
-            "date": "28.04.2018",
-            "guest": "AV Speyer 03 SV Germania Obrigheim",
-            "home": "SSV Samswegen",
-            "location": "Samswegen",
-            "time": "17:00"
-        }
-    ]
-}
+{"relay": "1Gruppe+B", "schedule": []}
