@@ -25,9 +25,9 @@ It then notifys the Android app users of the changes via GCM.
 
 ## Current News
 
-| Blog Name   | Heading                                                                                                                                                  | Date       | Image   | Content                 |
-|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
-| Roding      | [BM Kinder, Schüler und Jugend am 12.05.2018 in Roding](https://www.tb03-gewichtheben.de/2018/05/bm-kinder-schueler-und-jugend-am-12-05-2018-in-roding/) | 2018-05-10 |         | 09.30 Uhr. Eröffnung... |
-| Mutterstadt | [Pokal der Blauen Schwerter](http://www.ac-mutterstadt.de/index.php?start=0&heading=05d92ccbfbb968a818c179816020f8711525816800.0)                        | 2018-05-09 |         | Beim traditionsreich... |
-| Schwedt     | [Landesmeisterschaften der Kinder](http://gewichtheben.blauweiss65-schwedt.de/?p=7686)                                                                   | 2018-04-28 |         | Die jüngsten Nachwuc... |
-| Speyer      | [Gewichtheben – Frauen-Power](https://www.av03-speyer.de/2018/04/gewichtheben-frauen-power/)                                                             | 2018-04-27 |         | Als Christina Spindl... |
+| Blog Name   | Heading                                                                                                                                                               | Date       | Image   | Content                 |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
+| Roding      | [Bayerische Meisterschaft der Kinder/Schüler/Jugend in Roding](https://www.tb03-gewichtheben.de/2018/05/bayerische-meisterschaft-der-kinderschuelerjugend-in-roding/) | 2018-05-12 |         | Pünktlich um 9:30 ha... |
+| Mutterstadt | [Pokal der Blauen Schwerter](http://www.ac-mutterstadt.de/index.php?start=0&heading=05d92ccbfbb968a818c179816020f8711525816800.0)                                     | 2018-05-09 |         | Beim traditionsreich... |
+| Schwedt     | [Landesmeisterschaften der Kinder](http://gewichtheben.blauweiss65-schwedt.de/?p=7686)                                                                                | 2018-04-28 |         | Die jüngsten Nachwuc... |
+| Speyer      | [Gewichtheben – Frauen-Power](https://www.av03-speyer.de/2018/04/gewichtheben-frauen-power/)                                                                          | 2018-04-27 |         | Als Christina Spindl... |
