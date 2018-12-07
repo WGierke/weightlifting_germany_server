@@ -25,7 +25,7 @@ It then notifys the Android app users of the changes via GCM.
 
 ## Current News
 
-| Blog Name   | Heading                                                                                                                   | Date       | Image                                                                                                 | Content                 |
-|:------------|:--------------------------------------------------------------------------------------------------------------------------|:-----------|:------------------------------------------------------------------------------------------------------|:------------------------|
-| Roding      | [Endgültige Teilnehmerliste ist online](https://www.tb03-gewichtheben.de/2018/12/endgueltige-teilnehmerliste-ist-online/) | 2018-12-04 | <img src='https://www.tb03-gewichtheben.de/wp-content/uploads/2018/11/Logo_final.jpg' width='100px'/> | Dienstag, 04.Dezembe... |
-| Speyer      | [Gewichtheben – Fast doppelt soviel](https://www.av03-speyer.de/2018/11/gewichtheben-fast-doppelt-soviel/)                | 2018-11-19 |                                                                                                       | 2. Bundesliga: AV 03... |
+| Blog Name   | Heading                                                                                                                  | Date       | Image                                                                                                       | Content                 |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------|:-----------|:------------------------------------------------------------------------------------------------------------|:------------------------|
+| Roding      | [Deutsche Meisterschaft 2018 in Roding](https://www.tb03-gewichtheben.de/2018/12/deutsche-meisterschaft-2018-in-roding/) | 2018-12-07 | <img src='https://www.tb03-gewichtheben.de/wp-content/uploads/2018/12/DM2018_Eröffnung.jpg' width='100px'/> | Freitag, 07.Dezember... |
+| Speyer      | [Gewichtheben – Fast doppelt soviel](https://www.av03-speyer.de/2018/11/gewichtheben-fast-doppelt-soviel/)               | 2018-11-19 |                                                                                                             | 2. Bundesliga: AV 03... |
