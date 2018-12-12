@@ -25,7 +25,7 @@ It then notifys the Android app users of the changes via GCM.
 
 ## Current News
 
-| Blog Name   | Heading                                                                                                                     | Date       | Image   | Content                 |
-|:------------|:----------------------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
-| Roding      | [Deutsche Meisterschaft 2018: Ergebnisse](https://www.tb03-gewichtheben.de/2018/12/deutsche-meisterschaft-2018-ergebnisse/) | 2018-12-07 |         | Freitag, 07.Dezember... |
-| Speyer      | [Gewichtheben – Fast doppelt soviel](https://www.av03-speyer.de/2018/11/gewichtheben-fast-doppelt-soviel/)                  | 2018-11-19 |         | 2. Bundesliga: AV 03... |
+| Blog Name   | Heading                                                                                                                                                                  | Date       | Image                                                                                                      | Content                 |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:-----------------------------------------------------------------------------------------------------------|:------------------------|
+| Speyer      | [Gewichtheben – Spieß Deutscher Meister](https://www.av03-speyer.de/2018/12/gewichtheben-spiess-deutscher-meister/)                                                      | 2018-12-12 |                                                                                                            | Spieß Deutscher Meis... |
+| Roding      | [Deutsche Meisterschaft 2018: Nachlese zum Sonntag, 09.12.2018](https://www.tb03-gewichtheben.de/2018/12/deutsche-meisterschaft-2018-reflexion-zum-sonntag-09-12-20218/) | 2018-12-10 | <img src='https://www.tb03-gewichtheben.de/wp-content/gallery/dm2018_gruppe9/P1100383.JPG' width='100px'/> | Montag, 10.Dezember ... |
