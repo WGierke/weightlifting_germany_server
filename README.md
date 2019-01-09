@@ -25,7 +25,7 @@ It then notifys the Android app users of the changes via GCM.
 
 ## Current News
 
-| Blog Name   | Heading                                                                                                                                    | Date       | Image                                                                                                                       | Content                 |
-|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------------------------------------------------------------------------------------------------|:------------------------|
-| Speyer      | [Gewichtheben – Spieß kann aufrücken](https://www.av03-speyer.de/2018/12/gewichtheben-spiess-kann-aufruecken/)                             | 2018-12-27 |                                                                                                                             | Jürgen Spieß  kann s... |
-| Roding      | [Jahresabschluss der Nachwuchsheber in Neumarkt](https://www.tb03-gewichtheben.de/2018/12/jahresabschluss-der-nachwuchsheber-in-neumarkt/) | 2018-12-17 | <img src='https://www.tb03-gewichtheben.de/wp-content/gallery/nikolauspokalturnier-2018/K1600_P1100443.JPG' width='100px'/> | Montag, 17.Dezember ... |
+| Blog Name   | Heading                                                                                                        | Date       | Image   | Content                 |
+|:------------|:---------------------------------------------------------------------------------------------------------------|:-----------|:--------|:------------------------|
+| Roding      | [Zahlen 2018 und Termine 2019](https://www.tb03-gewichtheben.de/2019/01/41995/)                                | 2019-01-07 |         | Montag, 07.Januar 20... |
+| Speyer      | [Gewichtheben – Spieß kann aufrücken](https://www.av03-speyer.de/2018/12/gewichtheben-spiess-kann-aufruecken/) | 2018-12-27 |         | Jürgen Spieß  kann s... |
